@@ -14,7 +14,7 @@
             </li>
             <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                    <i class="fab fa-laravel" ></i>
+                    <i class="fas fa-pencil-alt" ></i>
                     <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
@@ -36,7 +36,31 @@
                     </ul>
                 </div>
             </li>
-            <li @if ($pageSlug == 'icons') class="active " @endif>
+            <li>
+                <a data-toggle="collapse" href="#gerenciamento" aria-expanded="true">
+                    <i class="fas fa-cogs" ></i>
+                    <span class="nav-link-text" >{{ __('Gerenciamento') }}</span>
+                    <b class="caret mt-1"></b>
+                </a>
+
+                <div class="collapse show" id="gerenciamento">
+                    <ul class="nav pl-4">
+                        <li @if ($pageSlug == 'profile') class="active " @endif>
+                            <a href="{{ route('profile.edit')  }}">
+                                <i class="tim-icons icon-single-02"></i>
+                                <p>{{ _('Tipo Usuário') }}</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'Tipo Ambiente') class="active " @endif>
+                            <a href="{{ route('tipoambiente.index')  }}">
+                                <i class="fas fa-cogs"></i>
+                                <p>{{ _('Tipo Ambiente') }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <!-- <li @if ($pageSlug == 'icons') class="active " @endif>
                 <a href="{{ route('pages.icons') }}">
                     <i class="tim-icons icon-atom"></i>
                     <p>{{ _('Icons') }}</p>
@@ -77,7 +101,7 @@
                     <i class="tim-icons icon-spaceship"></i>
                     <p>{{ _('Upgrade to PRO') }}</p>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

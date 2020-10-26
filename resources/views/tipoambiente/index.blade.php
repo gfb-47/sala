@@ -1,0 +1,51 @@
+@extends('layouts.app', ['pageSlug' => 'Tipo Ambiente'])
+
+
+@section('content')
+<div class="row">
+    <div class="col-12">
+        <div class="card card-chart">
+            <div class="card-header ">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <h2 class="card-title">Tipo Ambiente</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="{{ route('tipoambiente.create')}}" class="btn btn-primary float-right">Criar Novo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th style="text-align: right">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($data as $item)
+                            <tr>
+                                <td>{{$item->nome}}</td>
+                                <td style="text-align: right"><a href="{{ route('tipoambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="2" style="text-align:center">
+                                    Não Foram encontrados Registros
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- <div class="chart-area">
+                        <canvas id="chartBig1"></canvas>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
