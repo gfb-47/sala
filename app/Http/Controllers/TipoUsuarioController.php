@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\TipoAmbiente;
+use App\TipoUsuario;
 use Illuminate\Http\Request;
 
-class TipoAmbienteController extends Controller
+class TipoUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TipoAmbienteController extends Controller
      */
     public function index()
     {
-        $data = TipoAmbiente::info()->orderBy('nome')->paginate(10);
-        return view('tipoambiente.index', compact('data'));
+        $data = TipoUsuario::info()->orderBy('nome')->paginate(10);
+        return view('tipousuario.index', compact('data'));
     }
 
     /**
@@ -25,7 +25,7 @@ class TipoAmbienteController extends Controller
      */
     public function create()
     {
-        return view('tipoambiente.create');
+        return view('tipousuario.create');
     }
 
     /**
@@ -36,14 +36,14 @@ class TipoAmbienteController extends Controller
      */
     public function store(Request $request)
     {
-        TipoAmbiente::create($request->all());
-        return redirect()->route('tipoambiente.index');
+        TipoUsuario::create($request->all());
+        return redirect()->route('tipousuario.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\TipoAmbiente  $tipoAmbiente
+     * @param  \App\TipoUsuario  $tipoUsuario
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -54,38 +54,38 @@ class TipoAmbienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TipoAmbiente  $tipoAmbiente
+     * @param  \App\TipoUsuario  $tipoUsuario
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $item = TipoAmbiente::findOrFail($id);
-        return view('tipoambiente.edit', compact('item'));
+        $item = TipoUsuario::findOrFail($id);
+        return view('tipousuario.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TipoAmbiente  $tipoAmbiente
+     * @param  \App\TipoUsuario  $tipoUsuario
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $item = TipoAmbiente::findOrFail($id);
+        $item = TipoUsuario::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('tipoambiente.index');
+        return redirect()->route('tipousuario.index');
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TipoAmbiente  $tipoAmbiente
+     * @param  \App\TipoUsuario  $tipoUsuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TipoUsuario $tipoUsuario)
     {
         //
     }
