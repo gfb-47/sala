@@ -45,8 +45,8 @@
 
                 <div class="collapse show" id="gerenciamento">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug == 'profile') class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
+                        <li @if ($pageSlug == 'Tipo Usuario') class="active " @endif>
+                            <a href="{{ route('tipousuario.index')  }}">
                                 <i class="tim-icons icon-single-02"></i>
                                 <p>{{ _('Tipo Usuário') }}</p>
                             </a>

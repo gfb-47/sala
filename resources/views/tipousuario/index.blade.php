@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Tipo Ambiente'])
+@extends('layouts.app', ['pageSlug' => 'Tipo Usuario'])
 
 
 @section('content')
@@ -8,10 +8,10 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h2 class="card-title">Tipo Ambiente</h2>
+                        <h2 class="card-title">Tipo Usuario</h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="{{ route('tipoambiente.create')}}" class="btn btn-primary float-right">Criar Novo</a>
+                        <a href="{{ route('tipousuario.create')}}" class="btn btn-primary float-right">Criar Novo</a>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->nome}}</td>
-                                <td style="text-align: right"><a href="{{ route('tipoambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                                <td style="text-align: right"><a href="{{ route('tipousuario.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
                             <tr>

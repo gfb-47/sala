@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 		Route::resource('tipoambiente', 'TipoAmbienteController');
+		Route::resource('tipousuario', 'TipoUsuarioController');
 });
 
 Route::group(['middleware' => 'auth'], function () {
