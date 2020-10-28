@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 /*
  =========================================================
  * White Dashboard - v1.0.0
@@ -58,8 +59,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
 
+}
+*:not(i){
+  font-family: 'Roboto', sans-serif;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -2400,14 +2404,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-secondary {
-  color: #212529;
+  color: #f2a444;
   background-color: #f4f5f7;
   border-color: #f4f5f7;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-secondary:hover {
-  color: #212529;
+  color: #ffbe6f;
   background-color: #dee1e7;
   border-color: #d6dae2;
 }
@@ -2427,7 +2431,7 @@ fieldset:disabled a.btn {
 .btn-secondary:not(:disabled):not(.disabled):active,
 .btn-secondary:not(:disabled):not(.disabled).active,
 .show>.btn-secondary.dropdown-toggle {
-  color: #212529;
+  color: #f2a444;
   background-color: #d6dae2;
   border-color: #cfd3dc;
 }
@@ -10386,10 +10390,10 @@ a.text-darker:focus {
   border-radius: 0.4285rem;
   cursor: pointer;
   background: #344675;
-  background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675);
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675);
+  background-image: -webkit-linear-gradient(to bottom left, #f2a444, #f2a444, #f2a444);
+  background-image: -o-linear-gradient(to bottom left, #f2a444, #f2a444, #f2a444);
+  background-image: -moz-linear-gradient(to bottom left, #f2a444, #f2a444, #f2a444);
+  background-image: linear-gradient(to bottom left, #f2a444, #f2a444, #f2a444);
   background-size: 210% 210%;
   background-position: top right;
   background-color: #344675;
@@ -10421,10 +10425,10 @@ a.text-darker:focus {
 .navbar .navbar-nav>a.btn.active:focus,
 .navbar .navbar-nav>a.btn.active:hover {
   background-color: #263148 !important;
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+  background-image: linear-gradient(to bottom left, #f0982d, #f0982d, #f0982d) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #f0982d, #f0982d, #f0982d) !important;
+  background-image: -o-linear-gradient(to bottom left, #f0982d, #f0982d, #f0982d) !important;
+  background-image: -moz-linear-gradient(to bottom left, #f0982d, #f0982d, #f0982d) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -10695,14 +10699,14 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-  background: #e14eca;
-  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
-  background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca);
+  background: #034aa6;
+  background-image: -webkit-linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-image: -o-linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-image: -moz-linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-image: linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
   background-size: 210% 210%;
   background-position: top right;
-  background-color: #e14eca;
+  background-color: #034aa6;
   transition: all 0.15s ease;
   box-shadow: none;
   color: #ffffff;
@@ -10721,11 +10725,11 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .btn-primary:active:hover,
 .btn-primary.active:focus,
 .btn-primary.active:hover {
-  background-color: #ba54f5 !important;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+  background-color: #053779 !important;
+  background-image: linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  background-image: -o-linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  background-image: -moz-linear-gradient(to bottom left, #053779, #053779, #053779) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -14851,7 +14855,8 @@ table.tablesorter thead tr .headerSortDown {
 
 .sidebar,
 .off-canvas-sidebar {
-  background: #034AA6;
+  background: rgb(3, 74, 166);
+  /* background: url('../../img/fundosidebar.png') ; */
   height: calc(100vh - 90px);
   width: 230px;
   position: absolute;
@@ -14904,7 +14909,7 @@ table.tablesorter thead tr .headerSortDown {
   display: block;
   line-height: 23px;
   z-index: 1;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255);
 }
 
 .sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a .sidebar-mini-icon,
@@ -14923,7 +14928,7 @@ table.tablesorter thead tr .headerSortDown {
   z-index: 1;
   display: inherit;
   line-height: 24px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255);
 }
 
 .sidebar .sidebar-wrapper>.nav [data-toggle="collapse"]~div>ul>li>a i,
@@ -15038,12 +15043,29 @@ table.tablesorter thead tr .headerSortDown {
 .off-canvas-sidebar .nav li.active>a:not([data-toggle="collapse"]) {
   background: transparent;
 }
+.sidebar .nav li>a i,
+.sidebar .nav li>a span,
+.off-canvas-sidebar .nav li>a i,
+.off-canvas-sidebar .nav li>a span {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.sidebar .nav li>a:not([data-toggle="collapse"]) i,
+.sidebar .nav li>a:not([data-toggle="collapse"]) p,
+.off-canvas-sidebar .nav li>a:not([data-toggle="collapse"]) i,
+.off-canvas-sidebar .nav li>a:not([data-toggle="collapse"]) p {
+  font-weight: bold;
+  font-size: 13px;
+}
 
 .sidebar .nav li.active>a:not([data-toggle="collapse"]) i,
 .sidebar .nav li.active>a:not([data-toggle="collapse"]) p,
 .off-canvas-sidebar .nav li.active>a:not([data-toggle="collapse"]) i,
 .off-canvas-sidebar .nav li.active>a:not([data-toggle="collapse"]) p {
   color: white;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .sidebar .nav li.active>a:not([data-toggle="collapse"]):before,
@@ -15054,6 +15076,8 @@ table.tablesorter thead tr .headerSortDown {
   width: 6px;
   top: 22px;
   left: -4px;
+  font-weight: bold;
+  font-size: 13px;
   background: #ffffff;
   border-radius: 50%;
 }
@@ -15063,6 +15087,8 @@ table.tablesorter thead tr .headerSortDown {
   background: transparent;
   box-shadow: none;
   color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .sidebar .nav li.active>a[data-toggle="collapse"] i,
@@ -15074,6 +15100,7 @@ table.tablesorter thead tr .headerSortDown {
 .off-canvas-sidebar .nav li.active>a[data-toggle="collapse"]+div .nav .active a {
   box-shadow: none;
 }
+
 
 .sidebar .nav li.active>a[data-toggle="collapse"]+div .nav .active a .sidebar-mini-icon,
 .sidebar .nav li.active>a[data-toggle="collapse"]+div .nav .active a .sidebar-normal,
@@ -15103,7 +15130,7 @@ table.tablesorter thead tr .headerSortDown {
   width: 6px;
   top: 22px;
   left: -4px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgb(255, 255, 255);
   border-radius: 50%;
 }
 
@@ -15125,7 +15152,7 @@ table.tablesorter thead tr .headerSortDown {
   line-height: 30px;
   width: 34px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255);
   position: relative;
 }
 
@@ -15165,7 +15192,7 @@ table.tablesorter thead tr .headerSortDown {
   right: 15px;
   height: 1px;
   width: calc(100% - 30px);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(255, 255, 255);
 }
 
 .sidebar .logo p,
@@ -15241,7 +15268,7 @@ table.tablesorter thead tr .headerSortDown {
   right: 15px;
   height: 1px;
   width: calc(100% - 30px);
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(255, 255, 255);
 }
 
 .sidebar .user .photo,
@@ -16917,11 +16944,15 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .sidebar p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255);
 }
 
 .white-content .main-panel {
-  background: #f5f6fa;
+  background: url('../../img/background.jpg') no-repeat center top fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .white-content h1,
@@ -17888,7 +17919,11 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .full-page {
-  background: #f5f6fa;
+  background: url('../../img/background.jpg') no-repeat center top fixed;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .white-content .full-page h1,

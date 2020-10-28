@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['pageSlug' => 'Pagina Inicial'])
 
 @section('content')
     <div class="row">
@@ -10,7 +10,7 @@
                             <h2 class="card-title">Titulo do card</h2>
                         </div>
                         <div class="col-sm-6">
-                           <button class="btn btn-primary float-right">Teste</button>
+                           <button class="btn btn-secondary float-right">Teste</button>
                         </div>
                     </div>
                 </div>
