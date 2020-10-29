@@ -11,7 +11,7 @@
                         <h2 class="card-title">Tipo Ambiente</h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="{{ route('tipoambiente.create')}}" class="btn btn-primary float-right">Criar Novo</a>
+                        <a href="{{ route('tipoambiente.create')}}" class="btn btn-secondary float-right">Criar Novo</a>
                     </div>
                 </div>
             </div>
