@@ -32,6 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
 		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
+		Route::resource('tipoambiente', 'TipoAmbienteController');
+		Route::resource('tipousuario', 'TipoUsuarioController');
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -41,7 +43,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

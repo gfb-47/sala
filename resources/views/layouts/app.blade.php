@@ -13,12 +13,17 @@
         <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />        
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
         <!-- Icons -->
+        <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css" />
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="{{ asset('css') }}/style.css" rel="stylesheet" />
+
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
@@ -64,11 +69,24 @@
 
         <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('white') }}/js/theme.js"></script>
+        <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 
         @stack('js')
 
         <script>
             $(document).ready(function() {
+                $('#Cadastros').collapse({
+                        toggle: true
+                    })
+                    $('#Movimentação').collapse({
+                        toggle: true
+                    })
+                    $('#GerarRelatorio').collapse({
+                        toggle: true
+                    })
+                    $('#gerenciamento').collapse({
+                        toggle: true
+                    })
                 $().ready(function() {
                     $sidebar = $('.sidebar');
                     $navbar = $('.navbar');
@@ -116,7 +134,7 @@
                             $sidebar_responsive.attr('data', new_color);
                         }
                     });
-
+                  
                     $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
                         var $btn = $(this);
 
