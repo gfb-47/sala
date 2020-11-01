@@ -3,7 +3,9 @@
         <div class="logo">
             <!-- <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>
             <a href="#" class="simple-text logo-normal">{{ _('White Dashboard') }}</a> -->
-            <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
+            <a href="">
+                <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
+            </a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug=='Pagina Inicial' ) class="active " @endif>
@@ -22,7 +24,7 @@
                 <div class="collapse show" id="Cadastros">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='profile' ) class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
+                            <a href="{{ route('ambiente.index')  }}">
                                 <i class="fas fa-door-closed"></i>
                                 <p>{{ _('Ambientes') }}</p>
                             </a>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Tipo Usuario', 'pageSlug' => 'Tipo Usuario'])
+@extends('layouts.app', ['page' => 'Ambiente', 'pageSlug' => 'Tipo Ambiente'])
 
 @section('content')
 <div class="container-fluid mt--7">
@@ -8,20 +8,21 @@
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Tipo Usuario</h3>
+                            <h3 class="mb-0">Ambiente</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('tipousuario.index') }}" class="btn btn-sm btn-secondary">Voltar</a>
+                            <a href="{{ route('ambiente.index') }}" class="btn btn-sm btn-primary">Voltar</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     {!!Form::open()
-                    ->post()
-                    ->route('tipousuario.store')
+                    ->put()
+                    ->fill($item)
+                    ->route('ambiente.update', [$item->id])
                     ->multipart()!!}
                     <div class="pl-lg-4">
-                        @include('tipousuario._form')
+                        @include('ambiente._form')
                     </div>
                     {!!Form::close()!!}
                 </div>

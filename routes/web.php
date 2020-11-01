@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
 		Route::resource('tipoambiente', 'TipoAmbienteController');
 		Route::resource('tipousuario', 'TipoUsuarioController');
+		Route::resource('ambiente', 'AmbienteController');
+
 });
 
 Route::group(['middleware' => 'auth'], function () {
