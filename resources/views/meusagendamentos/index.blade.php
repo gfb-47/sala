@@ -27,9 +27,11 @@
                         <tbody>
                         @forelse($data as $item)
                             <tr>
-                                <td>{{$item->nome}}</td>
-                                <td>{{$item->tipoambiente}}</td>
-                                <td style="text-align: right"><a href="{{ route('meusagendamentos.index') }}" class="btn btn-primary">Agendar</a></td>
+                                <td>{{$item->ambiente}}</td>
+                                <td>{{$item->data}}</td>
+                                <td>{{$item->situacao}}</td>
+                                <td>{{$item->motivoutilizacao}}</td>
+                                <td style="text-align: right"><a href="{{ route('home') }}" style="color:#000000" class="fas fa-eye"></a></td>
                             </tr>
                         @empty
                             <tr>
