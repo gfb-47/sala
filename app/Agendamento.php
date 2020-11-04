@@ -12,4 +12,19 @@ class Agendamento extends Model
     public function scopeInfo($query){
         return $query->select('*');
     }
+
+    public function ambientes() {
+        return $this->belongsTo(Ambiente::class, 'ambiente');
+    }
+    public function motivos() {
+        return $this->belongsTo(MotivoUtilizacao::class, 'motivoutilizacao');
+    }
+    public function allStatus() {
+        return [
+            1=> 'Pendente', 'Confirmado', 'Cancelado', 'Finalizado'
+        ];
+    }
+    public function getSituacao() {
+        return $this->allStatus()[$this->situacao];
+    }
 }

@@ -14,7 +14,8 @@ class MeusAgendamentosController extends Controller
      */
     public function index()
     {
-        $data = Agendamento::info()->orderBy('ambiente')->paginate(10);
+        $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')->paginate(10);
+        //dd($data);
         return view('meusagendamentos.index', compact('data'));
     }
 

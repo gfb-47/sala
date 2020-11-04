@@ -23,6 +23,7 @@
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
         <link href="{{ asset('css') }}/style.css" rel="stylesheet" />
+        <link href="{{ asset('css') }}/mainCalendar.css" rel="stylesheet" />
 
     </head>
     <body class="white-content {{ $class ?? '' }}">

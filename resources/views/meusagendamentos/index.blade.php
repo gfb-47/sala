@@ -27,11 +27,13 @@
                         <tbody>
                         @forelse($data as $item)
                             <tr>
-                                <td>{{$item->ambiente}}</td>
+                                <td>{{$item->ambientes->nome}}</td>
                                 <td>{{$item->data}}</td>
-                                <td>{{$item->situacao}}</td>
-                                <td>{{$item->motivoutilizacao}}</td>
-                                <td style="text-align: right"><a href="{{ route('home') }}" style="color:#000000" class="fas fa-eye"></a></td>
+                                <td>{{$item->getSituacao()}}</td>
+                                <td>{{$item->motivos->motivo}}</td>
+                                <td style="text-align: right"><a 
+                                href="{{ route('home') }}" style="color:#000000" 
+                                class="fas fa-eye"></a></td>
                             </tr>
                         @empty
                             <tr>
