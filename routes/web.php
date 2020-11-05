@@ -37,7 +37,11 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('ambiente', 'AmbienteController');
 		Route::resource('clienteagendamento', 'ClienteAgendamentoController');
 		Route::resource('meusagendamentos', 'MeusAgendamentosController');
+<<<<<<< HEAD
 		Route::resource('novoagendamento', 'NovoAgendamentoController');
+=======
+		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
+>>>>>>> 35eccddfca3c298c18527bf35f5ecd8cb9b8b136
 });
 
 Route::group(['middleware' => 'auth'], function () {
