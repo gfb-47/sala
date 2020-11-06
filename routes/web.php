@@ -40,6 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('novoagendamento', 'NovoAgendamentoController');
 		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
 		Route::resource('perfil', 'ClientePerfilController');
+		Route::resource('disciplina', 'DisciplinaController');
+		Route::resource('curso', 'CursoController');
 });
 
 Route::group(['middleware' => 'auth'], function () {
