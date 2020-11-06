@@ -27,6 +27,7 @@
 
     </head>
     <body class="white-content {{ $class ?? '' }}">
+        <input type="hidden" id="baseurl" name="baseurl" value="{{ config('app.url') }}" />
         @auth()
             <div class="wrapper">
                     @include('layouts.navbars.sidebar')
@@ -67,13 +68,20 @@
         {{-- <script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script> --}}
         <!--  Notifications Plugin    -->
         <script src="{{ asset('white') }}/js/plugins/bootstrap-notify.js"></script>
-
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js'></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/i18n/pt-BR.js'></script>
+        <script
+            src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap4-duallistbox/4.0.1/jquery.bootstrap-duallistbox.min.js'>
+        </script>
         <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('white') }}/js/theme.js"></script>
         <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-
+        <script src="{{ asset('js') }}/main.js"></script>
+        
         @stack('js')
-
+        
         <script>
             $(document).ready(function() {
                 // $('#Cadastros').collapse({

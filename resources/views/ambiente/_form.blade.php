@@ -2,7 +2,7 @@
     <div class="col-md-6">
         {!!Form::text('nome', 'Nome do Ambiente')
         ->required()
-        ->attrs(['maxlength' => 45])!!}
+        ->attrs(['maxlength' => 45,'class'=>'required'])!!}
     </div>
     <div class="col-md-6">
         {!!Form::select('tipoambiente', 'Tipo do Ambiente')

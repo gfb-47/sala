@@ -55,9 +55,16 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       locale: 'pt-br',
       navLinks: true, // can click day/week names to navigate views
-      editable: true,
+      editable: false,
+      droppable: false,
       dayMaxEvents: true, // allow "more" link when too many events
       
+    });
+
+    $.get(getUrl() + '/api/v1/public/schedules/all/1', function(data) {
+        console.log(data);
+    }).fail(function() {
+        alert('Não Foi feita a requisição');
     });
 
     calendar.render();
