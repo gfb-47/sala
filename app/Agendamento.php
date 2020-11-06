@@ -19,6 +19,19 @@ class Agendamento extends Model
     public function motivos() {
         return $this->belongsTo(MotivoUtilizacao::class, 'motivoutilizacao');
     }
+
+    public function cursos() {
+        return $this->belongsTo(Curso::class, 'curso');
+    }
+
+    public function disciplinas() {
+        return $this->belongsTo(Disciplina::class, 'disciplina');
+    }
+
+    public function professores() {
+        return $this->belongsTo(Pessoa::class, 'professorresponsavel');
+    }
+
     public function allStatus() {
         return [
             1=> 'Pendente', 'Confirmado', 'Cancelado', 'Finalizado'

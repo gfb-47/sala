@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Agendamento;
 use Illuminate\Http\Request;
+use App\Ambiente;
 
-class MeusAgendamentosController extends Controller
+class TermosDeUsoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class MeusAgendamentosController extends Controller
      */
     public function index()
     {
-        $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')
-        ->where('user', auth()->id())->paginate(10);
-        //dd($data);
-        return view('meusagendamentos.index', compact('data'));
+        $data = Ambiente::info()->orderBy('id')->paginate(10);
+        return view('termosdeuso.index', compact('data'));
     }
 
     /**
@@ -44,23 +42,21 @@ class MeusAgendamentosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $item = Agendamento::info()->with('ambientes', 'motivos',
-        'cursos', 'disciplinas', 'professores')->findOrFail($id);
-        return view('meusagendamentos.show', compact('item'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agendamento $agendamento)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +65,10 @@ class MeusAgendamentosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Agendamento  $agendamento
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agendamento $agendamento)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +76,10 @@ class MeusAgendamentosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agendamento $agendamento)
+    public function destroy($id)
     {
         //
     }

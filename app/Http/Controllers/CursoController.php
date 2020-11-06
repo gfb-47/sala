@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Agendamento;
+use App\Curso;
 use Illuminate\Http\Request;
 
-class MeusAgendamentosController extends Controller
+class CursoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class MeusAgendamentosController extends Controller
      */
     public function index()
     {
-        $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')
-        ->where('user', auth()->id())->paginate(10);
-        //dd($data);
-        return view('meusagendamentos.index', compact('data'));
+        $data = Curso::info()->orderBy('nome')->paginate(10);
+        return view('curso.index', compact('data'));
     }
 
     /**
@@ -27,7 +25,7 @@ class MeusAgendamentosController extends Controller
      */
     public function create()
     {
-        //
+        return view('curso.create');
     }
 
     /**
@@ -38,52 +36,55 @@ class MeusAgendamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Curso::create($request->all());
+        return redirect()->route('curso.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $item = Agendamento::info()->with('ambientes', 'motivos',
-        'cursos', 'disciplinas', 'professores')->findOrFail($id);
-        return view('meusagendamentos.show', compact('item'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agendamento $agendamento)
+    public function edit($id)
     {
-        //
+        $item = Curso::findOrFail($id);
+        return view('curso.edit', compact('item'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agendamento $agendamento)
+    public function update(Request $request, $id)
     {
-        //
+        $item = Curso::findOrFail($id);
+        $item->fill($request->all());
+        $item->save();
+        return redirect()->route('curso.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\Curso  $curso
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agendamento $agendamento)
+    public function destroy($id)
     {
         //
     }

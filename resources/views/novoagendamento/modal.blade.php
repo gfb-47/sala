@@ -65,7 +65,14 @@ aria-hidden="true">
                     </div>
             </div>
             <div class="row">
-            <div class="col-md-6"></div>
+            <div class="col-md-6">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">
+                    <a class="termosredirect" href="" >Li e aceito os termos de uso</a>
+                </label>
+                </div>
+            </div>
                 <div class="col-md-3">
                     <button type="button" class="btn btn-secondary  " data-dismiss="modal">Cancelar</button>
                 </div>

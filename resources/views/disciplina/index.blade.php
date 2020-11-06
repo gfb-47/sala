@@ -1,4 +1,5 @@
-@extends('layouts.app', ['pageSlug' => 'Meus agendamentos'])
+@extends('layouts.app', ['pageSlug' => 'Disciplina'])
+
 
 @section('content')
 <div class="row">
@@ -7,7 +8,10 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h2 class="card-title">Meus Agendamentos</h2>
+                        <h2 class="card-title">Disciplina</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="{{ route('disciplina.create')}}" class="btn btn-secondary float-right">Criar Novo</a>
                     </div>
                 </div>
             </div>
@@ -16,28 +20,20 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Ambiente</th>
-                                <th>Data</th>
-                                <th>Situação</th>
-                                <th>Motivo</th>
-                                <th style="text-align: right">Visualizar</th>
+                                <th>Nome</th>
+                                <th style="text-align: right">Editar</th>
                             </tr>
                         </thead>
                         <tbody>
                         @forelse($data as $item)
                             <tr>
-                                <td>{{$item->ambientes->nome}}</td>
-                                <td>{{brDate($item->data)}}</td>
-                                <td>{{$item->getSituacao()}}</td>
-                                <td>{{$item->motivos->motivo}}</td>
-                                <td style="text-align: right"><a 
-                                href="{{ route('meusagendamentos.show', $item->id) }}" style="color:#000000" 
-                                class="fas fa-eye"></a></td>
+                                <td>{{$item->nome}}</td>
+                                <td style="text-align: right"><a href="{{ route('disciplina.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" style="text-align:center">
-                                    Não foram encontrados registros
+                                <td colspan="2" style="text-align:center">
+                                    Não Foram encontrados Registros
                                 </td>
                             </tr>
                         @endforelse

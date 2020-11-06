@@ -29,14 +29,14 @@
                                 <p>{{ _('Ambientes') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                        <li @if ($pageSlug=='Disciplina' ) class="active " @endif>
+                            <a href="{{ route('disciplina.index')  }}">
                                 <i class="fas fa-pen-nib"></i>
                                 <p>{{ _('Disciplinas') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                        <li @if ($pageSlug=='Curso' ) class="active " @endif>
+                            <a href="{{ route('curso.index')  }}">
                                 <i class="bx bxs-book-alt"></i>
                                 <p>{{ _('Cursos') }}</p>
                             </a>

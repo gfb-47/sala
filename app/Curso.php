@@ -9,4 +9,8 @@ class Curso extends Model
     protected $fillable = [
         'nome',
     ];
+
+    public function scopeInfo($query){
+        return $query->select('*');
+    }
 }

@@ -70,5 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calendar.render();
   });
+  $('#inp-ambiente').on('change', function() {
+    var termos = getUrl() + '/novoagendamento/1/termosdeuso';
+    termos = termos.replace('1', $(this).val());
+    $('.termosredirect').attr('href', termos);
+  });
 </script>
 @endpush
