@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a data-toggle="collapse" href="#Cadastros" >
+                <a data-toggle="collapse" href="#Cadastros" aria-expanded="false" class="collapsed">
                     <i class="fas fa-pencil-alt"></i>
                     <span class="nav-link-text">{{ __('Cadastros') }}</span>
                     <b class="caret mt-1"></b>
@@ -63,7 +63,7 @@
                 </div>
             </li>
             <li>
-                <a data-toggle="collapse" href="#Movimentação" aria-expanded="true">
+                <a data-toggle="collapse" href="#Movimentação" aria-expanded="false" class="collapsed">
                     <i class="fas fa-bars"></i>
                     <span class="nav-link-text">{{ __('Movimentação') }}</span>
                     <b class="caret mt-1"></b>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a data-toggle="collapse" href="#GerarRelatorio" aria-expanded="true">
+                            <a data-toggle="collapse" href="#GerarRelatorio" aria-expanded="false" class="collapsed">
                                 <i class='fas fa-file-pdf' ></i>
                                 <span class="nav-link-text">{{ __('Relatorios') }}</span>
                                 <b class="caret mt-1"></b>
@@ -104,7 +104,7 @@
                 </div>
             </li>
             <li>
-                <a data-toggle="collapse" href="#gerenciamento" aria-expanded="true">
+                <a data-toggle="collapse" href="#gerenciamento" aria-expanded="false" class="collapsed">
                     <i class="fas fa-cogs"></i>
                     <span class="nav-link-text">{{ __('Gerenciamento') }}</span>
                     <b class="caret mt-1"></b>

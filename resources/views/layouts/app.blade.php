@@ -75,18 +75,18 @@
 
         <script>
             $(document).ready(function() {
-                $('#Cadastros').collapse({
-                        toggle: true
-                    })
-                    $('#Movimentação').collapse({
-                        toggle: true
-                    })
-                    $('#GerarRelatorio').collapse({
-                        toggle: true
-                    })
-                    $('#gerenciamento').collapse({
-                        toggle: true
-                    })
+                // $('#Cadastros').collapse({
+                //         toggle: true
+                //     })
+                //     $('#Movimentação').collapse({
+                //         toggle: true
+                //     })
+                //     $('#GerarRelatorio').collapse({
+                //         toggle: true
+                //     })
+                //     $('#gerenciamento').collapse({
+                //         toggle: true
+                //     })
                 $().ready(function() {
                     $sidebar = $('.sidebar');
                     $navbar = $('.navbar');
