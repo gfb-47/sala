@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Agendamento;
+use App\User;
 use Illuminate\Http\Request;
 
-class MeusAgendamentosController extends Controller
+class ClientePerfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class MeusAgendamentosController extends Controller
      */
     public function index()
     {
-        $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')->paginate(10);
-        //dd($data);
-        return view('meusagendamentos.index', compact('data'));
+        //
+        return view('clienteperfil.edit');
     }
 
     /**
@@ -43,10 +42,10 @@ class MeusAgendamentosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Agendamento $agendamento)
+    public function show(User $user)
     {
         //
     }
@@ -54,33 +53,38 @@ class MeusAgendamentosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Agendamento $agendamento)
+    public function edit(User $user)
     {
         //
+        return view('clienteperfil.edit');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agendamento $agendamento)
+    public function update(Request $request, User $user)
     {
         //
+        $item = User::findOrFail($id);
+        $item->fill($request->all());
+        $item->save();
+        return redirect()->route('clienteperfil.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Agendamento  $agendamento
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agendamento $agendamento)
+    public function destroy(User $user)
     {
         //
     }

@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                            <a href="{{ route('motivoutilizacao.index')  }}">
                                 <i class="fas fa-question-circle"></i>
                                 <p>{{ _('Motivos de Uso') }}</p>
                             </a>

@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Agendamento;
+use App\Ambiente;
+use App\Curso;
+use App\Disciplina;
+use App\Pessoa;
+use App\MotivoUtilizacao;
+
 use Illuminate\Http\Request;
 
-class MeusAgendamentosController extends Controller
+class NovoAgendamentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +20,29 @@ class MeusAgendamentosController extends Controller
      */
     public function index()
     {
-        $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')->paginate(10);
-        //dd($data);
-        return view('meusagendamentos.index', compact('data'));
+        // $agendamento=new Agendamento();
+        // $agendamento->ambiente='1';
+        // $agendamento->user='1';
+        // $agendamento->curso='1';
+        // $agendamento->disciplina='1';
+        // $agendamento->professorresponsavel='1';
+        // $agendamento->motivoutilizacao='1';
+        // $agendamento->horainicio='20:20:20';
+        // $agendamento->horafim='21:00:00';
+        // $agendamento->data='2000-07-07';
+        // $agendamento->situacao='1';
+        // $agendamento->observacao='aaaaaaa';
+        // $agendamento->save();
+        // $agendamento= Agendamento::all();
+        // return $agendamento;
+        $data = Agendamento::info()->orderBy('ambiente')->paginate(10);
+        $ambiente = Ambiente::select('id','nome as name')->orderBy('nome')->get();
+        $curso = Curso::select('id','nome as name')->orderBy('nome')->get();
+        $disciplina = Disciplina::select('id','nome as name')->orderBy('nome')->get();
+        $prof = Pessoa::select('id','nome as name')->orderBy('nome')->get();
+        $motivo = MotivoUtilizacao::select('id','motivo as name')->orderBy('motivo')->get();
+        return view('novoagendamento.index', compact('ambiente', 'data', 'curso',
+     'disciplina', 'prof', 'motivo'));
     }
 
     /**
@@ -37,7 +63,11 @@ class MeusAgendamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs=$request->all();
+        $inputs['user']=auth()->id();
+        $inputs['situacao']= 1;
+        Agendamento::create($inputs);
+        return redirect()->route('novoagendamento.index');
     }
 
     /**
