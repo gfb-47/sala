@@ -10801,11 +10801,11 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #e14eca;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-color: #ba54f5 !important;
+  background-image: linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -o-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -moz-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-color: #034aa6 !important;
   box-shadow: none;
 }
 
@@ -11468,13 +11468,13 @@ fieldset[disabled] .btn-neutral.active {
 .show>.btn-neutral.dropdown-toggle:focus,
 .show>.btn-neutral.dropdown-toggle:hover {
   background-color: #ffffff;
-  color: #ba54f5;
+  color: #034aa6;
   box-shadow: none;
 }
 
 .btn-neutral:hover,
 .btn-neutral:focus {
-  color: #ba54f5;
+  color: #034aa6;
 }
 
 .btn-neutral:hover:not(.nav-link),
@@ -14014,7 +14014,7 @@ h6 {
 }
 
 a {
-  color: #ba54f5;
+  color: #034aa6;
   font-weight: 300;
 }
 

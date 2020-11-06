@@ -2,6 +2,7 @@
 
 
 @section('content')
+<link href="{{ asset('css/mainCalendar.css') }}" rel="stylesheet" />
 <div class="row">
     <div class="col-12">
         <div class="card card-chart">
@@ -19,7 +20,7 @@
             </div>
             <div class="card-body">
                 <div class="">
-                    <div id='calendar'> </div>
+                    <div id='calendar'></div>
                 </div>
                 
                 <!-- <div class="chart-area">
@@ -61,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
     });
 
-    $.get(getUrl() + '/api/v1/public/schedules/all/1', function(data) {
-        console.log(data);
+    $.get(getUrl() + '/api/v1/public/schedules/all/{{auth()->id()}}', function(data) {
+        // console.log(data);
     }).fail(function() {
         alert('Não Foi feita a requisição');
     });
