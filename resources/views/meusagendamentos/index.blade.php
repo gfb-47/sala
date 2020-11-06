@@ -1,6 +1,5 @@
 @extends('layouts.app', ['pageSlug' => 'Meus agendamentos'])
 
-
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -28,11 +27,11 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->ambientes->nome}}</td>
-                                <td>{{$item->data}}</td>
+                                <td>{{brDate($item->data)}}</td>
                                 <td>{{$item->getSituacao()}}</td>
                                 <td>{{$item->motivos->motivo}}</td>
                                 <td style="text-align: right"><a 
-                                href="{{ route('home') }}" style="color:#000000" 
+                                href="{{ route('meusagendamentos.show', $item->id) }}" style="color:#000000" 
                                 class="fas fa-eye"></a></td>
                             </tr>
                         @empty
