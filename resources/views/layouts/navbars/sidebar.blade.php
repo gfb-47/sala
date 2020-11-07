@@ -41,8 +41,8 @@
                                 <p>{{ _('Cursos') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                        <li @if ($pageSlug=='Noticia' ) class="active " @endif>
+                            <a href="{{ route('noticia.index')  }}">
                                 <i class="icofont-newspaper"></i>
                                 <p>{{ _('Notícias') }}</p>
                             </a>
