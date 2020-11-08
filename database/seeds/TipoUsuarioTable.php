@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\TipoUsuario;
 
-class TipoUsuarioTable extends Seeder
+class TipoUsuarioSeeder extends Seeder
 {
     /**
      * Run the database seeds.

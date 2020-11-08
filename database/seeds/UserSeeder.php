@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Pessoa;
 
 class UserSeeder extends Seeder
 {
@@ -12,10 +13,19 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $pessoa = Pessoa::create([
+            'nome' => 'Unitins',
+            'telefone' => '(00) 00000-0000',
+            'matricula' => '2000010100000000',
+            'cpf' => '000.000.000-00'
+        ]);
+
         User::create([
             'name' => 'Unitins',
             'email' => 'email@unitins.com.br',
-            'password' => bcrypt('unitins2020')
+            'password' => bcrypt('unitins2020'),
+            'pessoa_id' => $pessoa->id,
+            'tipo_usuario' => 1
         ]);
     }
 }
