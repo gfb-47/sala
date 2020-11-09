@@ -13,19 +13,19 @@ class TipoUsuarioSeeder extends Seeder
     public function run()
     {
         TipoUsuario::create([
-            'nome' => 'Administrador',          
+            'nome' => 'Administrador(a)',          
         ]);
 
         TipoUsuario::create([
-            'nome' => 'Aluno',          
+            'nome' => 'Aluno(a)',          
         ]);
 
         TipoUsuario::create([
-            'nome' => 'Colaborador',          
+            'nome' => 'Colaborador(a)',          
         ]);
 
         TipoUsuario::create([
-            'nome' => 'Professor',          
+            'nome' => 'Professor(a)',          
         ]);
     }
 }
