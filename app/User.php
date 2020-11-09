@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','pessoa_id',
     ];
 
     /**
@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function person(){
+    public function pessoa(){
         return $this->belongsTo(Pessoa::class, 'pessoa_id');
     }
 
