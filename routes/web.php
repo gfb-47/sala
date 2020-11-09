@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('user', 'UserController');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
+		Route::get('/relatorio/professor', 'AgendamentoController@teste')->name('relatorio.teste');
 });
 
 Route::group(['middleware' => 'auth'], function () {
