@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('disciplina', 'DisciplinaController');
 		Route::resource('curso', 'CursoController');
 		Route::resource('noticia', 'NoticiaController');
-		Route::resource('usuario', 'UsuarioController');
+		Route::resource('user', 'UserController');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
 });
