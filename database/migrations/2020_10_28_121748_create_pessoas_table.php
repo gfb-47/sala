@@ -17,7 +17,7 @@ class CreatePessoasTable extends Migration
             $table->id();
             $table->string('nome',100);
             $table->string('telefone',15);
-            $table->string('matricula',15);
+            $table->string('matricula',20);
             $table->string('cpf',45);
             $table->timestamps();
         });

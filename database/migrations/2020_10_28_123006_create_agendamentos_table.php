@@ -22,9 +22,9 @@ class CreateAgendamentosTable extends Migration
             $table->bigInteger('professorresponsavel')->unsigned();
             $table->bigInteger('motivoutilizacao')->unsigned();
             $table->time('horainicio');
-            $table->time('horariofim');
+            $table->time('horafim');
             $table->date('data');
-            $table->tinyInteger('situacao');
+            $table->tinyInteger('situacao')->default(1);
             $table->text('observacao');
             $table->timestamps();
 

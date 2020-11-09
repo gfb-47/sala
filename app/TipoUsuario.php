@@ -14,4 +14,9 @@ class TipoUsuario extends Model
     public function scopeInfo($query){
         return $query->select('*');
     }
+
+    public function tipoUsuario()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

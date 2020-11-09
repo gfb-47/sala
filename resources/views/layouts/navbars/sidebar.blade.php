@@ -3,7 +3,9 @@
         <div class="logo">
             <!-- <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>
             <a href="#" class="simple-text logo-normal">{{ _('White Dashboard') }}</a> -->
-            <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
+            <a href="">
+                <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
+            </a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug=='Pagina Inicial' ) class="active " @endif>
@@ -13,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a data-toggle="collapse" href="#Cadastros" >
+                <a data-toggle="collapse" href="#Cadastros" aria-expanded="false" class="collapsed">
                     <i class="fas fa-pencil-alt"></i>
                     <span class="nav-link-text">{{ __('Cadastros') }}</span>
                     <b class="caret mt-1"></b>
@@ -22,25 +24,25 @@
                 <div class="collapse show" id="Cadastros">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='profile' ) class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
+                            <a href="{{ route('ambiente.index')  }}">
                                 <i class="fas fa-door-closed"></i>
                                 <p>{{ _('Ambientes') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                        <li @if ($pageSlug=='Disciplina' ) class="active " @endif>
+                            <a href="{{ route('disciplina.index')  }}">
                                 <i class="fas fa-pen-nib"></i>
                                 <p>{{ _('Disciplinas') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                        <li @if ($pageSlug=='Curso' ) class="active " @endif>
+                            <a href="{{ route('curso.index')  }}">
                                 <i class="bx bxs-book-alt"></i>
                                 <p>{{ _('Cursos') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                        <li @if ($pageSlug=='Noticia' ) class="active " @endif>
+                            <a href="{{ route('noticia.index')  }}">
                                 <i class="icofont-newspaper"></i>
                                 <p>{{ _('Notícias') }}</p>
                             </a>
@@ -52,7 +54,7 @@
                             </a>
                         </li>
                         <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a href="{{ route('user.index')  }}">
+                            <a href="{{ route('motivoutilizacao.index')  }}">
                                 <i class="fas fa-question-circle"></i>
                                 <p>{{ _('Motivos de Uso') }}</p>
                             </a>
@@ -61,7 +63,7 @@
                 </div>
             </li>
             <li>
-                <a data-toggle="collapse" href="#Movimentação" aria-expanded="true">
+                <a data-toggle="collapse" href="#Movimentação" aria-expanded="false" class="collapsed">
                     <i class="fas fa-bars"></i>
                     <span class="nav-link-text">{{ __('Movimentação') }}</span>
                     <b class="caret mt-1"></b>
@@ -76,7 +78,7 @@
                             </a>
                         </li>
                         <li @if ($pageSlug=='users' ) class="active " @endif>
-                            <a data-toggle="collapse" href="#GerarRelatorio" aria-expanded="true">
+                            <a data-toggle="collapse" href="#GerarRelatorio" aria-expanded="false" class="collapsed">
                                 <i class='fas fa-file-pdf' ></i>
                                 <span class="nav-link-text">{{ __('Relatorios') }}</span>
                                 <b class="caret mt-1"></b>
@@ -102,7 +104,7 @@
                 </div>
             </li>
             <li>
-                <a data-toggle="collapse" href="#gerenciamento" aria-expanded="true">
+                <a data-toggle="collapse" href="#gerenciamento" aria-expanded="false" class="collapsed">
                     <i class="fas fa-cogs"></i>
                     <span class="nav-link-text">{{ __('Gerenciamento') }}</span>
                     <b class="caret mt-1"></b>

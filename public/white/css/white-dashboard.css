@@ -3972,7 +3972,7 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-  background-color: #e14eca;
+  background-color: #2825f5;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
@@ -3980,7 +3980,7 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate~.custom-control-label::before {
-  background-color: #e14eca;
+  background-color: #1d38d3;
   box-shadow: none;
 }
 
@@ -3989,11 +3989,11 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:disabled:checked~.custom-control-label::before {
-  background-color: rgba(225, 78, 202, 0.5);
+  background-color: rgba(29, 26, 236, 0.5);
 }
 
 .custom-checkbox .custom-control-input:disabled:indeterminate~.custom-control-label::before {
-  background-color: rgba(225, 78, 202, 0.5);
+  background-color: rgba(25, 39, 230, 0.5);
 }
 
 .custom-radio .custom-control-label::before {
@@ -4001,7 +4001,7 @@ input[type="button"].btn-block {
 }
 
 .custom-radio .custom-control-input:checked~.custom-control-label::before {
-  background-color: #e14eca;
+  background-color: #2618e7;
 }
 
 .custom-radio .custom-control-input:checked~.custom-control-label::after {
@@ -4009,7 +4009,7 @@ input[type="button"].btn-block {
 }
 
 .custom-radio .custom-control-input:disabled:checked~.custom-control-label::before {
-  background-color: rgba(225, 78, 202, 0.5);
+  background-color: rgba(75, 46, 236, 0.5);
 }
 
 .custom-select {
@@ -10801,11 +10801,11 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #e14eca;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-color: #ba54f5 !important;
+  background-image: linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -o-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -moz-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-color: #034aa6 !important;
   box-shadow: none;
 }
 
@@ -11468,13 +11468,13 @@ fieldset[disabled] .btn-neutral.active {
 .show>.btn-neutral.dropdown-toggle:focus,
 .show>.btn-neutral.dropdown-toggle:hover {
   background-color: #ffffff;
-  color: #ba54f5;
+  color: #034aa6;
   box-shadow: none;
 }
 
 .btn-neutral:hover,
 .btn-neutral:focus {
-  color: #ba54f5;
+  color: #034aa6;
 }
 
 .btn-neutral:hover:not(.nav-link),
@@ -12314,7 +12314,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control:focus {
-  border-color: #e14eca;
+  border-color: #034aa6;
   background-color: transparent;
   box-shadow: none;
 }
@@ -12323,7 +12323,7 @@ fieldset[disabled] .btn-link.active {
 .form-control:focus~.input-group-append .input-group-text,
 .form-control:focus+.input-group-prepend .input-group-text,
 .form-control:focus~.input-group-prepend .input-group-text {
-  border: 1px solid #e14eca;
+  border: 1px solid #034aa6;
   border-left: none;
   background-color: transparent;
 }
@@ -14014,7 +14014,7 @@ h6 {
 }
 
 a {
-  color: #ba54f5;
+  color: #034aa6;
   font-weight: 300;
 }
 
@@ -17020,7 +17020,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .white-content .form-control:focus {
-  border-color: #e14eca;
+  border-color: #034aa6;
 }
 
 .white-content .form-group.no-border .form-control,
@@ -17091,7 +17091,7 @@ Copyright (c) 2015 Daniel Eden
 .white-content .input-group-focus .input-group-prepend .input-group-text,
 .white-content .input-group-focus .input-group-append .input-group-text,
 .white-content .input-group-focus .form-control {
-  border-color: #e14eca;
+  border-color: #034aa6;
 }
 
 .white-content .input-group-focus.no-border .input-group-prepend .input-group-text,
@@ -17392,7 +17392,7 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card.card-white .form-control:focus {
-  border-color: #e14eca;
+  border-color: #034aa6;
 }
 
 .card.card-white label:not(.btn) {
@@ -17468,7 +17468,7 @@ Copyright (c) 2015 Daniel Eden
 .card.card-white .input-group-focus .input-group-append .input-group-text,
 .card.card-white .input-group-focus .form-control {
   background-color: #ffffff;
-  border-color: #e14eca;
+  border-color: #034aa6;
 }
 
 .card.card-white .input-group-focus.no-border .input-group-prepend .input-group-text,
