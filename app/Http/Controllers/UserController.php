@@ -21,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $data = User::info()->orderBy('name')->paginate(10);
-        return view('usuario.index', compact('data'));
+        return view('users.index', compact('data'));
     }
 
     /**
@@ -55,7 +55,7 @@ class UserController extends Controller
                 return redirect()->route('user.create');
             }
         });
-        return redirect()->route('user.create');
+        return redirect()->route('user.index');
     }
 
     /**
@@ -78,7 +78,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $item = User::findOrFail($id);
-        return view('usuario.edit', compact('item'));
+        return view('users.edit', compact('item'));
     }
 
     /**
@@ -93,7 +93,7 @@ class UserController extends Controller
         $item = User::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('usuario.index');
+        return redirect()->route('user.index');
     }
 
     /**

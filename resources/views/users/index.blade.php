@@ -11,7 +11,7 @@
                         <h2 class="card-title">Usuário</h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="{{ route('usuario.create')}}" class="btn btn-secondary float-right">Cadastrar Novo</a>
+                        <a href="{{ route('user.create')}}" class="btn btn-secondary float-right">Cadastrar Novo</a>
                     </div>
                 </div>
             </div>
@@ -30,8 +30,9 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->}}</td>
-                                <td style="text-align: right"><a href="{{ route('usuario.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                                <td>{{$item->person->cpf}}</td>
+                                <td>{{$item->tipo_usuario}}</td>
+                                <td style="text-align: right"><a href="{{ route('user.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
                             <tr>
