@@ -15,7 +15,9 @@ class AmbienteController extends Controller
      */
     public function index()
     {
-        $data = Ambiente::info()->orderBy('nome')->paginate(10);
+        $data = Ambiente::info()->orderBy('nome')
+        ->with('tipoAmbiente')
+        ->paginate(10);
         return view('ambiente.index', compact('data'));
     }
 

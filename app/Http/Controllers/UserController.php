@@ -20,7 +20,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::info()->orderBy('name')->paginate(10);
+        $data = User::info()->orderBy('name')
+        ->with('pessoa', 'tipoUsuario')
+        ->paginate(10);
         return view('users.index', compact('data'));
     }
 

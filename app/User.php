@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
 
     public function tipoUsuario(){
-        return $this->belongsTo(TipoUsuario::class, 'tipo_usuario;');
+        return $this->belongsTo(TipoUsuario::class, 'tipo_usuario');
     }
 
     public function scopeInfo($query){

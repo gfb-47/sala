@@ -14,4 +14,9 @@ class TipoAmbiente extends Model
     public function scopeInfo($query){
         return $query->select('*');
     }
+    
+    public function ambiente()
+    {
+        return $this->belongsTo(Ambiente::class);
+    }
 }

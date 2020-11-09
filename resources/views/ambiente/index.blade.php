@@ -29,7 +29,7 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->nome}}</td>
-                                <td>{{$item->tipoambiente}}</td>
+                                <td>{{$item->tipoAmbiente->nome}}</td>
                                 <td style="text-align: right"><a href="{{ route('ambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty

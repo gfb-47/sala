@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->pessoa->cpf}}</td>
-                                <td>{{$item->tipo_usuario}}</td>
+                                <td>{{$item->tipoUsuario->nome}}</td>
                                 <td style="text-align: right"><a href="{{ route('user.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty

@@ -26,8 +26,8 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->nome}}</td>
-                                <td>{{$item->tipoambiente}}</td>
-                                <td style="text-align: right"><a href="{{ route('clienteagendamento.index') }}" class="btn btn-primary">Agendar</a></td>
+                                <td>{{$item->tipoAmbiente->nome}}</td>
+                                <td style="text-align: right"><a href="{{ route('novoagendamento.index') }}" class="btn btn-primary">Agendar</a></td>
                             </tr>
                         @empty
                             <tr>

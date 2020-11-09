@@ -14,7 +14,12 @@ class Ambiente extends Model
     public function scopeInfo($query){
         return $query->select('*');
     }
+
     public function agendamento() {
         return $this->hasMany(Agendamento::class);
+    }
+
+    public function tipoAmbiente(){
+        return $this->belongsTo(TipoAmbiente::class, 'tipoambiente');
     }
 }
