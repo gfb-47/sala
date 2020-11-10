@@ -3,7 +3,7 @@
 <head>
     <link rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.0/css/bootstrap.min.css' />
-        <title>Relatório Professor</title>
+        <title>Relatório Geral</title>
     <style type="text/css">
         body {
             font-size: 10px;
@@ -89,8 +89,8 @@
 
 <!-- 
     Agendamentos somente finalizados
-    Redicerionar para o professor logado.
-    E professor como responsável.
+
+    <img class="img logo" src="{{ asset('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
  -->
 
 <body>
@@ -100,15 +100,16 @@
     <table class="table table-bordered" style="text-align:center;">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Solicitante</th>
-                <th>Data</th>
-                <th>Início</th>
-                <th>Término</th>
-                <th>Ambiente</th>
-                <th>Curso</th>
-                <th>Disciplina</th>
-                <th>Motivo</th>
+            <th>ID</th>
+            <th>Solicitante</th>
+            <th>Data</th>
+            <th>Início</th>
+            <th>Término</th>
+            <th>Ambiente</th>
+            <th>Curso</th>
+            <th>Disciplina</th>
+            <th>Motivo</th>
+            <th>Responsável</th>
             </tr>
         </thead>
         <tbody>
@@ -123,6 +124,7 @@
             <td>{{ $item->cursos->nome }}</td>
             <td>{{ $item->disciplinas->nome }}</td>
             <td>{{ $item->motivos->motivo }}</td>
+            <td>{{ $item->professores->nome }}</td>
         </tr>
         @empty
         <tr>
