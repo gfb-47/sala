@@ -46,7 +46,10 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('user', 'UserController');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
-		Route::get('/relatorio/professor', 'AgendamentoController@teste')->name('relatorio.teste');
+		Route::resource('/relatorio/geral', 'GeralController');
+		Route::resource('/relatorio/professor', 'ProfessorController');
+		Route::get('/relatorio/pdf/geral', 'AgendamentoController@gerarRelatorioGeral')->name('relatorio.gerarRelatorioGeral');
+		Route::get('/relatorio/pdf/professor', 'AgendamentoController@gerarRelatorioProf')->name('relatorio.gerarRelatorioProf');
 });
 
 Route::group(['middleware' => 'auth'], function () {

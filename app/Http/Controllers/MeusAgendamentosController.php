@@ -15,8 +15,9 @@ class MeusAgendamentosController extends Controller
     public function index()
     {
         $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')
-        ->where('user', auth()->id())->paginate(10);
-        //dd($data);
+        ->where('user', auth()->id())
+        ->paginate(10);
+
         return view('meusagendamentos.index', compact('data'));
     }
 
@@ -49,8 +50,9 @@ class MeusAgendamentosController extends Controller
      */
     public function show($id)
     {
-        $item = Agendamento::info()->with('ambientes', 'motivos',
-        'cursos', 'disciplinas', 'professores')->findOrFail($id);
+        $item = Agendamento::info()
+        ->with('ambientes', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->findOrFail($id);
         return view('meusagendamentos.show', compact('item'));
     }
 

@@ -80,7 +80,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $item = User::findOrFail($id);
-        return view('users.edit', compact('item'));
+        $tipoUsuario = TipoUsuario::select('id', 'nome as name')->get();
+        return view('users.edit', compact('item','tipoUsuario'));
     }
 
     /**

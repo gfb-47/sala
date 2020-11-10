@@ -103,5 +103,4 @@
             </div>
         </div>
     </div>
-{{ dd(auth()->user()) }}
 @endsection
