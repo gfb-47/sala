@@ -17,6 +17,7 @@ class AgendamentoController extends Controller
         ->paginate(10);
 
         return PDF::loadView('pdfs.geral_pdf', compact('data'))
+        ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
         ->setPaper('a4', 'portrat')
         ->stream();
     }
@@ -31,6 +32,7 @@ class AgendamentoController extends Controller
         ->paginate(10);
 
         return PDF::loadView('pdfs.professor_pdf', compact('data'))
+        ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
         ->setPaper('a4', 'portrat')
         ->stream();
     }

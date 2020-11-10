@@ -90,11 +90,11 @@
 <!-- 
     Agendamentos somente finalizados
 
-    <img class="img logo" src="{{ asset('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
  -->
 
 <body>
     
+    <img class="img" src="{{ public_path('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
     <h1 class="myh1">Agendamentos</h1>
 
     <table class="table table-bordered" style="text-align:center;">
