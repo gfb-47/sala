@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MotivoUtilizacao extends Model
 {
     protected $fillable = [
-        'motivo',
+        'motivo','ativo'
     ];
 
     public function scopeInfo($query){

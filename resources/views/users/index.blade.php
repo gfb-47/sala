@@ -30,7 +30,7 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->pessoa->cpf}}</td>
+                                <td>{{$item->cpf}}</td>
                                 <td>{{$item->tipoUsuario->nome}}</td>
                                 <td style="text-align: right"><a href="{{ route('user.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>

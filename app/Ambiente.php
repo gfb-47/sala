@@ -8,7 +8,7 @@ class Ambiente extends Model
 {
 
     protected $fillable = [
-        'nome','termodeuso','status','tipoambiente'
+        'nome','termodeuso','status','tipoambiente','ativo'
     ];
     
     public function scopeInfo($query){

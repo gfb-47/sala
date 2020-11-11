@@ -15,14 +15,14 @@
                     <h3 style="color: black; text-align: center; font-weight:bold; font-family:Bree Serif" >{{ _('Login') }}</h3>
                 </div>
                 <div class="card-body" style="margin-top: -80px; padding:40px;">
-                    <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}" style="background-color: #EBEBEB; margin-bottom:25px;">
+                    <div class="input-group{{ $errors->has('cpf') ? ' has-danger' : '' }}" style="background-color: #EBEBEB; margin-bottom:25px;">
                         <div class="input-group-prepend">
                             <div class="input-group-text" style="height:33px">
                                 <i style="color:#000;" class="fa fa-user" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <input type="email" name="email"  class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" style="height:33px"  placeholder="{{ _('CPF') }}">
-                        @include('alerts.feedback', ['field' => 'email'])
+                        <input type="text" name="cpf"  class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} cpf" style="height:33px"  placeholder="{{ _('CPF') }}">
+                        @include('alerts.feedback', ['field' => 'cpf'])
                     </div>
                     <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}" style="background-color: #EBEBEB;">
                         <div class="input-group-prepend">
