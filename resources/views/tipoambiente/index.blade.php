@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Tipo Ambiente'])
+@extends('layouts.app', ['pageSlug' => 'Tipos Ambiente'])
 
 
 @section('content')
