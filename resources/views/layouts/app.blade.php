@@ -79,7 +79,6 @@
         <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
         <script src="{{ asset('js') }}/main.js"></script>
         
-        @stack('js')
         
         <script>
             $(document).ready(function() {
@@ -201,3 +200,4 @@
         @stack('js')
     </body>
 </html>
+
