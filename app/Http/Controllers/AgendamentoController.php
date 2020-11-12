@@ -8,12 +8,14 @@ use Barryvdh\DomPDF\Facade as PDF;
 
 class AgendamentoController extends Controller
 {
-    public function gerarRelatorioGeral(){
+    public function gerarRelatorioGeral(Request $request){
         $data = Agendamento::info()
         //Ordenado no PDF por Data e dps Horário.
         ->orderBy('data', 'asc')
         ->orderBy('horainicio', 'asc')
         ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->where('data', '>=', $request->datainicio)
+        ->where('data', '<=', $request->datafim)
         ->paginate(10);
 
         return PDF::loadView('pdfs.geral_pdf', compact('data'))
@@ -30,6 +32,8 @@ class AgendamentoController extends Controller
         ->orderBy('horainicio', 'asc')
         ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
         ->where('professorresponsavel', $request->professorresponsavel)
+        ->where('data', '>=', $request->datainicio)
+        ->where('data', '<=', $request->datafim)
         ->paginate(10);
 
         return PDF::loadView('pdfs.professor_pdf', compact('data'))
