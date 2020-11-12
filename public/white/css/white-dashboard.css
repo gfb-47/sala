@@ -14872,7 +14872,7 @@ table.tablesorter thead tr .headerSortDown {
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
   width: 100%;
-  background-color: rgba(3, 74, 166,0.8);
+  background-color: rgba(3, 74, 166,0.85);
   min-height: 100%;
   max-height: calc(100vh - 705px);
   z-index: 4;
@@ -17766,6 +17766,9 @@ Copyright (c) 2015 Daniel Eden
   color: #ffffff;
 }
 
+.card .card-body {
+  padding: 15px;
+}
 .card-plain {
   background: transparent;
   box-shadow: none;
