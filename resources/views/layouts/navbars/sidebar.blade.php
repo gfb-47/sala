@@ -81,7 +81,7 @@
                                 <span class="nav-link-text">{{ __('Relatorios') }}</span>
                                 <b class="caret mt-1"></b>
                             </a>
-                            <div class="collapse show" id="GerarRelatorio">
+                            <div class="collapse" id="GerarRelatorio">
                                 <ul class="nav pl-4">
                                     <li @if ($pageSlug=='Relatório Professor' ) class="active " @endif>
                                         <a href="{{ route('professor.index')  }}">
