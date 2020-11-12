@@ -14,7 +14,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        $data = Noticia::info()->orderBy('titulo')->paginate(10);
+        $data = Noticia::info()->with('user')->orderBy('titulo')->paginate(10);
         return view('noticia.index', compact('data'));
     }
 
@@ -40,7 +40,7 @@ class NoticiaController extends Controller
         $inputs['user_id']=auth()->id();
         $inputs['imagem']='finja que isso é uma imagem';
         Noticia::create($inputs);
-        return redirect()->route('noticia.index');
+        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -78,7 +78,7 @@ class NoticiaController extends Controller
         $item = Noticia::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('noticia.index');
+        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**

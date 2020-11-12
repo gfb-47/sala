@@ -16,6 +16,8 @@
                 </div>
             </div>
             <div class="card-body">
+                @include('alerts.success')
+                @include('alerts.error')
                 <div class="">
                     <table class="table table-striped">
                         <thead>
@@ -30,7 +32,7 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->titulo}}</td>
-                                <td>{{$item->user_id}}</td>
+                                <td>{{$item->user->name}}</td>
                                 <td>{{$item->created_at->format('d/m/Y')}}</td>
                                 <td style="text-align: right"><a href="{{ route('noticia.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>

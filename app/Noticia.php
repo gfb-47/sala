@@ -13,4 +13,8 @@ class Noticia extends Model
     public function scopeInfo($query){
         return $query->select('*');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
