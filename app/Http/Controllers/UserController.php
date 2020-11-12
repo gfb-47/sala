@@ -54,10 +54,10 @@ class UserController extends Controller
                 $input['password']='123';
                 User::create($input);
             } catch (Exception $e) {
-                return redirect()->route('user.create');
+                return redirect()->route('user.create')->withError('Registro Adicionado com Sucesso');
             }
         });
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -96,7 +96,7 @@ class UserController extends Controller
         $item = User::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**

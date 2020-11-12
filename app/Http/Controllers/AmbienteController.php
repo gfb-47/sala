@@ -41,7 +41,7 @@ class AmbienteController extends Controller
     public function store(Request $request)
     {
         Ambiente::create($request->all());
-        return redirect()->route('ambiente.index');
+        return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -80,7 +80,7 @@ class AmbienteController extends Controller
         $item = Ambiente::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('ambiente.index');
+        return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**

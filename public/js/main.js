@@ -147,7 +147,8 @@
 })(jQuery);
 window.utilities = {
     changeImage: function () {
-        $("#image").click();
+        console.log('Teste')
+        $("#image").trigger("click");
     },
     readUrl: function (input) {
         if (input.files && input.files[0]) {

@@ -37,7 +37,7 @@ class CursoController extends Controller
     public function store(Request $request)
     {
         Curso::create($request->all());
-        return redirect()->route('curso.index');
+        return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -75,7 +75,7 @@ class CursoController extends Controller
         $item = Curso::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('curso.index');
+        return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**

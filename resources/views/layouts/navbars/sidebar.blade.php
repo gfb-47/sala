@@ -1,8 +1,6 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <!-- <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ _('White Dashboard') }}</a> -->
             <a href="">
                 <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
             </a>
@@ -21,7 +19,7 @@
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="collapse show" id="Cadastros">
+                <div class="collapse" id="Cadastros">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='Ambientes' ) class="active " @endif>
                             <a href="{{ route('ambiente.index')  }}">
@@ -69,7 +67,7 @@
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="collapse show" id="Movimentação">
+                <div class="collapse" id="Movimentação">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='Agendamentos' ) class="active " @endif>
                             <a href="{{ route('profile.edit')  }}">
@@ -83,7 +81,7 @@
                                 <span class="nav-link-text">{{ __('Relatorios') }}</span>
                                 <b class="caret mt-1"></b>
                             </a>
-                            <div class="collapse show" id="GerarRelatorio">
+                            <div class="collapse" id="GerarRelatorio">
                                 <ul class="nav pl-4">
                                     <li @if ($pageSlug=='Relatório Professor' ) class="active " @endif>
                                         <a href="{{ route('professor.index')  }}">
@@ -110,7 +108,7 @@
                     <b class="caret mt-1"></b>
                 </a>
 
-                <div class="collapse show" id="gerenciamento">
+                <div class="collapse" id="gerenciamento">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='Tipos Usuario' ) class="active " @endif>
                             <a href="{{ route('tipousuario.index')  }}">
@@ -127,48 +125,6 @@
                     </ul>
                 </div>
             </li>
-            <!-- <li @if ($pageSlug == 'icons') class="active " @endif>
-                <a href="{{ route('pages.icons') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ _('Icons') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'maps') class="active " @endif>
-                <a href="{{ route('pages.maps') }}">
-                    <i class="tim-icons icon-pin"></i>
-                    <p>{{ _('Maps') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'notifications') class="active " @endif>
-                <a href="{{ route('pages.notifications') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ _('Notifications') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'tables') class="active " @endif>
-                <a href="{{ route('pages.tables') }}">
-                    <i class="tim-icons icon-puzzle-10"></i>
-                    <p>{{ _('Table List') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'typography') class="active " @endif>
-                <a href="{{ route('pages.typography') }}">
-                    <i class="tim-icons icon-align-center"></i>
-                    <p>{{ _('Typography') }}</p>
-                </a>
-            </li>
-            <li @if ($pageSlug == 'rtl') class="active " @endif>
-                <a href="{{ route('pages.rtl') }}">
-                    <i class="tim-icons icon-world"></i>
-                    <p>{{ _('RTL Support') }}</p>
-                </a>
-            </li>
-            <li class=" {{ $pageSlug == 'upgrade' ? 'active' : '' }} bg-info">
-                <a href="{{ route('pages.upgrade') }}">
-                    <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ _('Upgrade to PRO') }}</p>
-                </a>
-            </li> -->
         </ul>
     </div>
 </div>

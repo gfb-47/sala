@@ -37,7 +37,7 @@ class TipoAmbienteController extends Controller
     public function store(Request $request)
     {
         TipoAmbiente::create($request->all());
-        return redirect()->route('tipoambiente.index');
+        return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -75,7 +75,7 @@ class TipoAmbienteController extends Controller
         $item = TipoAmbiente::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('tipoambiente.index');
+        return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
 
     }
 
