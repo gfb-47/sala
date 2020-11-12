@@ -25,6 +25,7 @@
                                 <th>Nome</th>
                                 <th>Tipo Ambiente</th>
                                 <th style="text-align: right">Editar</th>
+                                <th style="text-align: right">Alterar Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,10 +34,17 @@
                                 <td>{{$item->nome}}</td>
                                 <td>{{$item->tipoAmbiente->nome}}</td>
                                 <td style="text-align: right"><a href="{{ route('ambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                                <td style="text-align: right">
+                                    <form action="{{route('ambiente.status', $item->id)}}" id="form-{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-primary">{{ $item->ativo == 1? 'Desativar':'Ativar'}}</button>
+                                    </form>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3" style="text-align:center">
+                                <td colspan="4" style="text-align:center">
                                     Não Foram encontrados Registros
                                 </td>
                             </tr>

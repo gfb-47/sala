@@ -27,13 +27,13 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
 		Route::resource('tipoambiente', 'TipoAmbienteController');
 		Route::resource('tipousuario', 'TipoUsuarioController');
-		Route::resource('ambiente', 'AmbienteController');
+		Route::resource('ambiente', 'AmbienteController')->except(['status']);
 		Route::resource('clienteagendamento', 'ClienteAgendamentoController');
 		Route::resource('meusagendamentos', 'MeusAgendamentosController');
 		Route::resource('novoagendamento', 'NovoAgendamentoController');
 		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
 		Route::resource('perfil', 'ClientePerfilController');
-		Route::resource('disciplina', 'DisciplinaController');
+		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
 		Route::resource('curso', 'CursoController');
 		Route::resource('noticia', 'NoticiaController');
 		Route::resource('user', 'UserController');
@@ -43,6 +43,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('/relatorio/professor', 'ProfessorController');
 		Route::get('/relatorio/pdf/geral', 'AgendamentoController@gerarRelatorioGeral')->name('relatorio.gerarRelatorioGeral');
 		Route::get('/relatorio/pdf/professor', 'AgendamentoController@gerarRelatorioProf')->name('relatorio.gerarRelatorioProf');
+		Route::post('/ambiente/{id}/status', 'AmbienteController@status')->name('ambiente.status');
+		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
 });
 
 Route::group(['middleware' => 'auth'], function () {
