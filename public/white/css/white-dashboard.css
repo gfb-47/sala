@@ -14855,8 +14855,7 @@ table.tablesorter thead tr .headerSortDown {
 
 .sidebar,
 .off-canvas-sidebar {
-  background: rgb(3, 74, 166);
-  /* background: url('../../img/fundosidebar.png') ; */
+  background: url('../../img/fundosidebar.png') ;
   height: calc(100vh - 90px);
   width: 230px;
   position: absolute;
@@ -14873,6 +14872,7 @@ table.tablesorter thead tr .headerSortDown {
 .sidebar .sidebar-wrapper,
 .off-canvas-sidebar .sidebar-wrapper {
   width: 100%;
+  background-color: rgba(3, 74, 166,0.8);
   min-height: 100%;
   max-height: calc(100vh - 705px);
   z-index: 4;

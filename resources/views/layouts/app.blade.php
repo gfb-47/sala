@@ -37,7 +37,6 @@
                         @yield('content')
                     </div>
 
-                    <!-- @include('layouts.footer') -->
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -52,7 +51,6 @@
                             @yield('content')
                         </div>
                     </div>
-                    <!-- @include('layouts.footer') -->
                 </div>
             </div>
         @endauth
@@ -82,18 +80,6 @@
         
         <script>
             $(document).ready(function() {
-                $('#Cadastros').collapse({
-                        toggle: true
-                    })
-                    $('#Movimentação').collapse({
-                        toggle: true
-                    })
-                    $('#GerarRelatorio').collapse({
-                        toggle: true
-                    })
-                    $('#gerenciamento').collapse({
-                        toggle: true
-                    })
                 $().ready(function() {
                     $sidebar = $('.sidebar');
                     $navbar = $('.navbar');
