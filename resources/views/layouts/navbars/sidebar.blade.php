@@ -21,7 +21,7 @@
 
                 <div class="collapse" id="Cadastros">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug=='profile' ) class="active " @endif>
+                        <li @if ($pageSlug=='Ambientes' ) class="active " @endif>
                             <a href="{{ route('ambiente.index')  }}">
                                 <i class="fas fa-door-closed"></i>
                                 <p>{{ _('Ambientes') }}</p>
@@ -45,13 +45,13 @@
                                 <p>{{ _('Notícias') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
+                        <li @if ($pageSlug=='Usuários' ) class="active " @endif>
                             <a href="{{ route('user.index')  }}">
                                 <i class="fas fa-user-friends"></i>
                                 <p>{{ _('Usuários') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
+                        <li @if ($pageSlug=='Motivos de Uso' ) class="active " @endif>
                             <a href="{{ route('motivoutilizacao.index')  }}">
                                 <i class="fas fa-question-circle"></i>
                                 <p>{{ _('Motivos de Uso') }}</p>
@@ -69,13 +69,13 @@
 
                 <div class="collapse" id="Movimentação">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug=='profile' ) class="active " @endif>
+                        <li @if ($pageSlug=='Agendamentos' ) class="active " @endif>
                             <a href="{{ route('profile.edit')  }}">
                                 <i class="fas fa-calendar-check"></i>
                                 <p>{{ _('Agendamentos') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='users' ) class="active " @endif>
+                        <li>
                             <a data-toggle="collapse" href="#GerarRelatorio" aria-expanded="false" class="collapsed">
                                 <i class='fas fa-file-pdf' ></i>
                                 <span class="nav-link-text">{{ __('Relatorios') }}</span>
@@ -83,13 +83,13 @@
                             </a>
                             <div class="collapse show" id="GerarRelatorio">
                                 <ul class="nav pl-4">
-                                    <li @if ($pageSlug=='profile' ) class="active " @endif>
+                                    <li @if ($pageSlug=='Relatório Professor' ) class="active " @endif>
                                         <a href="{{ route('professor.index')  }}">
                                             <i class="fas fa-chalkboard-teacher"></i>
                                             <p>{{ _('Professor') }}</p>
                                         </a>
                                     </li>
-                                    <li @if ($pageSlug=='profile' ) class="active " @endif>
+                                    <li @if ($pageSlug=='Relatório Geral' ) class="active " @endif>
                                         <a href="{{ route('geral.index')  }}">
                                             <i class="fas fa-globe-americas"></i>
                                             <p>{{ _('Geral') }}</p>
@@ -110,16 +110,16 @@
 
                 <div class="collapse" id="gerenciamento">
                     <ul class="nav pl-4">
-                        <li @if ($pageSlug=='Tipo Usuario' ) class="active " @endif>
+                        <li @if ($pageSlug=='Tipos Usuario' ) class="active " @endif>
                             <a href="{{ route('tipousuario.index')  }}">
                                 <i class="fas fa-user"></i>
-                                <p>{{ _('Tipo Usuário') }}</p>
+                                <p>{{ _('Tipos Usuário') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='Tipo Ambiente' ) class="active " @endif>
+                        <li @if ($pageSlug=='Tipos Ambiente' ) class="active " @endif>
                             <a href="{{ route('tipoambiente.index')  }}">
                                 <i class="fas fa-tools"></i>
-                                <p>{{ _('Tipo Ambiente') }}</p>
+                                <p>{{ _('Tipos Ambiente') }}</p>
                             </a>
                         </li>
                     </ul>

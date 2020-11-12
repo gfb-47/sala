@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Motivo de Uso'])
+@extends('layouts.app', ['pageSlug' => 'Motivos de Uso'])
 
 
 @section('content')
