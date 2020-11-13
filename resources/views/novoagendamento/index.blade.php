@@ -52,9 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
       headerToolbar: {
         left: 'prevYear,prev,next,nextYear today',
         center: 'title',
-        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+        right: 'dayGridMonth,dayGridWeek,timeGridDay'
+
       },
       locale: 'pt-br',
+      allDaySlot: false,
       navLinks: true, // can click day/week names to navigate views
       editable: false,
       droppable: false,
@@ -63,11 +65,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     $.get(getUrl() + '/api/v1/public/schedules/all/{{auth()->id()}}', function(data) {
-        // console.log(data);
+        var data = data.data;
+        for (var i=0; i<data.length; i++) {
+            calendar.addEvent({
+                    id: data[i].id,
+                    title: 'Agendamento',
+                    start: data[i].eventStart,
+                    end: data[i].eventEnd,
+                    extendedProps: {
+                        professor: data[i].professor, 
+                        usuario: data[i].usuario,
+                        curso: data[i].curso,
+                        disciplina: data[i].disciplina,
+                        horainicio: data[i].horainicio,
+                        horafim: data[i].horafim,
+                        data: data[i].data,
+                        motivo: data[i].motivo 
+                    },
+                    color: 'blue',
+                });
+        }
     }).fail(function() {
         alert('Não Foi feita a requisição');
     });
-
+    // calendar.addEvent({
+    //                 id: 1,
+    //                 title: 'Agendamento',
+    //                 start: "2020-11-13T00:45:00",
+    //                 end: "2020-11-13T01:45:00",
+    //                 color: 'blue',
+    //             });
     calendar.render();
   });
   $('#inp-ambiente').on('change', function() {
