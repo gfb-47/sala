@@ -15,6 +15,11 @@
             font-size:20px;
         }
 
+        .myp {
+            text-align:center;
+            font-size:10px;
+        }
+
         footer {
             position: fixed;
             bottom: 0cm;
@@ -93,9 +98,24 @@
  -->
 
 <body>
-    
-    <img class="img" src="{{ public_path('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
-    <h1 class="myh1">Agendamentos</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img class="img" src="{{ public_path('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
+        </div>
+        <div class="col-md-6 float-right">
+            <h1 class="myh1">Universidade Estadual do Tocantins</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 float-right">
+            <p class="myp">{{date('d/m/Y')}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="myh1">Agendamentos</h1>
+        </div>
+    </div>
 
     <table class="table table-bordered" style="text-align:center;">
         <thead>
@@ -136,6 +156,17 @@
         </tbody>
     </table>
 
+    <footer>
+            <table class="table table-borderless" style="text-align:center;">
+                <thead>
+                    <tr>
+                        <th>{{date('d/m/Y')}}</th>
+                        <th>Todos os direitos reservados</th>
+                        <th>UNITINS</th>
+                    </tr>
+                </thead>
+            </table>
+    </footer>
 </body>
 
 </html>
