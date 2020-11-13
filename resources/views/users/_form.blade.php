@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        {!!Form::text('nome', 'Nome')
+        {!!Form::text('name', 'Nome')
         ->required()
         ->attrs(['maxlength' => 50,'class'=>'required'])!!}
     </div>

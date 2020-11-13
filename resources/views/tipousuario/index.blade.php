@@ -8,7 +8,7 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h2 class="card-title">Tipo Usuario</h2>
+                        <h2 class="card-title">Tipos de Usuario</h2>
                     </div>
                     <!--
                     <div class="col-sm-6">

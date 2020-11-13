@@ -8,7 +8,7 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h2 class="card-title">Tipo Ambiente</h2>
+                        <h2 class="card-title">Tipos de Ambiente</h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="{{ route('tipoambiente.create')}}" class="btn btn-secondary float-right">Criar Novo</a>

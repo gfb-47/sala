@@ -8,6 +8,10 @@
         body {
             font-size: 10px;
             margin: 0;
+            background-image: url("{{ public_path('img/Logo_da_Unitins.png') }}");
+            opacity: 0.15;
+            background-repeat:no-repeat;
+            background-position: center center;
         }
 
         .myh1 {
@@ -108,7 +112,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 float-right">
-            <p class="myp">{{date('d/m/Y')}}</h1>
+            <p class="myp text-muted">{{date('d/m/Y')}}</h1>
         </div>
     </div>
     <div class="row">

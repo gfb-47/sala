@@ -4,10 +4,15 @@
     <link rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.0/css/bootstrap.min.css' />
         <title>Relatório Professor</title>
-    <style type="text/css">
+    <style type="text/css" >
+
         body {
             font-size: 10px;
             margin: 0;
+            background-image: url("{{ public_path('img/Logo_da_Unitins.png') }}");
+            opacity: 0.15;
+            background-repeat:no-repeat;
+            background-position: center center;
         }
 
         .myh1 {
@@ -105,12 +110,12 @@
             <img class="img" src="{{ public_path('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
         </div>
         <div class="col-md-6 float-right">
-            <h1 class="myh1">Universidade Estadual do Tocantins</h1>
+            <h1 class="myh1" style="">Universidade Estadual do Tocantins</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6 float-right">
-            <p class="myp">{{date('d/m/Y')}}</h1>
+            <p class="myp text-muted">{{date('d/m/Y')}}</h1>
         </div>
     </div>
     <div class="row">
