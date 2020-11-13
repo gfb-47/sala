@@ -38,7 +38,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2" style="text-align:center">
+                                <td colspan="4" style="text-align:center">
                                     Não Foram encontrados Registros
                                 </td>
                             </tr>

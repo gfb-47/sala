@@ -83,6 +83,18 @@ class AmbienteController extends Controller
         return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
+    public function status(Request $request, $id)
+    {
+        $item = Ambiente::findOrFail($id);
+        if ($item->ativo == 1){
+            $item->fill(['ativo' => 0])->save();
+            return redirect()->route('ambiente.index')->withStatus('Ambiente '.$item->nome.' desativado com sucesso');
+        } else {
+            $item->fill(['ativo' => 1])->save();
+            return redirect()->route('ambiente.index')->withStatus('Ambiente '.$item->nome.' ativado com sucesso');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

@@ -78,6 +78,18 @@ class DisciplinaController extends Controller
         return redirect()->route('disciplina.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
+    public function status($id)
+    {
+        $item = Disciplina::findOrFail($id);
+        if ($item->ativo == 1){
+            $item->fill(['ativo' => 0])->save();
+            return redirect()->route('disciplina.index')->withStatus('Disciplina '.$item->nome.' desativada com sucesso');
+        } else {
+            $item->fill(['ativo' => 1])->save();
+            return redirect()->route('disciplina.index')->withStatus('Disciplina '.$item->nome.' ativada com sucesso');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

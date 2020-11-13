@@ -100,6 +100,25 @@
             }
         });
     });
+    $(".btn-change").on("click", function (e) {
+        e.preventDefault();
+        var form = $(this).parents("form").attr("id");
+        swal({
+            title: "Você está certo?",
+            text:
+                "Atenção, você está preste a alterar o status deste item e isso pode alterar a visibilidade dele dentro do sistema. Tem certeza dessa operação?",
+            icon: "warning",
+            buttons: true,
+            buttons: ["Cancelar", "Alterar"],
+            dangerMode: true,
+        }).then((isConfirm) => {
+            if (isConfirm) {
+                document.getElementById(form).submit();
+            } else {
+                swal("Status Mantido com sucesso");
+            }
+        });
+    });
 
     $(".btn-add").on("click", function () {
         var $tr = $(".dynamic-form");
