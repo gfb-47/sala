@@ -30,7 +30,7 @@
                                 <i styte="color:#fff;" class="fa fa-lock" aria-hidden="true" ></i>
                             </div>
                         </div>
-                        <input type="password" placeholder="{{ _('Senha') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" style="height:33px">
+                        <input type="password" maxlength="11" placeholder="{{ _('Senha') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" style="height:33px">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
