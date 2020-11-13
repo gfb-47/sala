@@ -38,7 +38,7 @@
                                     <form action="{{route('ambiente.status', $item->id)}}" id="form-{{$item->id}}" method="POST">
                                         @csrf
                                         @method('POST')
-                                        <button type="submit" class="btn btn-primary">{{ $item->ativo == 1? 'Desativar':'Ativar'}}</button>
+                                        <button type="submit" class="btn btn-primary btn-change">{{ $item->ativo == 1? 'Desativar':'Ativar'}}</button>
                                     </form>
                                 </td>
                             </tr>
