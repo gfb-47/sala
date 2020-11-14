@@ -17,10 +17,126 @@
 
 
 <body>
-    <div class="container">
-        <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'></div>
+    <div class="title-news" style="font-family: 90px;">
+        <p>Notícias</p>
     </div>
-
+    <div class="carousel" data-flickity='{ "autoPlay": true  }'>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div><div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div><div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div><div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div><div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div><div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div><div class="carousel-cell">
+            <div class="card">
+                <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
+                <div class="container">
+                    <h4><b>25 de Setembro</b></h4>
+                    <p>Unitins é campeã</p>
+                    <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
+                    <p>Saiba mais</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
