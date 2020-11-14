@@ -36,7 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('perfil', 'ClientePerfilController');
 		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
 		Route::resource('curso', 'CursoController')->except(['status']);
-		Route::resource('noticia', 'NoticiaController')->except(['status']);
+		Route::resource('noticia', 'NoticiaController');
 		Route::resource('user', 'UserController')->except(['status']);
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/relatorio/pdf/professor', 'AgendamentoController@gerarRelatorioProf')->name('relatorio.gerarRelatorioProf');
 		Route::post('/ambiente/{id}/status', 'AmbienteController@status')->name('ambiente.status');
 		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
+		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
 });
 
 Route::group(['middleware' => 'auth'], function () {
