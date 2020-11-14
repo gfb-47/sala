@@ -35,11 +35,13 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->cpf}}</td>
                                 <td>{{$item->tipoUsuario->nome}}</td>
+                                <td>{{$item->created_at->format('d/m/y')}}</td>
+                                <td>{{$item->updated_at->format('d/m/y')}}</td>
                                 <td style="text-align: right"><a href="{{ route('user.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3" style="text-align:center">
+                                <td colspan="6" style="text-align:center">
                                     Não Foram encontrados Registros
                                 </td>
                             </tr>
