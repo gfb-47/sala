@@ -32,8 +32,8 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->nome}}</td>
-                                <td>{{$item->created_at->format('d/m/Y')}}</td>
-                                <td>{{$item->updated_at->format('d/m/Y')}}</td>
+                                <td>{{$item->created_at->format('d/m/Y H:i:s')}}</td>
+                                <td>{{$item->updated_at->format('d/m/Y H:i:s')}}</td>
                                 <td style="text-align: right"><a href="{{ route('tipoambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
