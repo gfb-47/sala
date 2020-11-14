@@ -16,6 +16,9 @@
             <div class="dropdown-content">
                 <a class="navbar-item" href="{{ route('meusagendamentos.index') }}">Meus Agendamentos</a>
                 <a class="navbar-item" href="{{ route('novoagendamento.index') }}">Agendar ambiente</a>
+                @if(auth()->user()->tipo_usuario == 4)
+                    <a class="navbar-item" href="#">Relatório Operacional</a>
+                @endif    
             </div>
             <button class="logoutBtn" type="button">Sair</button>
         </div>
