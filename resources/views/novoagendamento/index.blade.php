@@ -39,7 +39,7 @@
 
 
 <!-- Modal de exibição -->
-<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="calendarModal" tabindex="-1" role="dialog" data-backdrop="static"  aria-labelledby="staticBackdropLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -58,7 +58,7 @@
                 <h4 style="font-weight:bold">Profissional: <span style="font-weight:normal" id="horainicio"></span></h4>
                 <h4 style="font-weight:bold">Data: <span style="font-weight:normal" id="horafim"></span></h4>
                 <h4 style="font-weight:bold">Hora Agendada: <span style="font-weight:normal" id="data"></span>
-                <h4 style="font-weight:bold">Hora Agendada: <span style="font-weight:normal" id="motivo"></span>
+                <h4 style="font-weight:bold">Motivo de Uso: <span style="font-weight:normal" id="motivo"></span>
                 </h4>
             </div>
             <div class="modal-footer">

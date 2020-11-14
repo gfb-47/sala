@@ -1,53 +1,62 @@
-@extends('layouts.appNoSideBar', ['pageSlug' => 'Usuarios'])
+@extends('layouts.app', ['pageSlug' => 'Usuario'])
 
 
-@section('content') 
+@section('content')
+<div class="row">
+    <div class="col-12">
+        <div class="card card-chart">
+            <div class="card-header ">
+                <div class="row">
+                    <div class="col-sm-6 text-left">
+                        <h2 class="card-title">Usuário</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="{{ route('user.create')}}" class="btn btn-secondary float-right">Cadastrar Novo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                @include('alerts.success')
+                @include('alerts.error')
+                <div class="">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Tipo de Usuário</th>
+                                <th style="text-align: right">Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($data as $item)
+                            <tr>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->cpf}}</td>
+                                <td>{{$item->tipoUsuario->nome}}</td>
+                                <td style="text-align: right"><a href="{{ route('user.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3" style="text-align:center">
+                                    Não Foram encontrados Registros
+                                </td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
 
-<!DOCTYPE html>
-<html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="{{ asset('css') }}/index.css" rel="stylesheet"/>
-
-<body>
- 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-
-// Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-    }
-}
-
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
-
-</body>
-</html>
-
-
-@endsection
+                <!-- <div class="chart-area">
+                        <canvas id="chartBig1"></canvas>
+                    </div> -->
+            </div>
+            <div class="card-footer py-4">
+                <nav class="d-flex justify-content-end" aria-label="...">
+                    {{ $data->links() }}
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection 

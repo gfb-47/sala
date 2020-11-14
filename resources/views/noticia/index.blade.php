@@ -25,6 +25,7 @@
                                 <th>Título</th>
                                 <th>Criado por</th>
                                 <th>Data de Criação</th>
+                                <th>Data de Atualização</th>
                                 <th style="text-align: right">Editar</th>
                             </tr>
                         </thead>
@@ -33,12 +34,13 @@
                             <tr>
                                 <td>{{$item->titulo}}</td>
                                 <td>{{$item->user->name}}</td>
-                                <td>{{$item->created_at->format('d/m/Y')}}</td>
+                                <td>{{$item->created_at->format('d/m/Y H:i:s')}}</td>
+                                <td>{{$item->updated_at->format('d/m/Y H:i:s')}}</td>
                                 <td style="text-align: right"><a href="{{ route('noticia.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" style="text-align:center">
+                                <td colspan="5" style="text-align:center">
                                     Não Foram encontrados Registros
                                 </td>
                             </tr>
