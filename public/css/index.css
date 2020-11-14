@@ -16,7 +16,11 @@ body {
 
 .navBarIndex{
   background-color: rgba(3, 74, 166,0.8);
-  background-image: url('../img/paralax.png');
+  background-image: url('../img/paralax.png') ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   height: 400px;
   width: 100%;
   overflow: hidden;   
