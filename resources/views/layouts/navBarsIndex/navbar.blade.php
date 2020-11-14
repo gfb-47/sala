@@ -2,14 +2,14 @@
     <div class="navBarIndex_img">
         <a href=""><img src="{{ asset('img') }}/logo_unitins.png" alt="" height=auto width=130></a>
     </div>
-    <div class="navbar-item-all" style="display:flex; justify-content: flex-end;flex-flow: row wrap;" >
+    <div class="navbar-item-all">
         <a class="navbar-item" href="#">Home</a>
         @if(auth()->user()->tipo_usuario == 1)
             <a class="navbar-item" href="{{ route('home') }}">Dashboard</a>
         @endif    
 
         <a class="navbar-item" href="{{ route('profile.edit') }}">Perfil</a>
-        <div class="dropdown" fl>
+        <div class="dropdown">
             <button class="dropbtn">Agendamentos
                 <i class="fa fa-caret-down"></i>
             </button>
@@ -20,7 +20,10 @@
                     <a class="navbar-item" href="#">Relatório Operacional</a>
                 @endif    
             </div>
-            <button class="logoutBtn" type="button">Sair</button>
+           
+            
+                               
         </div>
+        <button class="logoutBtn" type="button" href="{{ route('logout') }}" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Sair</button>
     </div>
 </div>
