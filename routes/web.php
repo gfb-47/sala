@@ -34,9 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
 		Route::resource('perfil', 'ClientePerfilController');
 		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
-		Route::resource('curso', 'CursoController');
-		Route::resource('noticia', 'NoticiaController');
-		Route::resource('user', 'UserController');
+		Route::resource('curso', 'CursoController')->except(['status']);
+		Route::resource('noticia', 'NoticiaController')->except(['status']);
+		Route::resource('user', 'UserController')->except(['status']);
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
 		Route::resource('/relatorio/geral', 'GeralController');
