@@ -15,7 +15,7 @@
             </button>
             <div class="dropdown-content">
                 <a class="navbar-item" href="{{ route('meusagendamentos.index') }}">Meus Agendamentos</a>
-                <a class="navbar-item" href="{{ route('novoagendamento.index') }}">Agendar ambiente</a>
+                <a class="navbar-item" href="{{ route('clienteagendamento.index') }}">Agendar ambiente</a>
             </div>
             <button class="logoutBtn" type="button">Sair</button>
         </div>
