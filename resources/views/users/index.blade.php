@@ -1,5 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Usuario'])
-
+@extends('layouts.app', ['pageSlug' => 'Usuarios'])
 
 @section('content')
 <div class="row">
@@ -24,7 +23,9 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>CPF</th>
-                                <th>Tipo de Usuário</th>
+                                <th>Tipo do Usuário</th>
+                                <th>Dt. Criação</th>
+                                <th>Dt. Atualização</th>
                                 <th style="text-align: right">Editar</th>
                             </tr>
                         </thead>
@@ -56,7 +57,5 @@
                     {{ $data->links() }}
                 </nav>
             </div>
-        </div>
-    </div>
-</div>
-@endsection 
+
+@endsection

@@ -77,17 +77,19 @@ class CursoController extends Controller
         $item->save();
         return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
     }
-    public function status(Request $request, $id)
+
+    public function status($id)
     {
         $item = Curso::findOrFail($id);
         if ($item->ativo == 1){
             $item->fill(['ativo' => 0])->save();
-            return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' desativado com sucesso');
+            return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' desativada com sucesso');
         } else {
             $item->fill(['ativo' => 1])->save();
-            return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' ativado com sucesso');
+            return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' ativada com sucesso');
         }
     }
+
     /**
      * Remove the specified resource from storage.
      *
