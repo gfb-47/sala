@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'login-page', 'page' => _('Login Page'), 'contentClass' => 'login-page'])
+@extends('layouts.app', ['class' => 'login-page', 'page' =>'Login Page', 'contentClass' => 'login-page'])
 <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 <style>
     .login-page .card-login{
