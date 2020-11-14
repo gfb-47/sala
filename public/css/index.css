@@ -1,0 +1,96 @@
+body {
+  background: url('../img/background.jpg');
+}
+
+.container {
+	max-width: 1920px;
+	width: 100%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navBarIndex{
+  background-color: rgba(3, 74, 166,0.8);
+  background-image: url('../img/paralax.png');
+  height: 400px;
+  width: 100%;
+  overflow: hidden;   
+  font-family: Arial;
+  padding: 40px;
+  font-weight: 600;
+  border-bottom: 1px solic #CCC;
+  }
+
+.navBarIndex a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navBarIndex, .navbar-item:hover, .dropdown:hover .dropbtn {
+  background-color: #1a5cc7;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.logoutBtn{
+  color:white;
+  background-color:  	rgb(201,47,45);border-color:rgb(201,47,45);
+  text-decoration-color: #f9f9f9;width: 70px;
+  cursor: pointer;
+}
+
+.logo:hover{
+  background-color: none;
+}
