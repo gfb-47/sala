@@ -1,5 +1,9 @@
 body {
-  background: url('../img/background.jpg');
+  background: url('../img/background.jpg')  no-repeat center top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .container {
@@ -89,6 +93,14 @@ body {
   background-color:  	rgb(201,47,45);border-color:rgb(201,47,45);
   text-decoration-color: #f9f9f9;width: 70px;
   cursor: pointer;
+}
+
+footer {
+  background-color: #034AA6;
+}
+
+footer p{
+  color: white;
 }
 
 .logo:hover{

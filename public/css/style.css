@@ -1,5 +1,9 @@
 .white-content {
-    background-image: url('../img/background.jpg');
+    background-image: url('../img/background.jpg')  no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .sidebar .sidebar-wrapper .logo img{
