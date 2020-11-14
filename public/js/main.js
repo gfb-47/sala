@@ -163,45 +163,24 @@
             }
         });
     });
-})(jQuery);
-window.utilities = {
-    changeImage: function () {
-        console.log('Teste')
-        $("#image").trigger("click");
-    },
-    readUrl: function (input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $("#preview-icone").attr("src", e.target.result);
-                $("#remove-icone").val(0);
-            };
-        }
-    },
-    removeImage: function () {
-        $("#preview-icone").attr("src", "/img/noimage.png");
-        $("#remove-icone").val(1);
-    },
 
-    changeIcon: function () {
-        $("#icone").click();
-    },
-    readUrl: function (input) {
+    $(".imagem").on('change',function() {
+        readURL(this);
+    });
+            
+    function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $("#preview-icone").attr("src", e.target.result);
-                $("#remove-icone").val(0);
-            };
+                    
+            reader.onload = function(e) {
+            $('.image-thumbnail').attr('src', e.target.result);
+            }
+            $('#thumbnail').css('height','auto');
+                    
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
         }
-    },
-    removeIcone: function () {
-        $("#preview-icone").attr("src", "/img/noimage.png");
-        $("#remove-icone").val(1);
-    },
-};
+    }
+})(jQuery);
 
 function getUrl() {
     return document.getElementById("baseurl").value;
