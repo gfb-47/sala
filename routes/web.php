@@ -29,15 +29,16 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('tipoambiente', 'TipoAmbienteController');
 		Route::resource('tipousuario', 'TipoUsuarioController');
 		Route::resource('ambiente', 'AmbienteController')->except(['status']);
-		Route::resource('clienteagendamento', 'ClienteAgendamentoController');
+		Route::resource('selecaoambiente', 'ClienteAgendamentoController');
 		Route::resource('meusagendamentos', 'MeusAgendamentosController');
-		Route::resource('novoagendamento', 'NovoAgendamentoController');
+		Route::resource('novoagendamento', 'NovoAgendamentoController')->except(['index']);
 		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
 		Route::resource('perfil', 'ClientePerfilController');
 		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
 		Route::resource('curso', 'CursoController')->except(['status']);
 		Route::resource('noticia', 'NoticiaController');
 		Route::resource('user', 'UserController')->except(['status']);
+		Route::get('novoagendamento/{id}/calendario','NovoAgendamentoController@index')->name('novoagendamento.index');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
 		Route::resource('/relatorio/geral', 'GeralController');

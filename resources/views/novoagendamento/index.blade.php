@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 
-    $.get(getUrl() + '/api/v1/public/schedules/all/{{auth()->id()}}', function(data) {
+    $.get(getUrl() + '/api/v1/public/schedules/all/{{$id}}', function(data) {
         var data = data.data;
         for (var i=0; i<data.length; i++) {
             calendar.addEvent({
@@ -143,11 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
        alert('Ocorreu um Erro na Requisição');
     });
     calendar.render();
-  });
-  $('#inp-ambiente').on('change', function() {
-    var termos = getUrl() + '/novoagendamento/1/termosdeuso';
-    termos = termos.replace('1', $(this).val());
-    $('.termosredirect').attr('href', termos);
   });
 </script>
 @endpush

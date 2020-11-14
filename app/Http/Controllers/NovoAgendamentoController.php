@@ -18,23 +18,8 @@ class NovoAgendamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        // $agendamento=new Agendamento();
-        // $agendamento->ambiente='1';
-        // $agendamento->user='1';
-        // $agendamento->curso='1';
-        // $agendamento->disciplina='1';
-        // $agendamento->professorresponsavel='1';
-        // $agendamento->motivoutilizacao='1';
-        // $agendamento->horainicio='20:20:20';
-        // $agendamento->horafim='21:00:00';
-        // $agendamento->data='2000-07-07';
-        // $agendamento->situacao='1';
-        // $agendamento->observacao='aaaaaaa';
-        // $agendamento->save();
-        // $agendamento= Agendamento::all();
-        // return $agendamento;
         $data = Agendamento::info()->orderBy('ambiente')->paginate(10);
         $ambiente = Ambiente::select('id','nome as name')
         ->where('ambientes.ativo', 1)
@@ -50,8 +35,9 @@ class NovoAgendamentoController extends Controller
         ->where('users.tipo_usuario', 4)
         ->orderBy('pessoas.nome')->get();
         $motivo = MotivoUtilizacao::select('id','motivo as name')->orderBy('motivo')->get();
+        $termo_de_uso = Ambiente::select('termodeuso')->where('id',$id)->first();
         return view('novoagendamento.index', compact('ambiente', 'data', 'curso',
-     'disciplina', 'prof', 'motivo'));
+     'disciplina', 'prof', 'motivo','id','termo_de_uso'));
     }
 
 
@@ -81,7 +67,7 @@ class NovoAgendamentoController extends Controller
         $inputs['user']=auth()->id();
         $inputs['situacao']= 1;
         Agendamento::create($inputs);
-        return redirect()->route('novoagendamento.index');
+        return redirect()->route('meusagendamentos.index');
     }
 
     /**

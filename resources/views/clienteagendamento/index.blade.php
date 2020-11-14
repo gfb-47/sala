@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{$item->nome}}</td>
                                 <td>{{$item->tipoAmbiente->nome}}</td>
-                                <td style="text-align: right"><a href="{{ route('novoagendamento.index') }}" class="btn btn-primary">Agendar</a></td>
+                                <td style="text-align: right"><a href="{{ route('novoagendamento.index',$item->id) }}" class="btn btn-primary">Agendar</a></td>
                             </tr>
                         @empty
                             <tr>

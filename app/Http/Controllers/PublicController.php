@@ -26,7 +26,10 @@ class PublicController extends BaseController
          ->join('pessoas as professor', 'professor.id', '=', 'agendamentos.professorresponsavel')
          ->join('pessoas', 'pessoas.id', '=', 'agendamentos.user')
          ->join('motivo_utilizacaos as motivo', 'motivo.id', '=', 'agendamentos.motivoutilizacao')
-         ->join('users', 'users.pessoa_id', '=', 'pessoas.id')->where('users.id', $id)->get();    
+         ->join('users', 'users.pessoa_id', '=', 'pessoas.id')
+         ->where('ambiente', $id)
+         ->where('situacao', 2)
+         ->get();    
         return $this->sendResponse($data);
    }
 

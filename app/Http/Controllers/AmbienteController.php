@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ambiente;
 use App\TipoAmbiente;
+use Storage;
 use Illuminate\Http\Request;
 
 class AmbienteController extends Controller
@@ -40,7 +41,27 @@ class AmbienteController extends Controller
      */
     public function store(Request $request)
     {
-        Ambiente::create($request->all());
+        $this->validate(
+            $request,
+            [
+                'nome' => 'required|max:45', 
+                'tipoambiente' => 'required', 
+                'termodeuso' => 'nullable|mimes:pdf|max:2048'
+            ]
+        );
+
+        $item = Ambiente::create($request->all());
+
+        if($request->hasFile('termodeuso') && $request->file('termodeuso')->isValid()){
+            
+            $uploads = $request->termodeuso->store('uploads/termosdeuso','public');
+
+            $item->termodeuso = $uploads;
+
+            $item->save();
+        }
+
+
         return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
@@ -77,9 +98,30 @@ class AmbienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'nome' => 'required|max:45', 
+                'tipoambiente' => 'required', 
+                'termodeuso' => 'nullable|mimes:pdf|max:2048'
+            ]
+        );
+
         $item = Ambiente::findOrFail($id);
-        $item->fill($request->all());
+        $item->fill($request->except('termodeuso'));
+        if($request->hasFile('termodeuso') && $request->file('termodeuso')->isValid()){
+            
+            $uploads = $request->termodeuso->store('uploads/termosdeuso','public');
+
+            if ($item->termodeuso) {
+                Storage::disk('public')->delete($item->getOriginal('termodeuso'));
+            }
+
+            $item->termodeuso = $uploads;
+
+        }
         $item->save();
+        
         return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 

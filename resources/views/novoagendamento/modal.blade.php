@@ -24,6 +24,8 @@ aria-hidden="true">
                     <div class="col-md-12">
                             {!!Form::select('ambiente', 'Ambiente')
                             ->options($ambiente->prepend('Selecione...', ''))
+                            ->value($id)
+                            ->readonly()
                             ->required() !!}
                         </div>
                         <div class="col-md-6">
@@ -69,7 +71,7 @@ aria-hidden="true">
             <div class="custom-control custom-checkbox">
                 <input type="checkbox" id="customCheck1" required="required">
                 <label class="custom-control-label" for="customCheck1">
-                    <a class="termosredirect" href="" >Li e aceito os termos de uso</a>
+                    <a class="termosredirect" href="{{asset('/storage/' . $termo_de_uso->termodeuso)}}" target="_blank">Li e aceito os termos de uso</a>
                 </label>
                 </div>
             </div>
