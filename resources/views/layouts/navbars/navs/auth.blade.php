@@ -11,7 +11,7 @@
 
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-            aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -21,19 +21,19 @@
                 <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
-                            <img src="{{ asset('white') }}/img/unitinsAvatar.png" alt="{{ __('Profile Photo') }}">
+                            <img src="{{ asset('white') }}/img/unitinsAvatar.png" alt="Profile Photo">
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
-                        <p class="d-lg-none">{{ __('Sair') }}</p>
+                        <p class="d-lg-none">Sair</p>
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
                         <li class="nav-link">
-                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Perfil') }}</a>
+                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">Perfil</a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
                             <a href="{{ route('logout') }}" class="nav-item dropdown-item"
-                                onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                                onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Sair</a>
                         </li>
                     </ul>
                 </li>
@@ -47,8 +47,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{{ __('SEARCH') }}">
-                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('Close') }}">
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>
             </div>
