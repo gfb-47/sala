@@ -12,7 +12,7 @@
             <div class="card card-login card-white" style="border-radius:20px; width: auto; height:280px;
                 box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.507);">
                 <div class="card-header" style="height: 50px; padding-top: 30px; padding-bottom: -30px">
-                    <h3 style="color: black; text-align: center; font-weight:bold; font-family:Bree Serif" >{{ _('Login') }}</h3>
+                    <h3 style="color: black; text-align: center; font-weight:bold; font-family:Bree Serif" >Login</h3>
                 </div>
                 <div class="card-body" style="margin-top: -80px; padding:40px;">
                     <div class="input-group{{ $errors->has('cpf') ? ' has-danger' : '' }}" style="background-color: #EBEBEB; margin-bottom:25px;">
@@ -21,7 +21,7 @@
                                 <i style="color:#000;" class="fa fa-user" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <input type="text" name="cpf"  class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} cpf" style="height:33px"  placeholder="{{ _('CPF') }}">
+                        <input type="text" name="cpf"  class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} cpf" style="height:33px"  placeholder="CPF">
                         @include('alerts.feedback', ['field' => 'cpf'])
                     </div>
                     <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}" style="background-color: #EBEBEB;">
@@ -30,13 +30,13 @@
                                 <i styte="color:#fff;" class="fa fa-lock" aria-hidden="true" ></i>
                             </div>
                         </div>
-                        <input type="password" maxlength="11" placeholder="{{ _('Senha') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" style="height:33px">
+                        <input type="password" maxlength="11" placeholder="Senha" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" style="height:33px">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
                 <div class="card-footer" style="margin-top:-100px; padding: 40px;">
                     <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3" style="border-radius: 5px;
-                    height: 33px; padding: 0px; background-color: #0375D8">{{ _('Entrar') }}</button>
+                    height: 33px; padding: 0px; background-color: #0375D8">Entrar</button>
                 </div>
             </div>
         </form>
