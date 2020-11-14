@@ -35,3 +35,11 @@
     </div>
 </div>
 @endsection
+@push('js')
+<script>
+$('#inp-datainicio').on('change', function(){
+   $('#inp-datafim').attr('min',$(this).val()); 
+
+})
+</script>
+@endpush

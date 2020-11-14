@@ -16,6 +16,7 @@ class ClienteAgendamentoController extends Controller
     {
         $data = Ambiente::info()->orderBy('nome')
         ->with('tipoAmbiente')
+        ->where('ativo',1)
         ->paginate(10);
         return view('clienteagendamento.index', compact('data'));
     }

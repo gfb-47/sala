@@ -3,19 +3,19 @@
         <a href=""><img src="{{ asset('img') }}/logo_unitins.png" alt="" height=auto width=130></a>
     </div>
     <div class="navbar-item-all">
-        <a class="navbar-item" href="#">Home</a>
+        <a class="navbar-item" href="#">Página Inicial</a>
         @if(auth()->user()->tipo_usuario == 1)
-            <a class="navbar-item" href="{{ route('home') }}">Dashboard</a>
+            <a class="navbar-item" href="{{ route('user.index') }}">Dashboard</a>
         @endif    
 
-        <a class="navbar-item" href="{{ route('profile.edit') }}">Perfil</a>
+        <a class="navbar-item" href="{{ route('perfil.index') }}">Perfil</a>
         <div class="dropdown">
             <button class="dropbtn">Agendamentos
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
                 <a class="navbar-item" href="{{ route('meusagendamentos.index') }}">Meus Agendamentos</a>
-                <a class="navbar-item" href="{{ route('selecaoambiente.index') }}">Agendar ambiente</a>
+                <a class="navbar-item" href="{{ route('selecaoambiente.index') }}">Agendar Ambiente</a>
                 @if(auth()->user()->tipo_usuario == 4)
                     <a class="navbar-item" href="#">Relatório Operacional</a>
                 @endif    

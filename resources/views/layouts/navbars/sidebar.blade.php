@@ -1,13 +1,13 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="">
+            <a href="{{route('index.index')}}">
                 <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
             </a>
         </div>
         <ul class="nav">
             <li @if ($pageSlug=='Pagina Inicial' ) class="active " @endif>
-                <a href="{{ route('home') }}">
+                <a href="{{ route('index.index') }}">
                     <i class="fas fa-home"></i>
                     <p>Página Inicial</p>
                 </a>
