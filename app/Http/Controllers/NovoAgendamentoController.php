@@ -36,7 +36,9 @@ class NovoAgendamentoController extends Controller
         // $agendamento= Agendamento::all();
         // return $agendamento;
         $data = Agendamento::info()->orderBy('ambiente')->paginate(10);
-        $ambiente = Ambiente::select('id','nome as name')->orderBy('nome')->get();
+        $ambiente = Ambiente::select('id','nome as name')
+        ->where('ambientes.ativo', 1)
+        ->orderBy('nome')->get();
         $curso = Curso::select('id','nome as name')->orderBy('nome')->get();
         $disciplina = Disciplina::select('id','nome as name')->orderBy('nome')->get();
         $prof = Pessoa::select('pessoas.id','pessoas.nome as name')
