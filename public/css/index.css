@@ -6,9 +6,11 @@ body {
   background-size: cover;
 }
 
-.container {
+.carrousel-body {
   max-width: 1920px;
-	width: 100%;
+  background-color: #034AA6;
+  width: 250px;
+  height: 100%;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;

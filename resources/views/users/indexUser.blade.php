@@ -8,7 +8,7 @@
     <div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -19,7 +19,7 @@
     <div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -30,7 +30,7 @@
     <div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -41,7 +41,7 @@
     <div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -52,7 +52,7 @@
     <div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -62,7 +62,7 @@
     </div><div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -72,7 +72,7 @@
     </div><div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -82,7 +82,7 @@
     </div><div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -92,7 +92,7 @@
     </div><div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -102,7 +102,7 @@
     </div><div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
@@ -112,7 +112,7 @@
     </div><div class="carousel-cell">
         <div class="carrousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
-            <div class="container">
+            <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
                 <p>Unitins é campeã</p>
                 <p>Unitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeãUnitins é campeã</p>
