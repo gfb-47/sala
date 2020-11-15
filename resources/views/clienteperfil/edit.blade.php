@@ -1,4 +1,4 @@
-@extends('layouts.appNoSideBar', ['page' => 'User Profile', 'pageSlug' => 'profile'])
+@extends('layouts.appNoSideBar', ['page' => 'User Profile', 'pageSlug' => 'perfil'])
 
 @section('content')
     <div class="row">

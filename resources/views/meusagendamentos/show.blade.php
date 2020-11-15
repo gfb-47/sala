@@ -1,4 +1,4 @@
-@extends('layouts.appNoSideBar', ['pageSlug' => 'Meus agendamentos'])
+@extends('layouts.appNoSideBar', ['pageSlug' => 'meusagendamentos'])
 
 @section('content')
 <div class="container-fluid mt--7">
