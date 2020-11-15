@@ -6,7 +6,7 @@
 </div>
 <div class="carousel" data-flickity='{ "autoPlay": true  }'>
     <div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -50,7 +50,7 @@
         </div>
     </div>
     <div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div><div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -70,7 +70,7 @@
             </div>
         </div>
     </div><div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div><div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -90,7 +90,7 @@
             </div>
         </div>
     </div><div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -100,7 +100,7 @@
             </div>
         </div>
     </div><div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div><div class="carousel-cell">
-        <div class="carrousel-card">
+        <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=250>
             <div class="carrousel-body">
                 <h4><b>25 de Setembro</b></h4>
