@@ -8,6 +8,7 @@ body {
 
 main {
   padding: 80px;
+  min-height: 527px;
 }
 
 .carrousel-body {
@@ -62,7 +63,7 @@ main {
 }
 
 .navBarIndex{
-  background-color: rgba(3, 74, 166,0.8);
+  background-color: rgba(80, 134, 204, 0.8);
   background-image: url('../img/paralax.png') ;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -77,7 +78,7 @@ main {
   border-bottom: 1px solic #CCC;
   }
 .navBarIndexSm{
-  background-color: rgba(3, 74, 166,0.8);
+  background-color: #034AA6;
   background-image: url('../img/paralax.png') ;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -333,6 +334,8 @@ footer{
     margin-top: 50px;
     padding: 30px 0;
     font-weight: 600;
+    
+    
 }
 
 .footer-all{
