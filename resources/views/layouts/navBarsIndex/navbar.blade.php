@@ -2,22 +2,22 @@
     <div class="navBarIndex_img">
         <a href=""><img src="{{ asset('img') }}/logo_unitins.png" alt="" height=auto width=130></a>
     </div>
-    <div class="navbar-item-all">
-        <a class="navbar-item" href="#">Página Inicial</a>
+    <div class="item-navbar-all">
+        <a class="item-navbar" href="#">Página Inicial</a>
         @if(auth()->user()->tipo_usuario == 1)
-            <a class="navbar-item" href="{{ route('user.index') }}">Dashboard</a>
+            <a class="item-navbar" href="{{ route('user.index') }}">Dashboard</a>
         @endif    
 
-        <a class="navbar-item" href="{{ route('perfil.index') }}">Perfil</a>
-        <div class="dropdown">
-            <button class="dropbtn">Agendamentos
+        <a class="item-navbar" href="{{ route('perfil.index') }}">Perfil</a>
+        <div class="dropdownn">
+            <button class="dropbtnn">Agendamentos
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-content">
-                <a class="navbar-item" href="{{ route('meusagendamentos.index') }}">Meus Agendamentos</a>
-                <a class="navbar-item" href="{{ route('selecaoambiente.index') }}">Agendar Ambiente</a>
+            <div class="content-dropdown">
+                <a class="item-navbar" href="{{ route('meusagendamentos.index') }}">Meus Agendamentos</a>
+                <a class="item-navbar" href="{{ route('selecaoambiente.index') }}">Agendar Ambiente</a>
                 @if(auth()->user()->tipo_usuario == 4)
-                    <a class="navbar-item" href="#">Relatório Operacional</a>
+                    <a class="item-navbar" href="#">Relatório Operacional</a>
                 @endif    
             </div>
            
