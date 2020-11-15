@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('tipoambiente', 'TipoAmbienteController');
 		Route::resource('tipousuario', 'TipoUsuarioController');
 		Route::resource('ambiente', 'AmbienteController')->except(['status']);
-		Route::resource('selecaoambiente', 'ClienteAgendamentoController');
+		Route::resource('selecaoambiente', 'SelecaoAmbienteController')->except(['create', 'update', 'edit', 'show', 'delete']);
 		Route::resource('meusagendamentos', 'MeusAgendamentosController');
 		Route::resource('novoagendamento', 'NovoAgendamentoController')->except(['index']);
 		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'Ambiente', 'pageSlug' => 'Ambiente'])
+@extends('layouts.appNoSideBar', ['page' => 'Ambiente', 'pageSlug' => 'Ambiente'])
 
 @section('content')
 <div class="container-fluid mt--7">

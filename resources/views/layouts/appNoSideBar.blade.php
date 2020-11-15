@@ -37,11 +37,16 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
         </form>
+        @if(isset($pageSlug) &&  $pageSlug == 'meusagendamentos')
+        @include('layouts.navBarsIndex.navbarSm')
+        @else
         @include('layouts.navBarsIndex.navbar')
-        <div class="content">
-        
-        @yield('content')
-        </div>
+        @endif
+        <main>
+            <div class="content">
+                @yield('content')
+            </div>
+        </main>
         @include('layouts.footerIndex.footer')
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>

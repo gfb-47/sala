@@ -6,6 +6,11 @@ body {
   background-size: cover;
 }
 
+main {
+  padding: 80px;
+  min-height: 527px;
+}
+
 .carrousel-body {
   max-width: 1920px;
   background-color: #034AA6;
@@ -16,20 +21,70 @@ body {
 	margin-right: auto;
 }
 
-.navbar-item-all{
+.dropdownn {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdownn .dropbtnn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+/* CSS NAVBARS */
+
+/* Add a red background color to navbar links on hover */
+.navBarIndex, .item-navbar:hover, .dropdownn:hover .dropbtnn {
+  background-color: #1a5cc7;
+}
+.navBarIndexSm, .item-navbar:hover, .dropdownn:hover .dropbtnn {
+  background-color: #1a5cc7;
+}
+
+.navBarIndex_img{
+  height:auto; 
+  width:130;
+}
+.navBarIndexSm_img{
+  height:auto; 
+  width:130;
+  margin-top: -30px;
+}
+.item-navbar-all{
   display:flex; 
   justify-content: flex-end;
   flex-flow: row wrap;
 }
 
 .navBarIndex{
-  background-color: rgba(3, 74, 166,0.8);
+  background-color: rgba(80, 134, 204, 0.8);
   background-image: url('../img/paralax.png') ;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   height: 400px;
+  width: 100%;
+  overflow: hidden;   
+  font-family: Arial;
+  padding: 40px;
+  font-weight: 600;
+  border-bottom: 1px solic #CCC;
+  }
+.navBarIndexSm{
+  background-color: #034AA6;
+  background-image: url('../img/paralax.png') ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 200px;
   width: 100%;
   overflow: hidden;   
   font-family: Arial;
@@ -47,30 +102,19 @@ body {
   text-decoration: none;
 }
 
-.dropdown {
+.navBarIndexSm a {
   float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
   font-size: 16px;
-  border: none;
-  outline: none;
   color: white;
+  text-align: center;
   padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  text-decoration: none;
 }
 
-/* Add a red background color to navbar links on hover */
-.navBarIndex, .navbar-item:hover, .dropdown:hover .dropbtn {
-  background-color: #1a5cc7;
-}
+/* END NAVBAR CSS */
 
 /* Dropdown content (hidden by default) */
-.dropdown-content {
+.content-dropdown {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -80,7 +124,7 @@ body {
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
+.content-dropdown a {
   float: none;
   color:#1a5cc7;
   padding: 12px 16px;
@@ -90,15 +134,178 @@ body {
 }
 
 /* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
+.content-dropdown a:hover {
   background-color: #ddd;
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
+.dropdownn:hover .content-dropdown {
   display: block;
 }
 
+.btn-primary {
+  background: #034aa6;
+  background-image: -webkit-linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-image: -o-linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-image: -moz-linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-image: linear-gradient(to bottom left, #034aa6, #034aa6, #034aa6);
+  background-size: 210% 210%;
+  background-position: top right;
+  background-color: #034aa6;
+  transition: all 0.15s ease;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.btn-primary.animation-on-hover:hover {
+  background-position: bottom left;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.btn-primary.active:focus,
+.btn-primary.active:hover {
+  background-color: #053779 !important;
+  background-image: linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  background-image: -o-linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  background-image: -moz-linear-gradient(to bottom left, #053779, #053779, #053779) !important;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.btn-primary:active {
+  box-shadow: none !important;
+  transform: translateY(1px) !important;
+  transition: all .15s ease;
+}
+
+.btn-primary:not([data-action]):hover {
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+}
+
+.btn-primary.disabled,
+.btn-primary.disabled:hover,
+.btn-primary.disabled:focus,
+.btn-primary.disabled.focus,
+.btn-primary.disabled:active,
+.btn-primary.disabled.active,
+.btn-primary:disabled,
+.btn-primary:disabled:hover,
+.btn-primary:disabled:focus,
+.btn-primary:disabled.focus,
+.btn-primary:disabled:active,
+.btn-primary:disabled.active,
+.btn-primary[disabled],
+.btn-primary[disabled]:hover,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled].focus,
+.btn-primary[disabled]:active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-primary:hover,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary.focus,
+fieldset[disabled] .btn-primary:active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #e14eca;
+  border-color: #e14eca;
+}
+
+.btn-primary.btn-simple {
+  color: #e14eca;
+  border-color: #e14eca;
+  background: transparent;
+}
+
+.btn-primary.btn-simple:hover,
+.btn-primary.btn-simple:focus,
+.btn-primary.btn-simple:active,
+.btn-primary.btn-simple:not(:disabled):not(.disabled):active {
+  color: #e14eca;
+  border-color: #e14eca;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none;
+}
+
+.btn-primary.btn-simple.active {
+  border-color: #e14eca !important;
+}
+
+.btn-primary.btn-simple.active:hover,
+.btn-primary.btn-simple.active:focus,
+.btn-primary.btn-simple.active:active,
+.btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
+  color: #ffffff;
+  border-color: #e14eca;
+  background-image: linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -o-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-image: -moz-linear-gradient(to bottom left, #e14eca, #034aa6, #e14eca) !important;
+  background-color: #034aa6 !important;
+  box-shadow: none;
+}
+
+.btn-primary.btn-link {
+  color: #e14eca;
+}
+
+.btn-primary.btn-link:hover,
+.btn-primary.btn-link:focus,
+.btn-primary.btn-link:active {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background-color: #ee8e19;
+  color: #f4f5f7;
+  border-color: #f4f5f7;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn-secondary:hover {
+  background-color: #cf7b14;
+  color: #ffffff;
+  border-color: #d6dae2;
+}
+
+.btn-secondary:focus,
+.btn-secondary.focus {
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 0 rgba(244, 245, 247, 0.5);
+}
+
+.btn-secondary.disabled,
+.btn-secondary:disabled {
+  color: #212529;
+  background-color: #f4f5f7;
+  border-color: #f4f5f7;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.show>.btn-secondary.dropdown-toggle {
+  color: #f2a444;
+  background-color: #d6dae2;
+  border-color: #cfd3dc;
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-secondary.dropdown-toggle:focus {
+  box-shadow: none, 0 0 0 0 rgba(244, 245, 247, 0.5);
+}
 
 .logoutBtn{
   color:white;
@@ -116,12 +323,6 @@ footer {
 footer p{
   color: white;
 }
-
-.navBarIndex_img{
-  height:auto; 
-  width:130;
-}
-
 .logo:hover{
   background-color: none;
 }
@@ -133,6 +334,8 @@ footer{
     margin-top: 50px;
     padding: 30px 0;
     font-weight: 600;
+    
+    
 }
 
 .footer-all{
@@ -152,20 +355,9 @@ float: right;
 width: 80%;
 }
 
-
-
-
 .card {
   background: #27293d;
-  border: 0;
-  position: relative;
   width: 100%;
-  margin-bottom: 30px;
-  box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
-}
-
-
-.card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -240,6 +432,6 @@ img {
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.carousel-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
