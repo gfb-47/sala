@@ -41,12 +41,20 @@
         @include('layouts.navBarsIndex.navbarSm')
         @else
         @include('layouts.navBarsIndex.navbar')
+<<<<<<< HEAD
         @endif
         
        
         <div class="content">
             @yield('content')
         </div>
+=======
+        <main>
+            <div class="content">
+                @yield('content')
+            </div>
+        </main>
+>>>>>>> f81b4be75204e87c9935b47b156e902dbf066954
         @include('layouts.footerIndex.footer')
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     </body>

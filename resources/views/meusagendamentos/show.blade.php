@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Meus agendamentos'])
+@extends('layouts.appNoSideBar', ['pageSlug' => 'Meus agendamentos'])
 
 @section('content')
 <div class="container-fluid mt--7">
@@ -11,7 +11,7 @@
                             <h3 class="mb-0">Visualizar agendamento</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('meusagendamentos.index') }}" class="btn btn-sm btn-primary">Voltar</a>
+                            <a href="{{ route('meusagendamentos.index') }}" class="btn btn-lg btn-secondary">Voltar</a>
                         </div>
                     </div>
                 </div>

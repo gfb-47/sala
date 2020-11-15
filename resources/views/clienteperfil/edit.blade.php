@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => 'User Profile', 'pageSlug' => 'profile'])
+@extends('layouts.appNoSideBar', ['page' => 'User Profile', 'pageSlug' => 'profile'])
 
 @section('content')
     <div class="row">
@@ -59,8 +59,8 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-fill btn-secundary float-right">Salvar</button>
-                                <button type="button" class="btn btn-fill btn-secundary float-right" data-toggle="modal" data-target="#alterarSenha">Alterar Senha</button>
+                                <button type="submit" class="btn btn-fill btn-lg btn-secondary float-right">Salvar</button>
+                                <button type="button" class="btn btn-fill btn-lg btn-secondary float-right" data-toggle="modal" data-target="#alterarSenha">Alterar Senha</button>
                             </div>
                         </div>
                     </div>
