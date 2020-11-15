@@ -30,6 +30,8 @@ aria-hidden="true">
                         </div>
                         <div class="col-md-6">
                             {!!Form::date('data', 'Dia do Agendamento')
+                            
+                            ->min(auth()->user()->tipo_usuario==1?'':now()->add(2, 'day')->format('Y-m-d'))
                             ->required() !!}
                         </div>                 
                         <div class="col-md-3">
