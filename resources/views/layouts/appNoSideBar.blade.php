@@ -37,7 +37,13 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
         </form>
+        @if(isset($pageSlug) &&  $pageSlug == 'meusagendamentos')
+        @include('layouts.navBarsIndex.navbarSm')
+        @else
         @include('layouts.navBarsIndex.navbar')
+        @endif
+        
+       
         <div class="content">
             @yield('content')
         </div>

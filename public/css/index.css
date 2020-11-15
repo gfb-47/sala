@@ -16,6 +16,41 @@ body {
 	margin-right: auto;
 }
 
+.dropdownn {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdownn .dropbtnn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+/* CSS NAVBARS */
+
+/* Add a red background color to navbar links on hover */
+.navBarIndex, .item-navbar:hover, .dropdownn:hover .dropbtnn {
+  background-color: #1a5cc7;
+}
+.navBarIndexSm, .item-navbar:hover, .dropdownn:hover .dropbtnn {
+  background-color: #1a5cc7;
+}
+
+.navBarIndex_img{
+  height:auto; 
+  width:130;
+}
+.navBarIndexSm_img{
+  height:auto; 
+  width:130;
+  margin-top: -30px;
+}
 .item-navbar-all{
   display:flex; 
   justify-content: flex-end;
@@ -37,6 +72,21 @@ body {
   font-weight: 600;
   border-bottom: 1px solic #CCC;
   }
+.navBarIndexSm{
+  background-color: rgba(3, 74, 166,0.8);
+  background-image: url('../img/paralax.png') ;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;   
+  font-family: Arial;
+  padding: 40px;
+  font-weight: 600;
+  border-bottom: 1px solic #CCC;
+  }
 
 .navBarIndex a {
   float: left;
@@ -47,27 +97,16 @@ body {
   text-decoration: none;
 }
 
-.dropdownn {
+.navBarIndexSm a {
   float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdownn .dropbtnn {
   font-size: 16px;
-  border: none;
-  outline: none;
   color: white;
+  text-align: center;
   padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  text-decoration: none;
 }
 
-/* Add a red background color to navbar links on hover */
-.navBarIndex, .item-navbar:hover, .dropdownn:hover .dropbtnn {
-  background-color: #1a5cc7;
-}
+/* END NAVBAR CSS */
 
 /* Dropdown content (hidden by default) */
 .content-dropdown {
@@ -116,12 +155,6 @@ footer {
 footer p{
   color: white;
 }
-
-.navBarIndex_img{
-  height:auto; 
-  width:130;
-}
-
 .logo:hover{
   background-color: none;
 }
