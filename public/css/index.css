@@ -63,7 +63,7 @@ main {
 }
 
 .navBarIndex{
-  background-color: rgba(80, 134, 204, 0.8);
+  background-color: #034AA6;
   background-image: url('../img/paralax.png') ;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -435,3 +435,84 @@ img {
 .carousel-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+/* Test Checkbox */
+a {
+  color: #034aa6;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+}
+/* Test Checkbox FIM*/
+
+
+/* Checkbox Agendamentos */
+input[type="radio"], input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+button, input, optgroup, select, textarea {
+  font-family: "Poppins", sans-serif;
+}
+button, input {
+  overflow: visible;
+}
+input, button, select, optgroup, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+*:not(i) {
+  font-family: 'Roboto', sans-serif;
+}
+*, *::before {
+  box-sizing: border-box;
+}
+user agent stylesheet
+input[type="checkbox" i] {
+  background-color: initial;
+  cursor: default;
+  appearance: checkbox;
+  box-sizing: border-box;
+  margin: 3px 3px 3px 4px;
+  padding: initial;
+  border: initial;
+}
+user agent stylesheet
+input {
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: textfield;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+/* Checkbox Agendamentos FIM */

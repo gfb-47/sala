@@ -3,7 +3,7 @@
         <a href=""><img src="{{ asset('img') }}/logo_unitins.png" alt="" height=auto width=130></a>
     </div>
     <div class="item-navbar-all">
-        <a class="item-navbar" href="#">Página Inicial</a>
+        <a class="item-navbar" href="/index">Página Inicial</a>
         @if(auth()->user()->tipo_usuario == 1)
             <a class="item-navbar" href="{{ route('user.index') }}">Dashboard</a>
         @endif    
