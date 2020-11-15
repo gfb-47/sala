@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Meus agendamentos'])
+@extends('layouts.appNoSideBar')
 
 @section('content')
 <div class="row">
