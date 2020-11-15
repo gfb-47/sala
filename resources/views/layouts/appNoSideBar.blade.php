@@ -29,9 +29,6 @@
         <link href="{{ asset('css') }}/style.css" rel="stylesheet" />
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
         <title>{{ config('app.name', 'White Dashboard') }}</title>
 
         <!-- CSS -->
@@ -39,6 +36,9 @@
         
     </head>
     <body>       
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+        </form>
         @include('layouts.navBarsIndex.navbar')
         @yield('content')
         @include('layouts.footerIndex.footer')
