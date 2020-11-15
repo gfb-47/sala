@@ -3,10 +3,10 @@
         <a href=""><img src="{{ asset('img') }}/logo_unitins.png" alt="" height=auto width=130></a>
     </div>
     <div class="item-navbar-all">
-        <a class="item-navbar" href="#">Página Inicial</a>
+        <a class="item-navbar" href="/index">Página Inicial</a>
         @if(auth()->user()->tipo_usuario == 1)
             <a class="item-navbar" href="{{ route('user.index') }}">Dashboard</a>
-        @endif    
+        @endif       
 
         <a class="item-navbar" href="{{ route('perfil.index') }}">Perfil</a>
         <div class="dropdownn">
@@ -19,10 +19,7 @@
                 @if(auth()->user()->tipo_usuario == 4)
                     <a class="item-navbar" href="#">Relatório Operacional</a>
                 @endif    
-            </div>
-           
-            
-                               
+            </div>          
         </div>
         <button class="logoutBtn" type="button" href="{{ route('logout') }}" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Sair</button>
     </div>

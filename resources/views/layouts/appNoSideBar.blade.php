@@ -38,9 +38,11 @@
                 @csrf
         </form>
         @include('layouts.navBarsIndex.navbar')
-        <div class="content">
-            @yield('content')
-        </div>
+        <main>
+            <div class="content">
+                @yield('content')
+            </div>
+        </main>
         @include('layouts.footerIndex.footer')
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     </body>

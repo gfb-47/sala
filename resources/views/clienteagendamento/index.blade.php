@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Cliente Agendamento'])
+@extends('layouts.appNoSideBar', ['pageSlug' => 'Cliente Agendamento'])
 
 
 @section('content')
@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{$item->nome}}</td>
                                 <td>{{$item->tipoAmbiente->nome}}</td>
-                                <td style="text-align: right"><a href="{{ route('novoagendamento.index',$item->id) }}" class="btn btn-primary">Agendar</a></td>
+                                <td style="text-align: right"><a href="{{ route('novoagendamento.index',$item->id) }}" class="btn btn-lg btn-primary">Agendar</a></td>
                             </tr>
                         @empty
                             <tr>
