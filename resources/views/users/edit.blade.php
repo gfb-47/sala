@@ -11,7 +11,7 @@
                             <h3 class="mb-0">Usuário</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('usuario.index') }}" class="btn btn-sm btn-primary">Voltar</a>
+                            <a href="{{ route('user.index') }}" class="btn btn-sm btn-primary">Voltar</a>
                         </div>
                     </div>
                 </div>
@@ -19,10 +19,10 @@
                     {!!Form::open()
                     ->put()
                     ->fill($item)
-                    ->route('usuario.update', [$item->id])
+                    ->route('user.update', [$item->id])
                     ->multipart()!!}
                     <div class="pl-lg-4">
-                        @include('usuario._form')
+                        @include('users._form')
                     </div>
                     {!!Form::close()!!}
                 </div>

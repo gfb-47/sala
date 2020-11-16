@@ -37,7 +37,6 @@
                         @yield('content')
                     </div>
 
-                    <!-- @include('layouts.footer') -->
                 </div>
             </div>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -52,10 +51,10 @@
                             @yield('content')
                         </div>
                     </div>
-                    <!-- @include('layouts.footer') -->
                 </div>
             </div>
         @endauth
+        <div class="modal-loading"></div>
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
@@ -79,22 +78,9 @@
         <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
         <script src="{{ asset('js') }}/main.js"></script>
         
-        @stack('js')
         
         <script>
             $(document).ready(function() {
-                // $('#Cadastros').collapse({
-                //         toggle: true
-                //     })
-                //     $('#Movimentação').collapse({
-                //         toggle: true
-                //     })
-                //     $('#GerarRelatorio').collapse({
-                //         toggle: true
-                //     })
-                //     $('#gerenciamento').collapse({
-                //         toggle: true
-                //     })
                 $().ready(function() {
                     $sidebar = $('.sidebar');
                     $navbar = $('.navbar');
@@ -201,3 +187,4 @@
         @stack('js')
     </body>
 </html>
+

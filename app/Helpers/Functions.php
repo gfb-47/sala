@@ -37,6 +37,15 @@ function clean($string)
     return preg_replace('/[^A-Za-z0-9]/', '', $string);
 }
 
+function encryptCpf($cpf)
+{
+    $cpf = str_replace('.', '', $cpf);
+    $cpf = str_replace('-', '', $cpf);
+    return bcrypt($cpf);
+}
+
+
+
 function days()
 {
     $days = array(

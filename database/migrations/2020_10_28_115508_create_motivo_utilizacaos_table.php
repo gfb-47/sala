@@ -16,6 +16,7 @@ class CreateMotivoUtilizacaosTable extends Migration
         Schema::create('motivo_utilizacaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('motivo', 45);
+            $table->tinyInteger('ativo')->default(1);
             $table->timestamps();
         });
     }

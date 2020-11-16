@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'tipo_usuario', 'pessoa_id',
+        'name', 'email', 'password', 'tipo_usuario', 'pessoa_id','cpf','ativo'
     ];
 
     /**
@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','pessoa_id',
     ];
 
     /**
@@ -37,14 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function person(){
+    public function pessoa(){
         return $this->belongsTo(Pessoa::class, 'pessoa_id');
     }
 
     public function tipoUsuario(){
-        return $this->belongsTo(TipoUsuario::class, 'tipo_usuario;');
+        return $this->belongsTo(TipoUsuario::class, 'tipo_usuario');
     }
 
-
-
+    public function scopeInfo($query){
+        return $query->select('*');
+    }
 }

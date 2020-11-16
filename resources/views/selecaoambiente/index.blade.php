@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Cliente Agendamento'])
+@extends('layouts.appNoSideBar', ['pageSlug' => 'selecaoambiente'])
 
 
 @section('content')
@@ -26,12 +26,12 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->nome}}</td>
-                                <td>{{$item->tipoambiente}}</td>
-                                <td style="text-align: right"><a href="{{ route('clienteagendamento.index') }}" class="btn btn-primary">Agendar</a></td>
+                                <td>{{$item->tipoAmbiente->nome}}</td>
+                                <td style="text-align: right"><a href="{{ route('novoagendamento.index',$item->id) }}" class="btn btn-lg btn-primary">Agendar</a></td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2" style="text-align:center">
+                                <td colspan="3" style="text-align:center">
                                     Não foram encontrados registros
                                 </td>
                             </tr>
@@ -40,9 +40,6 @@
                     </table>
                 </div>
 
-                <!-- <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div> -->
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">

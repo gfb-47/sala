@@ -25,7 +25,7 @@ class TipoUsuarioController extends Controller
      */
     public function create()
     {
-        return view('tipousuario.create');
+       
     }
 
     /**

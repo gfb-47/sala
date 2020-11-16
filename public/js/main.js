@@ -100,6 +100,25 @@
             }
         });
     });
+    $(".btn-change").on("click", function (e) {
+        e.preventDefault();
+        var form = $(this).parents("form").attr("id");
+        swal({
+            title: "Você está certo?",
+            text:
+                "Atenção, você está preste a alterar o status deste item e isso pode alterar a visibilidade dele dentro do sistema. Tem certeza dessa operação?",
+            icon: "warning",
+            buttons: true,
+            buttons: ["Cancelar", "Alterar"],
+            dangerMode: true,
+        }).then((isConfirm) => {
+            if (isConfirm) {
+                document.getElementById(form).submit();
+            } else {
+                swal("Status Mantido com sucesso");
+            }
+        });
+    });
 
     $(".btn-add").on("click", function () {
         var $tr = $(".dynamic-form");
@@ -144,44 +163,24 @@
             }
         });
     });
-})(jQuery);
-window.utilities = {
-    changeImage: function () {
-        $("#image").click();
-    },
-    readUrl: function (input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $("#preview-icone").attr("src", e.target.result);
-                $("#remove-icone").val(0);
-            };
-        }
-    },
-    removeImage: function () {
-        $("#preview-icone").attr("src", "/img/noimage.png");
-        $("#remove-icone").val(1);
-    },
 
-    changeIcon: function () {
-        $("#icone").click();
-    },
-    readUrl: function (input) {
+    $(".imagem").on('change',function() {
+        readURL(this);
+    });
+            
+    function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function (e) {
-                $("#preview-icone").attr("src", e.target.result);
-                $("#remove-icone").val(0);
-            };
+                    
+            reader.onload = function(e) {
+            $('.image-thumbnail').attr('src', e.target.result);
+            }
+            $('#thumbnail').css('height','auto');
+                    
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
         }
-    },
-    removeIcone: function () {
-        $("#preview-icone").attr("src", "/img/noimage.png");
-        $("#remove-icone").val(1);
-    },
-};
+    }
+})(jQuery);
 
 function getUrl() {
     return document.getElementById("baseurl").value;

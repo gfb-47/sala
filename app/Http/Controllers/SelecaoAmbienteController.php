@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Ambiente;
 use Illuminate\Http\Request;
 
-class ClienteAgendamentoController extends Controller
+class SelecaoAmbienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,11 @@ class ClienteAgendamentoController extends Controller
      */
     public function index()
     {
-        $data = Ambiente::info()->orderBy('nome')->paginate(10);
-        return view('clienteagendamento.index', compact('data'));
+        $data = Ambiente::info()->orderBy('nome')
+        ->with('tipoAmbiente')
+        ->where('ativo',1)
+        ->paginate(10);
+        return view('selecaoambiente.index', compact('data'));
     }
 
     /**

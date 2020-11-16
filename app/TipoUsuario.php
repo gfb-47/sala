@@ -15,7 +15,7 @@ class TipoUsuario extends Model
         return $query->select('*');
     }
 
-    public function tipoUsuario()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Noticia;
+use Storage;
 use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
@@ -14,7 +15,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        $data = Noticia::info()->orderBy('titulo')->paginate(10);
+        $data = Noticia::info()->with('user')->orderBy('titulo')->paginate(10);
         return view('noticia.index', compact('data'));
     }
 
@@ -36,11 +37,27 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate(
+            $request,
+            [
+                'titulo' => 'required|max:45',
+                'conteudo' => 'nullable|max:4000',
+                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            ]
+        );
+
         $inputs=$request->all();
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $upload = $request->imagem->store('uploads/noticias', 'public');
+
+            $inputs['imagem']= $upload;
+        }
+
         $inputs['user_id']=auth()->id();
-        $inputs['imagem']='finja que isso é uma imagem';
         Noticia::create($inputs);
-        return redirect()->route('noticia.index');
+        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -75,12 +92,32 @@ class NoticiaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'titulo' => 'required|max:45',
+                'conteudo' => 'nullable|max:4000',
+                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            ]
+        );
+        $inputs = $request->except('imagem');
         $item = Noticia::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('noticia.index');
-    }
+        $item->fill($inputs);
 
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+
+            $upload = $request->imagem->store('uploads/noticias', 'public');
+
+            if ($item->imagem) {
+                Storage::disk('public')->delete($item->imagem);
+            }
+
+            $item->imagem = $upload;
+
+            $item->save();
+        }
+        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -89,7 +126,11 @@ class NoticiaController extends Controller
      */
     public function destroy($id)
     {
-        $item = Noticia::delete($id);
-        return redirect()->route('noticia.index');
+        $item = Noticia::findOrFail($id);
+        if ($item->imagem) {
+            Storage::disk('public')->delete($item->imagem);
+        }
+        $item->delete();
+        return redirect()->route('noticia.index')->withStatus('Registro Excluído com Sucesso');
     }
 }

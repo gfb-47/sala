@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Tipo Usuario'])
+@extends('layouts.app', ['pageSlug' => 'Tipos Usuario'])
 
 
 @section('content')
@@ -8,11 +8,13 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h2 class="card-title">Tipo Usuario</h2>
+                        <h2 class="card-title">Tipos de Usuario</h2>
                     </div>
+                    <!--
                     <div class="col-sm-6">
                         <a href="{{ route('tipousuario.create') }}" class="btn btn-secondary float-right">Criar Novo</a>
                     </div>
+                    -->
                 </div>
             </div>
             <div class="card-body">

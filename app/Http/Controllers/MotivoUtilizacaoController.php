@@ -22,7 +22,7 @@ class MotivoUtilizacaoController extends Controller
     public function store(Request $request)
     {
         MotivoUtilizacao::create($request->all());
-        return redirect()->route('motivoutilizacao.index');
+        return redirect()->route('motivoutilizacao.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     public function show($id)
@@ -41,7 +41,7 @@ class MotivoUtilizacaoController extends Controller
         $item = MotivoUtilizacao::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('motivoutilizacao.index');
+        return redirect()->route('motivoutilizacao.index')->withStatus('Registro Adicionado com Sucesso');
 
     }
 

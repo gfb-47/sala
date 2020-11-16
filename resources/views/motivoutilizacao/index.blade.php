@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'Motivo de Uso'])
+@extends('layouts.app', ['pageSlug' => 'Motivos de Uso'])
 
 
 @section('content')
@@ -16,11 +16,15 @@
                 </div>
             </div>
             <div class="card-body">
+                @include('alerts.success')
+                @include('alerts.error')
                 <div class="">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>Motivo</th>
+                                <th>Dt. Criação</th>
+                                <th>Dt. Atualização</th>
                                 <th style="text-align: right">Editar</th>
                             </tr>
                         </thead>
@@ -28,11 +32,13 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->motivo}}</td>
+                                <td>{{$item->created_at->format('d/m/Y H:i:s')}}</td>
+                                <td>{{$item->updated_at->format('d/m/Y H:i:s')}}</td>
                                 <td style="text-align: right"><a href="{{ route('motivoutilizacao.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2" style="text-align:center">
+                                <td colspan="4" style="text-align:center">
                                     Não foram encontrados registros
                                 </td>
                             </tr>

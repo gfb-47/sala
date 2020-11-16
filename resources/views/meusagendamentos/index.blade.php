@@ -1,9 +1,9 @@
-@extends('layouts.app', ['pageSlug' => 'Meus agendamentos'])
+@extends('layouts.appNoSideBar', ['page' => 'Meus Agendamentos', 'pageSlug' => 'meusagendamentos'])
 
 @section('content')
 <div class="row">
     <div class="col-12">
-        <div class="card card-chart">
+        <div class="card">
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
@@ -45,9 +45,6 @@
                     </table>
                 </div>
 
-                <!-- <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div> -->
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">

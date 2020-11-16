@@ -16,6 +16,7 @@ class CreateTipoAmbientesTable extends Migration
         Schema::create('tipo_ambientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome', 50);
+            $table->tinyInteger('ativo')->default(1);
             $table->timestamps();
         });
     }

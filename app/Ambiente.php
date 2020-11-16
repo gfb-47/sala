@@ -8,13 +8,18 @@ class Ambiente extends Model
 {
 
     protected $fillable = [
-        'nome','termodeuso','status','tipoambiente'
+        'nome','termodeuso','status','tipoambiente','ativo'
     ];
     
     public function scopeInfo($query){
         return $query->select('*');
     }
+
     public function agendamento() {
         return $this->hasMany(Agendamento::class);
+    }
+
+    public function tipoAmbiente(){
+        return $this->belongsTo(TipoAmbiente::class, 'tipoambiente');
     }
 }

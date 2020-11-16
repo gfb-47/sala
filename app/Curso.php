@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     protected $fillable = [
-        'nome',
+        'nome','ativo'
     ];
 
     public function scopeInfo($query){

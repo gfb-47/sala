@@ -37,7 +37,7 @@ class DisciplinaController extends Controller
     public function store(Request $request)
     {
         Disciplina::create($request->all());
-        return redirect()->route('disciplina.index');
+        return redirect()->route('disciplina.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -75,7 +75,19 @@ class DisciplinaController extends Controller
         $item = Disciplina::findOrFail($id);
         $item->fill($request->all());
         $item->save();
-        return redirect()->route('disciplina.index');
+        return redirect()->route('disciplina.index')->withStatus('Registro Adicionado com Sucesso');
+    }
+
+    public function status($id)
+    {
+        $item = Disciplina::findOrFail($id);
+        if ($item->ativo == 1){
+            $item->fill(['ativo' => 0])->save();
+            return redirect()->route('disciplina.index')->withStatus('Disciplina '.$item->nome.' desativada com sucesso');
+        } else {
+            $item->fill(['ativo' => 1])->save();
+            return redirect()->route('disciplina.index')->withStatus('Disciplina '.$item->nome.' ativada com sucesso');
+        }
     }
 
     /**

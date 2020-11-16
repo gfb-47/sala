@@ -32,6 +32,10 @@ class Agendamento extends Model
         return $this->belongsTo(Pessoa::class, 'professorresponsavel');
     }
 
+    public function users() {
+        return $this->belongsTo(User::class, 'user');
+    }
+
     public function allStatus() {
         return [
             1=> 'Pendente', 'Confirmado', 'Cancelado', 'Finalizado'

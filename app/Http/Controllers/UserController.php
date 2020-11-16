@@ -20,8 +20,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data = User::info()->orderBy('name')->paginate(10);
-        return view('usuario.index', compact('data'));
+        $data = User::info()->orderBy('name')
+        ->with('pessoa', 'tipoUsuario')
+        ->paginate(10);
+        return view('users.index', compact('data'));
     }
 
     /**
@@ -45,17 +47,22 @@ class UserController extends Controller
     {
         DB::transaction(function() use ($request) {
             try {
-                $input = $request->all();
-                $item = Pessoa::create($input);
+                $input = $request->except('_token');
+                //dd($request);
+                $item = Pessoa::create([
+                    'nome' => $request->name,
+                    'matricula' => $request->matricula,
+                    'telefone' => $request->telefone,
+                ]);
                 $input['pessoa_id']=$item->id;
                 $input['name']=$item->nome;
-                $input['password']='123';
+                $input['password'] = encryptCpf($input['cpf']);
                 User::create($input);
             } catch (Exception $e) {
-                return redirect()->route('user.create');
+                return redirect()->route('user.create')->withError('Erro adicionado com sucesso');
             }
         });
-        return redirect()->route('user.create');
+        return redirect()->route('user.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -77,8 +84,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $item = User::findOrFail($id);
-        return view('usuario.edit', compact('item'));
+        $item = User::select('users.*', 'pessoas.matricula', 'pessoas.telefone')
+        ->join('pessoas', 'users.pessoa_id', '=', 'pessoas.id')
+        ->where('users.id', $id)->first();
+        //dd($item->pessoa_id);
+        $tipoUsuario = TipoUsuario::select('id', 'nome as name')->get();
+        return view('users.edit', compact('item','tipoUsuario'));
     }
 
     /**
@@ -90,12 +101,32 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = User::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('usuario.index');
+        DB::transaction(function() use ($request, $id) {
+            try {
+                $inputs = $request->except('_token');
+                $inputs['nome'] = $inputs['name'];
+                $item = User::findOrFail($id);
+                $item->fill($inputs)->save();
+                $pessoa = Pessoa::findOrFail($item->pessoa_id);
+                $pessoa->fill($inputs)->save();
+            } catch (Exception $e) {
+             return redirect()->route('user.index')->withError('Erro adicionado com sucesso');
+            }
+    });
+    return redirect()->route('user.index')->withStatus('Registro atualizado com sucesso');
     }
 
+    public function status(Request $request, $id)
+    {
+        $item = User::findOrFail($id);
+        if ($item->ativo == 1){
+            $item->fill(['ativo' => 0])->save();
+            return redirect()->route('users.index')->withStatus('Usuário '.$item->nome.' desativado com sucesso');
+        } else {
+            $item->fill(['ativo' => 1])->save();
+            return redirect()->route('users.index')->withStatus('Usuário '.$item->nome.' ativado com sucesso');
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *

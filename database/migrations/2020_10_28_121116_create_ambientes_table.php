@@ -17,6 +17,7 @@ class CreateAmbientesTable extends Migration
             $table->bigIncrements('id');
             $table->text('termodeuso');
             $table->string('nome',45);
+            $table->tinyInteger('ativo')->default(1);
             $table->tinyInteger('status')->default(1);
             $table->bigInteger('tipoambiente')->unsigned();
             $table->timestamps();

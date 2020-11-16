@@ -25,27 +25,29 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
-		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'PageController@maps']);
-		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'PageController@notifications']);
-		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'PageController@rtl']);
-		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'PageController@tables']);
-		Route::get('typography', ['as' => 'pages.typography', 'uses' => 'PageController@typography']);
-		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'PageController@upgrade']);
+		Route::resource('index', 'IndexController');
 		Route::resource('tipoambiente', 'TipoAmbienteController');
 		Route::resource('tipousuario', 'TipoUsuarioController');
-		Route::resource('ambiente', 'AmbienteController');
-		Route::resource('clienteagendamento', 'ClienteAgendamentoController');
+		Route::resource('ambiente', 'AmbienteController')->except(['status']);
+		Route::resource('selecaoambiente', 'SelecaoAmbienteController')->except(['create', 'update', 'edit', 'show', 'delete']);
 		Route::resource('meusagendamentos', 'MeusAgendamentosController');
-		Route::resource('novoagendamento', 'NovoAgendamentoController');
+		Route::resource('novoagendamento', 'NovoAgendamentoController')->except(['index']);
 		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
 		Route::resource('perfil', 'ClientePerfilController');
-		Route::resource('disciplina', 'DisciplinaController');
-		Route::resource('curso', 'CursoController');
+		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
+		Route::resource('curso', 'CursoController')->except(['status']);
 		Route::resource('noticia', 'NoticiaController');
-		Route::resource('user', 'UserController');
+		Route::resource('user', 'UserController')->except(['status']);
+		Route::get('novoagendamento/{id}/calendario','NovoAgendamentoController@index')->name('novoagendamento.index');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
 		->name('novoagendamento.termosdeuso');
+		Route::resource('/relatorio/geral', 'GeralController');
+		Route::resource('/relatorio/professor', 'ProfessorController');
+		Route::get('/relatorio/pdf/geral', 'AgendamentoController@gerarRelatorioGeral')->name('relatorio.gerarRelatorioGeral');
+		Route::get('/relatorio/pdf/professor', 'AgendamentoController@gerarRelatorioProf')->name('relatorio.gerarRelatorioProf');
+		Route::post('/ambiente/{id}/status', 'AmbienteController@status')->name('ambiente.status');
+		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
+		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
 });
 
 Route::group(['middleware' => 'auth'], function () {

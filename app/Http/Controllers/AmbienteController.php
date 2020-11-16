@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Ambiente;
 use App\TipoAmbiente;
+use Storage;
 use Illuminate\Http\Request;
 
 class AmbienteController extends Controller
@@ -15,7 +16,9 @@ class AmbienteController extends Controller
      */
     public function index()
     {
-        $data = Ambiente::info()->orderBy('nome')->paginate(10);
+        $data = Ambiente::info()->orderBy('nome')
+        ->with('tipoAmbiente')
+        ->paginate(10);
         return view('ambiente.index', compact('data'));
     }
 
@@ -38,8 +41,28 @@ class AmbienteController extends Controller
      */
     public function store(Request $request)
     {
-        Ambiente::create($request->all());
-        return redirect()->route('ambiente.index');
+        $this->validate(
+            $request,
+            [
+                'nome' => 'required|max:45', 
+                'tipoambiente' => 'required', 
+                'termodeuso' => 'nullable|mimes:pdf|max:2048'
+            ]
+        );
+
+        $item = Ambiente::create($request->all());
+
+        if($request->hasFile('termodeuso') && $request->file('termodeuso')->isValid()){
+            
+            $uploads = $request->termodeuso->store('uploads/termosdeuso','public');
+
+            $item->termodeuso = $uploads;
+
+            $item->save();
+        }
+
+
+        return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
     /**
@@ -75,10 +98,43 @@ class AmbienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            $request,
+            [
+                'nome' => 'required|max:45', 
+                'tipoambiente' => 'required', 
+                'termodeuso' => 'nullable|mimes:pdf|max:2048'
+            ]
+        );
+
         $item = Ambiente::findOrFail($id);
-        $item->fill($request->all());
+        $item->fill($request->except('termodeuso'));
+        if($request->hasFile('termodeuso') && $request->file('termodeuso')->isValid()){
+            
+            $uploads = $request->termodeuso->store('uploads/termosdeuso','public');
+
+            if ($item->termodeuso) {
+                Storage::disk('public')->delete($item->getOriginal('termodeuso'));
+            }
+
+            $item->termodeuso = $uploads;
+
+        }
         $item->save();
-        return redirect()->route('ambiente.index');
+        
+        return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
+    }
+
+    public function status(Request $request, $id)
+    {
+        $item = Ambiente::findOrFail($id);
+        if ($item->ativo == 1){
+            $item->fill(['ativo' => 0])->save();
+            return redirect()->route('ambiente.index')->withStatus('Ambiente '.$item->nome.' desativado com sucesso');
+        } else {
+            $item->fill(['ativo' => 1])->save();
+            return redirect()->route('ambiente.index')->withStatus('Ambiente '.$item->nome.' ativado com sucesso');
+        }
     }
 
     /**

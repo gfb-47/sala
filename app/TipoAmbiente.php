@@ -8,10 +8,15 @@ class TipoAmbiente extends Model
 {
     
     protected $fillable = [
-        'nome',
+        'nome','ativo'
     ];
     
     public function scopeInfo($query){
         return $query->select('*');
+    }
+    
+    public function ambiente()
+    {
+        return $this->belongsTo(Ambiente::class);
     }
 }

@@ -1,5 +1,9 @@
 .white-content {
-    background-image: url('../img/background.jpg');
+    background-image: url('../img/background.jpg')  no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .sidebar .sidebar-wrapper .logo img{
@@ -28,7 +32,7 @@ select[readonly] {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, .8) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
+    background: rgba(255, 255, 255, .8) url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif') 50% 50% no-repeat;
 }
 
 /* enquanto estiver carregando, o scroll da página estará desativado */
@@ -39,4 +43,41 @@ body.loading {
 /* a partir do momento em que o body estiver com a classe loading,  o modal aparecerá */
 body.loading .modal-loading {
     display: block;
+}
+
+label#thumbnail {
+    margin-bottom: 20px;
+    border: 1px dashed #ddd;
+    background-size: cover;
+    cursor: pointer;
+    display: flex;
+    height: auto;
+    max-height: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+label#thumbnail input {
+    display: none;
+}
+
+label#thumbnail img{
+    max-height: 600px;
+}
+
+label#thumbnail.has-thumbnail {
+    border: 0;
+}
+
+label#thumbnail.has-thumbnail img{
+    display: none;
+}
+
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
 }

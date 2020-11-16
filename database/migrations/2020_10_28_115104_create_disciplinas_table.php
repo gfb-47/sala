@@ -16,6 +16,7 @@ class CreateDisciplinasTable extends Migration
         Schema::create('disciplinas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome', 50);
+            $table->tinyInteger('ativo')->default(1);
             $table->timestamps();
         });
     }
