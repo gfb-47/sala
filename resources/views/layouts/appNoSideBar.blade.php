@@ -39,7 +39,7 @@
                 @csrf
         </form>
         @if(isset($pageSlug) &&($pageSlug == 'meusagendamentos' || $pageSlug == 'perfil' || $pageSlug == 'novoagendamento' || $pageSlug == 'selecaoambiente'))
-        @include('layouts.navBarsIndex.navbarSm')
+        @include('layouts.navBarsIndex.navBarSm')
         @else
         @include('layouts.navBarsIndex.navbar')
         @endif
