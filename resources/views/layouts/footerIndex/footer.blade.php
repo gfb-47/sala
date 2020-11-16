@@ -10,7 +10,11 @@
         <p>FONES: (63) 3218-4936 / 3218-2902 / 3218-2974</p>
         <p>Desenvolvido pela Diretoria de Tecnologia da Informação</p>
         </div>       
+        <div class="footer-logo">
+           
+        </div>
     </div>
+
 </footer>
 
 
