@@ -35,27 +35,27 @@ class AgendamentoController extends Controller
         ->where('data', '>=', $request->datainicio)
         ->where('data', '<=', $request->datafim)
         ->paginate(10);
-
+        
         return PDF::loadView('pdfs.professor_pdf', compact('data'))
         ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
         ->setPaper('a4', 'portrat')
         ->stream();
     }
-
-/* 
-public function gerarRelatorioProf(){
-    $data = Agendamento::info()
-    //Ordenado no PDF
-    ->orderBy('data', 'asc')
-    ->orderBy('horainicio', 'asc')
-    ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
-    ->where('professorresponsavel', auth()->id())
-    ->paginate(10);
     
-    return PDF::loadView('pdfs.professor_pdf', compact('data'))
-    ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
-    ->setPaper('a4', 'portrat')
-    ->stream();
-}
-*/
+    public function gerarRelatorioOperacional(Request $request){
+        $data = Agendamento::info()
+        //Ordenado no PDF
+        ->orderBy('data', 'asc')
+        ->orderBy('horainicio', 'asc')
+        ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->where('professorresponsavel', auth()->id())
+        ->where('data', '>=', $request->datainicio)
+        ->where('data', '<=', $request->datafim)
+        ->paginate(10);
+        
+        return PDF::loadView('pdfs.relatorio_pdf', compact('data'))
+        ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
+        ->setPaper('a4', 'portrat')
+        ->stream();
+    }
 }

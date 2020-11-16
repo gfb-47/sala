@@ -43,8 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
 		->name('novoagendamento.termosdeuso');
 		Route::resource('/relatorio/geral', 'GeralController');
 		Route::resource('/relatorio/professor', 'ProfessorController');
+		Route::resource('/relatorio/operacional', 'RelatorioOperacionalController');
 		Route::get('/relatorio/pdf/geral', 'AgendamentoController@gerarRelatorioGeral')->name('relatorio.gerarRelatorioGeral');
 		Route::get('/relatorio/pdf/professor', 'AgendamentoController@gerarRelatorioProf')->name('relatorio.gerarRelatorioProf');
+		Route::get('/relatorio/pdf/operacional', 'AgendamentoController@gerarRelatorioOperacional')->name('relatorio.gerarRelatorioOperacional');
 		Route::post('/ambiente/{id}/status', 'AmbienteController@status')->name('ambiente.status');
 		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
 		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
