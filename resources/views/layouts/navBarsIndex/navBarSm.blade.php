@@ -17,12 +17,9 @@
                 <a class="item-navbar" href="{{ route('meusagendamentos.index') }}">Meus Agendamentos</a>
                 <a class="item-navbar" href="{{ route('selecaoambiente.index') }}">Agendar Ambiente</a>
                 @if(auth()->user()->tipo_usuario == 4)
-                    <a class="item-navbar" href="/relatorio/operacional"> Relatório Operacional </a>
+                    <a class="item-navbar" href="{{ route('relatorio.operacional') }}">Relatório Operacional</a>
                 @endif    
-            </div>
-           
-            
-                               
+            </div>           
         </div>
         <button class="logoutBtn" type="button" href="{{ route('logout') }}" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Sair</button>
     </div>

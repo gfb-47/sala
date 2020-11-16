@@ -84,13 +84,13 @@
                             <div class="collapse" id="GerarRelatorio">
                                 <ul class="nav pl-4">
                                     <li @if ($pageSlug=='Relatório Professor' ) class="active " @endif>
-                                        <a href="{{ route('professor.index')  }}">
+                                        <a href="{{ route('relatorio.professor')  }}">
                                             <i class="fas fa-chalkboard-teacher"></i>
                                             <p>Professor</p>
                                         </a>
                                     </li>
                                     <li @if ($pageSlug=='Relatório Geral' ) class="active " @endif>
-                                        <a href="{{ route('geral.index')  }}">
+                                        <a href="{{ route('relatorio.geral')  }}">
                                             <i class="fas fa-globe-americas"></i>
                                             <p>Geral</p>
                                         </a>
