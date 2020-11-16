@@ -4,7 +4,7 @@
 <div class="title-news" style="font-family: 90px;">
     <p>Notícias</p>
 </div>
-<div class="carousel" data-flickity='{ "autoPlay": true  }'>
+<div class="carousel" data-flickity='{ "autoPlay": true,  "initialIndex": 4  }'>
     <div class="carousel-cell">
         <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
@@ -117,7 +117,7 @@ var flkty = new Flickity(elem, {
 // element argument can be a selector string
 //   for an individual element
 var flkty = new Flickity('.main-carousel', {
-    // options
+
 });
 // Modal Image Gallery
 function onClick(element) {
