@@ -25,7 +25,7 @@ class CreateAgendamentosTable extends Migration
             $table->time('horafim');
             $table->date('data');
             $table->tinyInteger('situacao')->default(1);
-            $table->text('observacao');
+            $table->text('observacao')->nullable();
             $table->timestamps();
 
             $table->foreign('ambiente')->references('id')->on('ambientes')->onDelete('cascade');

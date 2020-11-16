@@ -62,7 +62,7 @@
                     </div>
                     <div class="col-md-12">
                         {!!Form::textarea('observacao', 'Observações')
-                        ->required() !!}
+                        ->required(false) !!}
                     </div>
                 </div>
             </div>
