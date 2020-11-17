@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('selecaoambiente', 'SelecaoAmbienteController')->except(['create', 'update', 'edit', 'show', 'delete']);
 		Route::resource('meusagendamentos', 'MeusAgendamentosController');
 		Route::resource('novoagendamento', 'NovoAgendamentoController')->except(['index']);
-		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController');
+		Route::resource('motivoutilizacao', 'MotivoUtilizacaoController')->except(['status']);
 		Route::resource('perfil', 'ClientePerfilController');
 		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
 		Route::resource('curso', 'CursoController')->except(['status']);
@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
 		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
 		Route::post('/user/{id}/status', 'UserController@status')->name('user.status');
+		Route::post('/motivo/{id}/status', 'MotivoUtilizacaoController@status')->name('motivo.status');
 });
 
 Route::group(['middleware' => 'auth'], function () {

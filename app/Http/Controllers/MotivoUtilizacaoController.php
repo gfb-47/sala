@@ -45,6 +45,18 @@ class MotivoUtilizacaoController extends Controller
 
     }
 
+    public function status($id)
+    {
+        $item = MotivoUtilizacao::findOrFail($id);
+        if ($item->ativo == 1){
+            $item->fill(['ativo' => 0])->save();
+            return redirect()->route('motivoutilizacao.index')->withStatus('Motivo '.$item->nome.' desativado com sucesso');
+        } else {
+            $item->fill(['ativo' => 1])->save();
+            return redirect()->route('motivoutilizacao.index')->withStatus('Motivo '.$item->nome.' ativado com sucesso');
+        }
+    }
+
     public function destroy(MotivoUtilizacao $motivoUtilizacao)
     {
         //

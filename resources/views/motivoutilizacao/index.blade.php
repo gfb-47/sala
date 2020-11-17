@@ -26,6 +26,7 @@
                                 <th>Dt. Criação</th>
                                 <th>Dt. Atualização</th>
                                 <th style="text-align: right">Editar</th>
+                                <th style="text-align: right">Alterar Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,10 +36,17 @@
                                 <td>{{$item->created_at->format('d/m/Y H:i:s')}}</td>
                                 <td>{{$item->updated_at->format('d/m/Y H:i:s')}}</td>
                                 <td style="text-align: right"><a href="{{ route('motivoutilizacao.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                                <td style="text-align: right">
+                                    <form action="{{route('motivo.status', $item->id)}}" id="form-{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-primary btn-change">{{ $item->ativo == 1? 'Desativar':'Ativar'}}</button>
+                                    </form>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" style="text-align:center">
+                                <td colspan="5" style="text-align:center">
                                     Não foram encontrados registros
                                 </td>
                             </tr>
