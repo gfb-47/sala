@@ -44,7 +44,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="titleModal">Espaço Agendado</h3>
+                <h3 class="modal-title" id="titleModal">Informações do Agendamento</h3>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span style="border: 1px solid #6c6c6c;padding-right: 5px;padding-left:5px"
@@ -52,12 +52,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h4 style="font-weight:bold">Paciente: <span style="font-weight:normal" id="professor"></span></h4>
-                <h4 style="font-weight:bold">Telefone: <span style="font-weight:normal" id="usuario"></span></h4>
-                <h4 style="font-weight:bold">Clinica: <span style="font-weight:normal" id="curso"></span></h4>
-                <h4 style="font-weight:bold">Profissional: <span style="font-weight:normal" id="horainicio"></span></h4>
-                <h4 style="font-weight:bold">Data: <span style="font-weight:normal" id="horafim"></span></h4>
-                <h4 style="font-weight:bold">Hora Agendada: <span style="font-weight:normal" id="data"></span>
+                <h4 style="font-weight:bold">Responsável: <span style="font-weight:normal" id="professor"></span></h4>
+                <h4 style="font-weight:bold">Utilizador: <span style="font-weight:normal" id="usuario"></span></h4>
+                <h4 style="font-weight:bold">Curso: <span style="font-weight:normal" id="curso"></span></h4>
+                <h4 style="font-weight:bold">Hora Início: <span style="font-weight:normal" id="horainicio"></span></h4>
+                <h4 style="font-weight:bold">Hora Fim: <span style="font-weight:normal" id="horafim"></span></h4>
+                <h4 style="font-weight:bold">Data: <span style="font-weight:normal" id="data"></span>
                 <h4 style="font-weight:bold">Motivo de Uso: <span style="font-weight:normal" id="motivo"></span>
                 </h4>
             </div>
