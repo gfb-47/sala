@@ -116,15 +116,15 @@ class UserController extends Controller
     return redirect()->route('user.index')->withStatus('Registro atualizado com sucesso');
     }
 
-    public function status(Request $request, $id)
+    public function status($id)
     {
         $item = User::findOrFail($id);
         if ($item->ativo == 1){
             $item->fill(['ativo' => 0])->save();
-            return redirect()->route('users.index')->withStatus('Usuário '.$item->nome.' desativado com sucesso');
+            return redirect()->route('user.index')->withStatus('Usuário '.$item->nome.' desativado com sucesso');
         } else {
             $item->fill(['ativo' => 1])->save();
-            return redirect()->route('users.index')->withStatus('Usuário '.$item->nome.' ativado com sucesso');
+            return redirect()->route('user.index')->withStatus('Usuário '.$item->nome.' ativado com sucesso');
         }
     }
     /**

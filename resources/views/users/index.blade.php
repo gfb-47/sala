@@ -27,6 +27,7 @@
                                 <th>Dt. Criação</th>
                                 <th>Dt. Atualização</th>
                                 <th style="text-align: right">Editar</th>
+                                <th style="text-align: right">Alterar Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,6 +39,13 @@
                                 <td>{{$item->created_at->format('d/m/y')}}</td>
                                 <td>{{$item->updated_at->format('d/m/y')}}</td>
                                 <td style="text-align: right"><a href="{{ route('user.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                                <td style="text-align: right">
+                                    <form action="{{route('user.status', $item->id)}}" id="form-{{$item->id}}" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit" class="btn btn-primary btn-change">{{ $item->ativo == 1? 'Desativar':'Ativar'}}</button>
+                                    </form>
+                                </td>
                             </tr>
                         @empty
                             <tr>
@@ -49,10 +57,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div> -->
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">
