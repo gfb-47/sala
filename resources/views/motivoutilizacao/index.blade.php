@@ -8,7 +8,7 @@
             <div class="card-header ">
                 <div class="row">
                     <div class="col-sm-6 text-left">
-                        <h2 class="card-title">Motivo de Uso</h2>
+                        <h2 class="card-title">Motivos de Uso</h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="{{ route('motivoutilizacao.create') }}" class="btn btn-secondary float-right">Criar Novo</a>

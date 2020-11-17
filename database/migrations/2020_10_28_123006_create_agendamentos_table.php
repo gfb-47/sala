@@ -33,7 +33,7 @@ class CreateAgendamentosTable extends Migration
             $table->foreign('curso')->references('id')->on('cursos')->onDelete('cascade');
             $table->foreign('disciplina')->references('id')->on('disciplinas')->onDelete('cascade');
             $table->foreign('professorresponsavel')->references('id')->on('pessoas')->onDelete('cascade');
-            $table->foreign('motivoutilizacao')->references('id')->on('motivo_utilizacaos')->onDelete('cascade');
+            $table->foreign('motivoutilizacao')->references('id')->on('motivos_utilizacao')->onDelete('cascade');
 
         });
     }
