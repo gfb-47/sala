@@ -15,22 +15,22 @@
                     <h3 style="color: black; text-align: center; font-weight:bold; font-family:Bree Serif" >Login</h3>
                 </div>
                 <div class="card-body" style="margin-top: -80px; padding:40px;">
-                    <div class="input-group{{ $errors->has('cpf') ? ' has-danger' : '' }}" style="background-color: #EBEBEB; margin-bottom:25px;">
+                    <div class="input-group{{ $errors->has('cpf') ? ' has-danger' : '' }}" style="margin-bottom:22px;">
                         <div class="input-group-prepend">
-                            <div class="input-group-text" style="height:33px">
+                            <div class="input-group-text" style="height:33px; background-color: #EBEBEB">
                                 <i style="color:#000;" class="fa fa-user" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <input type="text" name="cpf"  class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} cpf" style="height:33px"  placeholder="CPF">
+                        <input type="text" name="cpf"  class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }} cpf" style="height:33px;background-color: #EBEBEB;"  placeholder="CPF">
                         @include('alerts.feedback', ['field' => 'cpf'])
                     </div>
-                    <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}" style="background-color: #EBEBEB;">
+                    <div class="input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                         <div class="input-group-prepend">
-                            <div class="input-group-text" style="height:33px">
+                            <div class="input-group-text" style="height:33px;background-color: #EBEBEB">
                                 <i styte="color:#fff;" class="fa fa-lock" aria-hidden="true" ></i>
                             </div>
                         </div>
-                        <input type="password" maxlength="11" placeholder="Senha" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" style="height:33px">
+                        <input type="password" maxlength="11" placeholder="Senha" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" style="height:33px;background-color: #EBEBEB">
                         @include('alerts.feedback', ['field' => 'password'])
                     </div>
                 </div>
