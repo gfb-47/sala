@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Disciplina;
+use App\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DisciplinaController extends Controller
 {
@@ -14,7 +16,10 @@ class DisciplinaController extends Controller
      */
     public function index()
     {
-        $data = Disciplina::info()->orderBy('nome')->paginate(10);
+        $data = Disciplina::info()
+        ->orderBy('nome')
+        ->with('curso')
+        ->paginate(10);
         return view('disciplina.index', compact('data'));
     }
 
@@ -25,7 +30,8 @@ class DisciplinaController extends Controller
      */
     public function create()
     {
-        return view('disciplina.create');
+        $curso = Curso::select('id', 'nome as name')->get();
+        return view('disciplina.create', compact('curso'));
     }
 
     /**
@@ -36,7 +42,16 @@ class DisciplinaController extends Controller
      */
     public function store(Request $request)
     {
-        Disciplina::create($request->all());
+        DB::transaction(function() use ($request) {
+            try {
+                $input = $request->except('_token');
+                $item = Curso::findOrFail($request->input('curso'));
+                $input['curso_id'] = $item->id;
+                Disciplina::create($input);
+            } catch (Exception $e) {
+                return redirect()->route('disciplina.create')->withError('Erro adicionado com sucesso');
+            }
+        });
         return redirect()->route('disciplina.index')->withStatus('Registro Adicionado com Sucesso');
     }
 
@@ -59,8 +74,9 @@ class DisciplinaController extends Controller
      */
     public function edit($id)
     {
+        $curso = Curso::select('id','nome as name')->orderBy('nome')->get();
         $item = Disciplina::findOrFail($id);
-        return view('disciplina.edit', compact('item'));
+        return view('disciplina.edit', compact('item', 'curso'));
     }
 
     /**
