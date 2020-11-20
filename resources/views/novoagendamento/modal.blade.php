@@ -28,7 +28,6 @@
                     </div>
                     <div class="col-md-6">
                         {!!Form::date('data', 'Dia do Agendamento')
-
                         ->min(auth()->user()->tipo_usuario==1?'':now()->add(2, 'day')->format('Y-m-d'))
                         ->required() !!}
                     </div>
@@ -47,7 +46,6 @@
                     </div>
                     <div class="col-md-6">
                         {!!Form::select('disciplina', 'Disciplina')
-                        ->options($disciplina->prepend('Selecione...', ''))
                         ->required() !!}
                     </div>
                     <div class="col-md-6">
@@ -88,3 +86,22 @@
         </div>
     </div>
 </div>
+@push('js')
+<script>
+    $('#inp-disciplina').prop('disabled', true);
+    $('#inp-curso').on('change', function() {
+        const curso = $(this).val();
+        $('#inp-disciplina').prop('disabled', false);
+        $.get(getUrl() + '/api/v1/public/disciplinas/all/' + curso, function(data) {
+            $('#inp-disciplina').empty();
+            var data = data.data;
+            var str = '';
+            str += '<option value selected>Selecione uma Disciplina</option>';
+            for (var i = 0; i < data.length; i++) {
+                str += '<option value="' + data[i].id + '">' + data[i].name + '</option>'
+            }
+            $('#inp-disciplina').append(str);
+        });
+    });
+</script>
+@endpush

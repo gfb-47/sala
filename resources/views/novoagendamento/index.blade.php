@@ -22,10 +22,6 @@
                 <div class="">
                     <div id='calendar'></div>
                 </div>
-                
-                <!-- <div class="chart-area">
-                    <canvas id="chartBig1"></canvas>
-                </div> -->
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">
@@ -54,7 +50,7 @@
             <div class="modal-body">
                 <h4 style="font-weight:bold">Responsável: <span style="font-weight:normal" id="professor"></span></h4>
                 <h4 style="font-weight:bold">Utilizador: <span style="font-weight:normal" id="usuario"></span></h4>
-                <h4 style="font-weight:bold">Curso: <span style="font-weight:normal" id="curso"></span></h4>
+                <h4 style="font-weight:bold">Disciplina: <span style="font-weight:normal" id="disciplina"></span></h4>
                 <h4 style="font-weight:bold">Hora Início: <span style="font-weight:normal" id="horainicio"></span></h4>
                 <h4 style="font-weight:bold">Hora Fim: <span style="font-weight:normal" id="horafim"></span></h4>
                 <h4 style="font-weight:bold">Data: <span style="font-weight:normal" id="data"></span>
@@ -96,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
             let id = element.event.id;
             let professor = element.event.extendedProps.professor;
             let usuario = element.event.extendedProps.usuario;
-            let curso = element.event.extendedProps.curso;
             let disciplina = element.event.extendedProps.disciplina;
             let horainicio = element.event.extendedProps.horainicio;
             let horafim = element.event.extendedProps.horafim;
@@ -104,11 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
             let motivo = element.event.extendedProps.motivo;
 
             $("#calendarModal").modal("show");
-
-
+            
             $("#calendarModal #professor").text(professor);
             $("#calendarModal #usuario").text(usuario);
-            $("#calendarModal #curso").text(curso);
             $("#calendarModal #disciplina").text(disciplina);
             $("#calendarModal #horainicio").text(horainicio);
             $("#calendarModal #horafim").text(horafim);
@@ -129,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     extendedProps: {
                         professor: data[i].professor, 
                         usuario: data[i].usuario,
-                        curso: data[i].curso,
                         disciplina: data[i].disciplina,
                         horainicio: data[i].horainicio,
                         horafim: data[i].horafim,

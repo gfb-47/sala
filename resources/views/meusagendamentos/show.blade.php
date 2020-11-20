@@ -56,17 +56,9 @@
                         <div class="card-deck">
                             <div class="card m-2 shadow-lg">
                                 <div class="card-body">
-                                    <p><strong>Curso </strong></p>
-                                    <p class="card-text">
-                                        {{ $item->cursos->nome }}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="card m-2 shadow-lg">
-                                <div class="card-body">
                                     <p><strong>Disciplina </strong></p>
                                     <p class="card-text">
-                                        {{ $item->disciplinas->nome }}
+                                        {{ $item->disciplinas->nome }} - {{ $item->disciplinas->curso->nome }}
                                     </p>
                                 </div>
                             </div>
