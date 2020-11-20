@@ -17,7 +17,6 @@ class CreateAgendamentosTable extends Migration
             $table->id();
             $table->bigInteger('ambiente')->unsigned();
             $table->bigInteger('user')->unsigned();
-            $table->bigInteger('curso')->unsigned();
             $table->bigInteger('disciplina')->unsigned();
             $table->bigInteger('professorresponsavel')->unsigned();
             $table->bigInteger('motivoutilizacao')->unsigned();
@@ -30,7 +29,6 @@ class CreateAgendamentosTable extends Migration
 
             $table->foreign('ambiente')->references('id')->on('ambientes')->onDelete('cascade');
             $table->foreign('user')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('curso')->references('id')->on('cursos')->onDelete('cascade');
             $table->foreign('disciplina')->references('id')->on('disciplinas')->onDelete('cascade');
             $table->foreign('professorresponsavel')->references('id')->on('pessoas')->onDelete('cascade');
             $table->foreign('motivoutilizacao')->references('id')->on('motivos_utilizacao')->onDelete('cascade');

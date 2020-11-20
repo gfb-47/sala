@@ -51,7 +51,7 @@ class MeusAgendamentosController extends Controller
     public function show($id)
     {
         $item = Agendamento::info()
-        ->with('ambientes', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->with('ambientes', 'motivos', 'disciplinas', 'professores')
         ->findOrFail($id);
         return view('meusagendamentos.show', compact('item'));
     }

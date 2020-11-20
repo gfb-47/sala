@@ -13,7 +13,7 @@ class AgendamentoController extends Controller
         //Ordenado no PDF por Data e dps Horário.
         ->orderBy('data', 'asc')
         ->orderBy('horainicio', 'asc')
-        ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
         ->where('data', '>=', $request->datainicio)
         ->where('data', '<=', $request->datafim)
         ->paginate(10);
@@ -30,7 +30,7 @@ class AgendamentoController extends Controller
         //Ordenado no PDF
         ->orderBy('data', 'asc')
         ->orderBy('horainicio', 'asc')
-        ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
         ->where('professorresponsavel', $request->professorresponsavel)
         ->where('data', '>=', $request->datainicio)
         ->where('data', '<=', $request->datafim)
@@ -47,7 +47,7 @@ class AgendamentoController extends Controller
         //Ordenado no PDF
         ->orderBy('data', 'asc')
         ->orderBy('horainicio', 'asc')
-        ->with('ambientes', 'users', 'motivos', 'cursos', 'disciplinas', 'professores')
+        ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
         ->where('professorresponsavel', auth()->id())
         ->where('data', '>=', $request->datainicio)
         ->where('data', '<=', $request->datafim)
