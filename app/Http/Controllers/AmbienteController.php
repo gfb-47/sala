@@ -122,7 +122,7 @@ class AmbienteController extends Controller
         }
         $item->save();
         
-        return redirect()->route('ambiente.index')->withStatus('Registro Adicionado com Sucesso');
+e        return redirect()->route('ambiente.index')->withStatus('Registro atualizado com Sucesso');
     }
 
     public function status(Request $request, $id)

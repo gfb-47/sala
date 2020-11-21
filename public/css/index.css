@@ -419,10 +419,11 @@ height: 520px;
   transition: 0.3s;
   border: 8px;
   border-radius: 8px;
+  display: block;
 }
 
 .carousel-body{
-  display: list-item;
+  display: list-item block;
   justify-content: space-between;
 }
 

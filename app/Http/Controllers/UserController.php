@@ -86,8 +86,8 @@ class UserController extends Controller
     {
         $item = User::select('users.*', 'pessoas.matricula', 'pessoas.telefone')
         ->join('pessoas', 'users.pessoa_id', '=', 'pessoas.id')
-        ->where('users.id', $id)->first();
-        //dd($item->pessoa_id);
+        ->where('users.id', $id)
+        ->first();
         $tipoUsuario = TipoUsuario::select('id', 'nome as name')->get();
         return view('users.edit', compact('item','tipoUsuario'));
     }
