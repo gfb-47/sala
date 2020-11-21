@@ -7,6 +7,7 @@
     <div class="col-md-6">
         {!!Form::select('curso', 'Curso')
         ->options($curso->prepend('Selecione...', ''))
+        ->value(isset($item)?$item->curso_id:'')
         ->required() !!}
     </div>
 </div>

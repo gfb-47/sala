@@ -88,10 +88,19 @@ class DisciplinaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Disciplina::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('disciplina.index')->withStatus('Registro Adicionado com Sucesso');
+        DB::transaction(function() use ($request, $id) {
+            try {
+                $input = $request->except('_token');
+                $curso = Curso::findOrFail($request->input('curso'));
+                $input['curso_id'] = $curso->id;
+                $item = Disciplina::findOrFail($id);
+                $item->fill($input);
+                $item->save();
+            } catch (Exception $e) {
+                return redirect()->route('disciplina.edit')->withError('Erro adicionado com sucesso');
+            }
+        });
+        return redirect()->route('disciplina.index')->withStatus('Registro atualizado com sucesso');
     }
 
     public function status($id)
