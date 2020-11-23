@@ -36,10 +36,17 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        Curso::create($request->all());
-        return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
-    }
+        try{
 
+            Curso::create($request->all());
+            return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
+        }
+        catch(Exceptio $e){
+
+            return redirect()->route('curso.index')->withStatus('Erro ao Adicionar');
+
+        }
+    }
     /**
      * Display the specified resource.
      *
@@ -59,8 +66,14 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        $item = Curso::findOrFail($id);
-        return view('curso.edit', compact('item'));
+     try {
+
+         $item = Curso::findOrFail($id);
+         return view('curso.edit', compact('item'))->withStatus('Alterações Salvas com Sucesso');
+        }
+    catch(Exception $e){
+        return view('curso.edit', compact('item'))->withError('Erro ao Salvar Alterações');
+    }
     }
 
     /**
@@ -72,21 +85,38 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = Curso::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
+        try {
+
+            $item = Curso::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            return redirect()->route('curso.index')->withStatus('Registro Adicionado com Sucesso');
+        }
+        catch(Exception $e){
+            
+            return view('curso.edit', compact('item'))->withError('Erro ao Salvar Alterações');
+
+        }
     }
 
     public function status($id)
     {
-        $item = Curso::findOrFail($id);
-        if ($item->ativo == 1){
-            $item->fill(['ativo' => 0])->save();
-            return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' desativada com sucesso');
-        } else {
-            $item->fill(['ativo' => 1])->save();
-            return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' ativada com sucesso');
+
+        try {
+
+            $item = Curso::findOrFail($id);
+            if ($item->ativo == 1){
+                $item->fill(['ativo' => 0])->save();
+                return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' desativada com sucesso');
+            } else {
+                $item->fill(['ativo' => 1])->save();
+                return redirect()->route('curso.index')->withStatus('Curso '.$item->nome.' ativada com sucesso');
+            }
+        }
+        catch(Exception $e){
+            
+            return redirect()->route('curso.index')->withError('Erro ao Consultar Status');
+
         }
     }
 

@@ -72,10 +72,17 @@ class ClientePerfilController extends Controller
     public function update(Request $request, User $user)
     {
         //
-        $item = User::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('clienteperfil.index');
+        try {
+
+            $item = User::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            return redirect()->route('clienteperfil.index')->withStatus('Salvo com Sucesso');
+        }
+        catch(Exception $e){
+           
+            return redirect()->route('clienteperfil.index')->withError('Erro ao Salvar');
+        }
     }
 
     /**

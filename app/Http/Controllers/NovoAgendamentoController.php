@@ -43,8 +43,16 @@ class NovoAgendamentoController extends Controller
 
 
     public function termosdeuso($id) {
-        $data=Ambiente::select('termodeuso')->where('id',$id)->first();
-        return view('termosdeuso.index', compact('data'));
+        try{
+
+            $data=Ambiente::select('termodeuso')->where('id',$id)->first();
+            return view('termosdeuso.index', compact('data'));
+        }
+        catch(Exception $e){
+            
+            return redirect()->route('novoagendamento.index')->withError('Erro ao Salvar Alterações');
+
+        }
     }
     /**
      * Show the form for creating a new resource.
@@ -64,11 +72,18 @@ class NovoAgendamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->all();
-        $inputs['user']=auth()->id();
-        $inputs['situacao']= 1;
-        Agendamento::create($inputs);
-        return redirect()->route('meusagendamentos.index');
+        try{
+
+            $inputs=$request->all();
+            $inputs['user']=auth()->id();
+            $inputs['situacao']= 1;
+            Agendamento::create($inputs);
+            return redirect()->route('meusagendamentos.index')->withStatus('Salvo com Sucesso');
+
+        }
+        catch(Exception $e){
+            return redirect()->route('meusagendamentos.index')->withError('Erro ao Salvar Alterações');
+        }
     }
 
     /**
