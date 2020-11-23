@@ -6,12 +6,21 @@ use App\User;
 use App\Http\Requests\UserRequest;
 use App\TipoUsuario;
 use App\Pessoa;
+use App\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:usuario_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:usuario_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:usuario_view', ['only' => ['show', 'index']]);
+        $this->middleware('permission:usuario_inactive', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the users
      *
@@ -57,7 +66,15 @@ class UserController extends Controller
                 $input['pessoa_id']=$item->id;
                 $input['name']=$item->nome;
                 $input['password'] = encryptCpf($input['cpf']);
-                User::create($input);
+                $user = User::create($input);
+                
+                if($request->tipo_usuario == 4){
+                    $user->assignRole('professor');
+                }
+
+                if($request->tipo_usuario == 1 || $request->tipo_usuario == 3){
+                    $user->assignRole('administrador_plataforma');
+                }
             } catch (Exception $e) {
                 return redirect()->route('user.create')->withError('Erro adicionado com sucesso');
             }
