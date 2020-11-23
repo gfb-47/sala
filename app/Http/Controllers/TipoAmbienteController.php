@@ -89,4 +89,22 @@ class TipoAmbienteController extends Controller
     {
         //
     }
+
+    public function status(Request $request, $id)
+    {
+        try{
+
+            $item = TipoAmbiente::findOrFail($id);
+            if ($item->ativo == 1){
+                $item->fill(['ativo' => 0])->save();
+                return redirect()->route('tipoambiente.index')->withStatus('TipoAmbiente '.$item->nome.' desativado com sucesso');
+            } else {
+                $item->fill(['ativo' => 1])->save();
+                return redirect()->route('tipoambiente.index')->withStatus('TipoAmbiente '.$item->nome.' ativado com sucesso');
+            }
+        }
+        catch(Exception $e){
+            return redirect()->route('tipoambiente.index')->withError('Erro ao Salvar Alterações');
+        }
+    }
 }

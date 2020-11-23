@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
 		Route::post('/user/{id}/status', 'UserController@status')->name('user.status');
 		Route::post('/motivo/{id}/status', 'MotivoUtilizacaoController@status')->name('motivo.status');
+		Route::post('/tipoambiente/{id}/status', 'TipoAmbienteController@status')->name('tipoambiente.status');
 });
 
 Route::group(['middleware' => 'auth'], function () {

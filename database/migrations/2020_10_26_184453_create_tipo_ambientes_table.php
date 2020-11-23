@@ -17,6 +17,7 @@ class CreateTipoAmbientesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome', 50);
             $table->tinyInteger('ativo')->default(1);
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
