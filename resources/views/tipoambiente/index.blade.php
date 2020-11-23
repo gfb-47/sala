@@ -25,7 +25,7 @@
                                 <th>Nome</th>
                                 <th>Dt. Criação</th>
                                 <th>Dt. Atualização</th>
-                                <th style="text-align: right"   >Editar</th>
+                                <th style="text-align: right">Editar</th>
                                 <th style="text-align: right">Alterar Status</th>
                             </tr>
                         </thead>
