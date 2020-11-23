@@ -19,7 +19,7 @@ class UserController extends Controller
         $this->middleware('permission:usuario_create', ['only' => ['create', 'store']]);
         $this->middleware('permission:usuario_edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:usuario_view', ['only' => ['show', 'index']]);
-        $this->middleware('permission:usuario_inactive', ['only' => ['destroy']]);
+        $this->middleware('permission:usuario_inactive', ['only' => ['status']]);
     }
     /**
      * Display a listing of the users

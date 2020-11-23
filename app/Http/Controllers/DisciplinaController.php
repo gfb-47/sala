@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class DisciplinaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:disciplina_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:disciplina_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:disciplina_view', ['only' => ['show', 'index']]);
+        $this->middleware('permission:disciplina_inactive', ['only' => ['status']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

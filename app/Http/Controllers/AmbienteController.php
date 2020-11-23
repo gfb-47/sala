@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 
 class AmbienteController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:ambiente_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:ambiente_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:ambiente_view', ['only' => ['show', 'index']]);
+        $this->middleware('permission:ambiente_inactive', ['only' => ['status']]);
+    }    
     /**
      * Display a listing of the resource.
      *
