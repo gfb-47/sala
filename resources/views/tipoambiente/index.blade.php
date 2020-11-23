@@ -35,7 +35,7 @@
                                 <td>{{$item->nome}}</td>
                                 <td>{{$item->created_at->format('d/m/Y H:i:s')}}</td>
                                 <td>{{$item->updated_at->format('d/m/Y H:i:s')}}</td>
-                                <td style="text-align: right"><a href="{{ route('tipoambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
+                                <td><a href="{{ route('tipoambiente.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
                                 <td style="text-align: right"> 
                                     <form action="{{route('tipoambiente.status', $item->id)}}" id="form-{{$item->id}}" method="POST">
                                         @csrf
