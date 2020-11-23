@@ -12,6 +12,12 @@
                     <p>Página Inicial</p>
                 </a>
             </li>
+            <li @if ($pageSlug=='Agendar' ) class="active " @endif>
+                <a href="{{ route('selecaoambiente.index') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Agendar</p>
+                </a>
+            </li>
             <li>
                 <a data-toggle="collapse" href="#Cadastros" aria-expanded="false" class="collapsed">
                     <i class="fas fa-pencil-alt"></i>

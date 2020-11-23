@@ -9,6 +9,11 @@
                     <div class="col-sm-6 text-left">
                         <h2 class="card-title">Meus Agendamentos</h2>
                     </div>
+                    <div class="col-sm-6">
+                        <a class="btn btn-secondary float-right" href="{{ route('selecaoambiente.index') }}">
+                            Agendar ambiente
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
