@@ -38,7 +38,9 @@ class DisciplinaController extends Controller
      */
     public function create()
     {
-        $curso = Curso::select('id', 'nome as name')->get();
+        $curso = Curso::select('id', 'nome as name')
+        ->where('cursos.ativo', 1)
+        ->get();
         return view('disciplina.create', compact('curso'));
     }
 
@@ -82,7 +84,10 @@ class DisciplinaController extends Controller
      */
     public function edit($id)
     {
-        $curso = Curso::select('id','nome as name')->orderBy('nome')->get();
+        $curso = Curso::select('id','nome as name')
+        ->where('cursos.ativo', 1)
+        ->orderBy('nome')
+        ->get();
         $item = Disciplina::findOrFail($id);
         return view('disciplina.edit', compact('item', 'curso'));
     }
