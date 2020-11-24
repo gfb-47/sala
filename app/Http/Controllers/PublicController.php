@@ -36,6 +36,7 @@ class PublicController extends BaseController
       $data = Disciplina::select('id', 'nome as name')->orderBy('nome')
       ->with('curso')
       ->where('curso_id', $id)
+      ->where('disciplinas.ativo', 1)
       ->get();
       return $this->sendResponse($data);
    }

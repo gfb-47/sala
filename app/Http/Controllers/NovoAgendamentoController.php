@@ -33,9 +33,13 @@ class NovoAgendamentoController extends Controller
         ->orderBy('nome')->get();
         $prof = Pessoa::select('pessoas.id','pessoas.nome as name')
         ->join('users', 'users.pessoa_id', '=', 'pessoas.id')
+        ->where('users.ativo', 1)
         ->where('users.tipo_usuario', 4)
         ->orderBy('pessoas.nome')->get();
-        $motivo = MotivoUtilizacao::select('id','motivo as name')->orderBy('motivo')->get();
+        $motivo = MotivoUtilizacao::select('id','motivo as name')
+        ->where('motivos_utilizacao.ativo', 1)
+        ->orderBy('motivo')
+        ->get();
         $termo_de_uso = Ambiente::select('termodeuso')->where('id',$id)->first();
         return view('novoagendamento.index', compact('ambiente', 'data',
      'disciplina', 'prof', 'curso', 'motivo','id','termo_de_uso'));
