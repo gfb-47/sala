@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agendamento;
 use Illuminate\Http\Request;
+use App\ModelFilters\AgendamentosFilter;
 
 class MeusAgendamentosController extends Controller
 {
@@ -12,13 +13,23 @@ class MeusAgendamentosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $situacao = $this->allStatus();
         $data = Agendamento::info()->orderBy('ambiente')->with('ambientes', 'motivos')
         ->where('user', auth()->id())
-        ->paginate(10);
+        ->orderBy('situacao', 'DESC')
+        ->filter($request->all())
+        ->paginate(10)
+        ->appends($request->all());
 
-        return view('meusagendamentos.index', compact('data'));
+        return view('meusagendamentos.index', compact('data', 'situacao'));
+    }
+
+    public function allStatus() {
+        return [
+            1=>'Pendente', 'Confirmado', 'Cancelado', 'Finalizado'
+        ];
     }
 
     /**

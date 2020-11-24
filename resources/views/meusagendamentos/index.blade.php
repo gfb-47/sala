@@ -14,6 +14,18 @@
                             Agendar ambiente
                         </a>
                     </div>
+                    <div class="col-sm-6">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 float-right">
+                                {!!Form::select('situacao', '')
+                                    ->options($situacao)
+                                !!}
+                                </div> 
+                                <button type="submit" class="btn btn-primary float-right">Filtrar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -24,7 +36,8 @@
                                 <th>Ambiente</th>
                                 <th>Data</th>
                                 <th>Situação</th>
-                                <th>Motivo</th>
+                                <th>Motivo 
+                                </th>
                                 <th style="text-align: right">Visualizar</th>
                             </tr>
                         </thead>
@@ -53,7 +66,10 @@
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">
-                    {{ $data->links() }}
+                    @if (isset($filters))
+                        {{ $data->appends($filters)->links() }}
+                    @else
+                    @endif
                 </nav>
             </div>
         </div>
