@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TipoUsuarioController extends Controller
 {
+
+    public function __construct()
+    {    
+        $this->middleware('permission:tipousuario_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:tipousuario_view', ['only' => ['index']]);        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,8 +42,7 @@ class TipoUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        TipoUsuario::create($request->all());
-        return redirect()->route('tipousuario.index');
+        //
     }
 
     /**

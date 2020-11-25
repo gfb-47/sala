@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class TipoAmbienteController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:tipoambiente_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:tipoambiente_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:tipoambiente_view', ['only' => ['index']]);
+        $this->middleware('permission:tipoambiente_inactive', ['only' => ['status']]);
+    }
     /**
      * Display a listing of the resource.
      *
