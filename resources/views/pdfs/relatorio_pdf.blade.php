@@ -111,9 +111,10 @@
             <p class="myp text-muted">{{date('d/m/Y')}}</h1>
         </div>
     </div>
+    @forelse($data as $item)
     <div class="row">
         <div class="col-md-6">
-            <h1 class="myh1">Seus Agendamentos</h1>
+            <h1 class="myh1">Responsável</h1>
         </div>
     </div>
 
@@ -132,7 +133,6 @@
             </tr>
         </thead>
         <tbody>
-        @forelse($data as $item)
         <tr>
             <td>{{ $item->id }}</td>
             <td>{{ $item->users->name }}</td>
@@ -140,17 +140,17 @@
             <td>{{ $item->horainicio }}</td>
             <td>{{ $item->horafim }}</td>
             <td>{{ $item->ambientes->nome }}</td>
-            <td>{{ $item->cursos->nome }}</td>
+            <td>{{ $item->disciplinas->curso->nome }}</td>
             <td>{{ $item->disciplinas->nome }}</td>
             <td>{{ $item->motivos->motivo }}</td>
         </tr>
-        @empty
+    @empty
         <tr>
             <td colspan="9" style="text-align:center">
                 Não foram encontrados registros
             </td>
         </tr>
-        @endforelse
+    @endforelse
         </tbody>
     </table>
 
