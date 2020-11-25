@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:noticia_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:noticia_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:noticia_view', ['only' => ['index']]);
+        $this->middleware('permission:noticia_delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

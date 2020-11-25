@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:curso_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:curso_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:curso_view', ['only' => ['index']]);
+        $this->middleware('permission:curso_inactive', ['only' => ['status']]);
+    }
     /**
      * Display a listing of the resource.
      *

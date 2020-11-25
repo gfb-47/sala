@@ -145,7 +145,7 @@
             <td>{{ $item->horainicio }}</td>
             <td>{{ $item->horafim }}</td>
             <td>{{ $item->ambientes->nome }}</td>
-            <td>{{ $item->cursos->nome }}</td>
+            <td>{{ $item->disciplinas->curso->nome }}</td>
             <td>{{ $item->disciplinas->nome }}</td>
             <td>{{ $item->motivos->motivo }}</td>
             <td>{{ $item->professores->nome }}</td>

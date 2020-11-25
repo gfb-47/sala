@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 
 class MotivoUtilizacaoController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('permission:motivo_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:motivo_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:motivo_view', ['only' => ['index']]);
+        $this->middleware('permission:motivo_inactive', ['only' => ['status']]);
+    }
     public function index()
     {
         $data = MotivoUtilizacao::info()->orderBy('motivo')->paginate(10);
