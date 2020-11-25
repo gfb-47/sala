@@ -36,9 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('curso', 'CursoController')->except(['status']);
 		Route::resource('noticia', 'NoticiaController');
 		Route::resource('user', 'UserController')->except(['status']);
+		Route::resource('confirmaragendamento', 'ConfirmarAgendamentoController');
 		Route::get('novoagendamento/{id}/calendario','NovoAgendamentoController@index')->name('novoagendamento.index');
-		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')
-		->name('novoagendamento.termosdeuso');
+		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')->name('novoagendamento.termosdeuso');
 		Route::get('/relatorio/geral', 'GeralController@index')->name('relatorio.geral');
 		Route::get('/relatorio/professor', 'ProfessorController@index')->name('relatorio.professor');
 		Route::get('/relatorio/operacional', 'RelatorioOperacionalController@index')->name('relatorio.operacional');
@@ -47,6 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('/relatorio/pdf/operacional', 'AgendamentoController@gerarRelatorioOperacional')->name('relatorio.gerarRelatorioOperacional');
 		Route::post('/ambiente/{id}/status', 'AmbienteController@status')->name('ambiente.status');
 		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
+		Route::post('/confirmaragendamento/{id}/confirma', 'AgendamentoController@confirma')->name('agendamentos.confirma');
+		Route::post('/confirmaragendamento/{id}/rejeita', 'AgendamentoController@rejeita')->name('agendamentos.rejeita');
 		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
 		Route::post('/user/{id}/status', 'UserController@status')->name('user.status');
 		Route::post('/motivo/{id}/status', 'MotivoUtilizacaoController@status')->name('motivo.status');

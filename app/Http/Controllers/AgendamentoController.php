@@ -73,4 +73,25 @@ class AgendamentoController extends Controller
 
         }
     }
+    public function confirma($id) {
+        $item = Agendamento::findOrFail($id);
+        if ($item->situacao == 1){
+            $item->fill(['situacao' => 2])->save();
+            return redirect()->route('confirmaragendamento.index');
+        } else {
+            $item->fill(['situacao' => 3])->save();
+            return redirect()->route('confirmaragendamento.index');
+        }
+    }
+    public function rejeita($id) {
+        $item = Agendamento::findOrFail($id);
+        
+        if ($item->situacao == 1){
+            $item->fill(['situacao' => 3])->save();
+            return redirect()->route('confirmaragendamento.index');
+        } else {
+            $item->fill(['situacao' => 2])->save();
+            return redirect()->route('confirmaragendamento.index');
+        }
+    }
 }

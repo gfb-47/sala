@@ -76,7 +76,7 @@
                 <div class="collapse" id="Movimentação">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='Agendamentos' ) class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
+                            <a href="{{ route('confirmaragendamento.index')  }}">
                                 <i class="fas fa-calendar-check"></i>
                                 <p>Agendamentos</p>
                             </a>
