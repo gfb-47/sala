@@ -45,24 +45,22 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate(
             $request,
             [
                 'titulo' => 'required|max:45',
                 'conteudo' => 'nullable|max:4000',
-                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1920',
             ]
         );
-
         $inputs=$request->all();
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-
+            
             $upload = $request->imagem->store('uploads/noticias', 'public');
-
+            
             $inputs['imagem']= $upload;
         }
-
+        
         $inputs['user_id']=auth()->id();
         Noticia::create($inputs);
         return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
@@ -108,6 +106,8 @@ class NoticiaController extends Controller
                 'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             ]
         );
+
+        dd($request);
         $inputs = $request->except('imagem');
         $item = Noticia::findOrFail($id);
         $item->fill($inputs);

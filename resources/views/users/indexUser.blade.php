@@ -4,7 +4,7 @@
 <div class="title-news" style="font-family: 90px;">
     <p>Notícias</p>
 </div>
-<div class="carousel" data-flickity='{ "autoPlay": true,  "initialIndex": 4  }'>
+<div class="carousel" data-flickity='{ "autoPlay": true,  "initialIndex": 2  }'>
     @forelse($data as $item)
     <div class="carousel-cell">
         <div class="carousel-card">
