@@ -5,6 +5,19 @@
     <p>Notícias</p>
 </div>
 <div class="carousel" data-flickity='{ "autoPlay": true,  "initialIndex": 4  }'>
+    @forelse($data as $item)
+    <div class="carousel-cell">
+        <div class="carousel-card">
+            <img src="{{ asset('storage/'.$item->imagem) }}" alt="Fotografia da notícia" height=auto width=280>
+            <div class="carousel-body">
+                <h4><b>{{ $item->created_at }}</b></h4>
+                <hr class="carousel-news">
+                <h2>{{ $item->titulo }}</h2>
+                <h5>{!! nl2br($item->conteudo) !!}</h5>
+            </div>
+        </div>
+    </div>
+    @empty
     <div class="carousel-cell">
         <div class="carousel-card">
             <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
@@ -12,100 +25,13 @@
                 <h4><b>25 de Setembro</b></h4>
                 <hr class="carousel-news">
                 <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
+                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do
+                    brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do
+                    brasil.</h5>
             </div>
         </div>
     </div>
-    <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div> <div class="carousel-cell">
-        <div class="carousel-card">
-            <img src="{{ asset('img') }}/remedio.png" alt="" height=auto width=280>
-            <div class="carousel-body">
-                <h4><b>25 de Setembro</b></h4>
-                <hr class="carousel-news">
-                <h2>Unitins é a campeã</h2>
-                <h5>Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.Unitins é campeã do primeiro campeonato mundial de universidades tocantinenses do sul do brasil.</h5>
-                <h2 class="saiba-mais">Saiba mais</h2>
-            </div>
-        </div>
-    </div>
+    @endforelse
 </div>
 <script>
 var elem = document.querySelector('.main-carousel');
