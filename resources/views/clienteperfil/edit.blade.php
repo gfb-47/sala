@@ -7,12 +7,13 @@
                 <div class="card-header">
                     <h2 class="card-title">Perfil</h2>
                 </div>
-                <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
+                <form method="post" action="{{ route('perfil.update', auth()->id()) }}" autocomplete="off">
                     <div class="card-body">
                             @csrf
                             @method('put')
 
                             @include('alerts.success')
+                            @include('alerts.error')
 
                             <div class="row">
                                 <div class="col-md-7">
@@ -34,15 +35,15 @@
                                 <div class="col-md-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label>Telefone</label>
-                                        <input type="text" name="telefone" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" placeholder="Telefone" value="">
-                                        @include('alerts.feedback', ['field' => 'matricula'])
+                                        <input type="text" name="telefone" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" placeholder="Telefone" value="{{ old('telefone', Auth::user()->pessoa->telefone) }}">
+                                        @include('alerts.feedback', ['field' => 'telefone'])
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label>Matrícula</label>
-                                        <input type="text" name="matricula" class="form-control{{ $errors->has('matricula') ? ' is-invalid' : '' }}" placeholder="Matrícula" value="">
+                                        <input type="text" name="matricula" class="form-control{{ $errors->has('matricula') ? ' is-invalid' : '' }}" placeholder="Matrícula" value="{{ old('telefone', Auth::user()->pessoa->matricula) }}">
                                         @include('alerts.feedback', ['field' => 'matricula'])
                                     </div>
                                 </div>
@@ -50,8 +51,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label>CPF</label>
-                                        <input type="text" name="cpf" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" placeholder="CPF" value="">
-                                        @include('alerts.feedback', ['field' => 'matricula'])
+                                        <input type="text" name="cpf" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" placeholder="CPF" value="{{ old('cpf', auth()->user()->cpf) }}">
+                                        @include('alerts.feedback', ['field' => 'cpf'])
                                     </div>
                                 </div>
                             </div>
@@ -109,4 +110,5 @@
             </div>
         </div>
     </div>
+
 @endsection
