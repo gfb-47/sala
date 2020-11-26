@@ -4,7 +4,7 @@
     </div>
     <div class="item-navbar-all">
         <a class="item-navbar" href="/index">Página Inicial</a>
-        @if(auth()->user()->tipo_usuario == 1)
+        @if((auth()->user()->tipo_usuario == 1) || (auth()->user()->tipo_usuario == 3))
             <a class="item-navbar" href="{{ route('user.index') }}">Dashboard</a>
         @endif       
 
