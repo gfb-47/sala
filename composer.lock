@@ -2631,16 +2631,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "3.17.0",
+            "version": "3.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394"
+                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/35d40a45e49f5713f477823b571e05ef6a3a0394",
-                "reference": "35d40a45e49f5713f477823b571e05ef6a3a0394",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/1c51a5fa12131565fe3860705163e53d7a26258a",
+                "reference": "1c51a5fa12131565fe3860705163e53d7a26258a",
                 "shasum": ""
             },
             "require": {
@@ -2648,7 +2648,7 @@
                 "illuminate/container": "^5.8|^6.0|^7.0|^8.0",
                 "illuminate/contracts": "^5.8|^6.0|^7.0|^8.0",
                 "illuminate/database": "^5.8|^6.0|^7.0|^8.0",
-                "php": "^7.2.5"
+                "php": "^7.2.5|^8.0"
             },
             "require-dev": {
                 "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0",
@@ -2697,15 +2697,15 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-permission/issues",
-                "source": "https://github.com/spatie/laravel-permission/tree/3.17.0"
+                "source": "https://github.com/spatie/laravel-permission/tree/3.18.0"
             },
             "funding": [
                 {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
+                    "url": "https://github.com/spatie",
+                    "type": "github"
                 }
             ],
-            "time": "2020-09-16T16:47:18+00:00"
+            "time": "2020-11-09T14:08:36+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6190,16 +6190,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "7.0.10",
+            "version": "7.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf"
+                "reference": "52f55786aa2e52c26cd9e2db20aff2981e0f7399"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/f1884187926fbb755a9aaf0b3836ad3165b478bf",
-                "reference": "f1884187926fbb755a9aaf0b3836ad3165b478bf",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/52f55786aa2e52c26cd9e2db20aff2981e0f7399",
+                "reference": "52f55786aa2e52c26cd9e2db20aff2981e0f7399",
                 "shasum": ""
             },
             "require": {
@@ -6251,9 +6251,15 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.10"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/7.0.12"
             },
-            "time": "2019-11-20T13:55:58+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-27T06:08:35+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -6463,16 +6469,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "8.5.9",
+            "version": "8.5.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6"
+                "reference": "ebd3963f9ba330f98a8fe6ccf5390839e868af75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6",
-                "reference": "f5c8a5dd5e7e8d68d7562bfb48d47287d33937d6",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ebd3963f9ba330f98a8fe6ccf5390839e868af75",
+                "reference": "ebd3963f9ba330f98a8fe6ccf5390839e868af75",
                 "shasum": ""
             },
             "require": {
@@ -6488,7 +6494,7 @@
                 "phar-io/version": "^2.0.1",
                 "php": "^7.2",
                 "phpspec/prophecy": "^1.10.3",
-                "phpunit/php-code-coverage": "^7.0.10",
+                "phpunit/php-code-coverage": "^7.0.11",
                 "phpunit/php-file-iterator": "^2.0.2",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.1.2",
@@ -6544,7 +6550,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.9"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/8.5.10"
             },
             "funding": [
                 {
@@ -6556,7 +6562,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-10T12:51:38+00:00"
+            "time": "2020-11-27T05:24:14+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
