@@ -80,7 +80,6 @@
                     </button>
                 </div>
                 <form method="post" action="{{ route('profile.password') }}" autocomplete="off">
-                        
                     @csrf
                     @method('put')
                     <div class="modal-body">
