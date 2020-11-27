@@ -16,13 +16,16 @@
                     </div>
                     <div class="col-sm-6">
                         <form>
-                            <div class="row">
+                            <div class="row" style="display:flex;">
                                 <div class="col-md-6 float-right">
                                 {!!Form::select('situacao', '')
                                     ->options($situacao)
                                 !!}
-                                </div> 
-                                <button type="submit" class="btn btn-primary float-right">Filtrar</button>
+                                </div>
+                                <div class="row-button" style="margin-top: 17px;">
+                                    <button type="submit" class="btn btn-primary float-right" 
+                                    style="height: 37px;"><span style="position:relative;bottom: 3px;">Filtrar</span></button>
+                                </div>
                             </div>
                         </form>
                     </div>
