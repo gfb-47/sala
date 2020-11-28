@@ -17807,11 +17807,12 @@ Copyright (c) 2015 Daniel Eden
 .login-page .card-login {
   border-radius: 0.4285rem;
   padding-bottom: 0.7rem;
-  width: 320px;
+  width: 319px;
 }
 @media only screen and (max-width: 320px) {
   .login-page .card-login {
     width: auto;
+    height: auto;
   }
 }
 
