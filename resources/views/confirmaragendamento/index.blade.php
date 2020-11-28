@@ -32,7 +32,7 @@
                                 <td>{{brDate($item->data)}}</td>
                                 <td>{{$item->users->name}}</td>
                                 <td>{{$item->motivos->motivo}}</td>
-                                <td style="text-align: right" >
+                                <td style="text-align: right">
                                     <a href="{{ route('confirmaragendamento.show', $item->id) }}"
                                     style="color:#000000" 
                                     class="fas fa-eye"></a>
