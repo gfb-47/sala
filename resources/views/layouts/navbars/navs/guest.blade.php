@@ -10,7 +10,7 @@
             </div>
             <!-- <a class="navbar-brand" href="#">{{ $page ?? '' }}</a> -->
             <a href="{{ route('login')}}">
-                <img src="{{ asset('img/icon_unitins.png') }}" alt="Logo Unitins" class="logo" />
+                <img src="{{ asset('img/LogoSALADetail.png') }}" alt="Logo Unitins" class="logo logoSala" />
             </a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">

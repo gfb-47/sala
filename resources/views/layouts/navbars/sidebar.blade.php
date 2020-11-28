@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{route('index.index')}}">
-                <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
+                <img src="{{ asset('img/LogoSALAMainWhite.png') }}" alt="Logo Unitins Branca" />
             </a>
         </div>
         <ul class="nav">

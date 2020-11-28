@@ -315,6 +315,17 @@ footer {
 footer p{
   color: white;
 }
+
+.logo {
+  float: left;
+  margin: 30px 0px 0px 20px;
+}
+
+.logoSala {
+  height: 50%;
+  width: 50%;
+}
+
 .logo:hover{
   background-color: none;
 }
@@ -333,6 +344,7 @@ footer{
   }
   .footer-items{
     margin-top: 20px;
+    margin: 20px 100px 0px 0px;
   }
 }
 .footer-all{
@@ -352,8 +364,19 @@ footer{
   padding: 0;
 }
 
+.footer-items{
+  margin: 20px 100px 0px 0px;
+}
+
+.footer-content {
+  margin: 5px 0px 5px 0px;
+  width: 40%;
+}
+
 .footer-logo{
-  margin-left: 5%;
+  margin: 5px 0px 0px 50px;
+  max-width: 45%;
+  float: left;
 }
 
 .card {

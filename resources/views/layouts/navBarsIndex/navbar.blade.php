@@ -1,6 +1,6 @@
 <div class="navBarIndex" >
     <div class="navBarIndex_img">
-        <a href=""><img src="{{ asset('img') }}/logo_unitins.png" alt="" height=auto width=130></a>
+        <a href=""><img src="{{ asset('img') }}/LogoSALAMainWhite.png" alt="" class="logoSala logo" height=auto width=130></a>
     </div>
     <div class="item-navbar-all">
         <a class="item-navbar" href="/index">Página Inicial</a>
