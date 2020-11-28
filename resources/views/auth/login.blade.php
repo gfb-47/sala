@@ -29,12 +29,11 @@
                     @include('alerts.feedback', ['field' => 'password'])
                 </div>
             </div>
-            <div class="card-footer" style="margin-top:-110px; padding: 60px;">
+            <div class="card-footer" style="margin-top:-110px; padding: 40px">
                 <button type="submit" href="" class="btn btn-primary btn-lg btn-block mb-3" style="border-radius: 5px;
                     height: 45px; padding: 0px; background-color: #0375D8">Entrar</button>
 
-                <a class="btn btn-primary btn-lg btn-block mb-3" style="border-radius: 5px;
-                    height: 20px; padding: 0px; background-color: #0375D8" href="{{ route('password.request') }}">Esqueci minha senha</a>
+                <a style="float: right" href="{{ route('password.request') }}">Esqueci minha senha</a>
             </div>
         </div>
     </form>
