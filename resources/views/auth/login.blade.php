@@ -4,7 +4,7 @@
 <div class="col-lg-4 col-md-6 ml-auto mr-auto">
     <form class="form" method="post" action="{{ route('login') }}">
         @csrf
-        <div class="card card-login card-white" style="border-radius:20px; height:285px;
+        <div class="card card-login card-white" style="border-radius:20px; height:304px;
                 box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.507);">
             <div class="card-header" style="height: 50px; padding-top: 30px; padding-bottom: -30px">
                 <h3 style="color: black; text-align: center; font-weight:bold; font-family:Bree Serif">Login</h3>
