@@ -104,7 +104,7 @@ class AmbienteController extends Controller
         try {
             $tipoambiente = TipoAmbiente::select('id', 'nome as name')->orderBy('nome')->get();
             $item = Ambiente::findOrFail($id);
-            return view('ambiente.edit', compact('item', 'tipoambiente')->withStatus('Alterações Salvar com Sucesso'));
+            return view('ambiente.edit', compact('item', 'tipoambiente'));
         }
         catch(Exception $e){
             return redirect()->route('ambiente.index')->withError('Erro ao Adicionar');
