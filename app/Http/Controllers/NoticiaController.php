@@ -106,8 +106,6 @@ class NoticiaController extends Controller
                 'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
             ]
         );
-
-        dd($request);
         $inputs = $request->except('imagem');
         $item = Noticia::findOrFail($id);
         $item->fill($inputs);
@@ -124,7 +122,7 @@ class NoticiaController extends Controller
 
             $item->save();
         }
-        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
+        return redirect()->route('noticia.index')->withStatus('Notícia editada com Sucesso');
     }
     /**
      * Remove the specified resource from storage.
