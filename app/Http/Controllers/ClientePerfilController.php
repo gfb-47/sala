@@ -74,15 +74,13 @@ class ClientePerfilController extends Controller
     public function update(Request $request, $id)
     {
         //
-
-        $this->validate($request, [
-            'cpf' => 'required|unique:users,cpf,'.auth()->id(),
-            'name' => 'nullable|string',
-            'telefone' => 'required|string|min:11',
-            'matricula' => 'required|string'
-        ]);
-
         try {
+            $this->validate($request, [
+                'cpf' => 'required|string|size:14|unique:users,cpf,'.auth()->id(),
+                'name' => 'nullable|string',
+                'telefone' => 'required|string|size:15',
+            ]);
+        
 
             $item = User::findOrFail($id);
             $item->fill($request->all());
@@ -90,11 +88,11 @@ class ClientePerfilController extends Controller
             $pessoa = Pessoa::findOrFail($item->pessoa_id);
             $pessoa->fill($request->all());
             $pessoa->save();
-            return redirect()->route('perfil.index')->withStatus('Salvo com Sucesso');
+            return redirect()->route('perfil.index')->withStatus('Salvo com sucesso');
         }
         catch(Exception $e){
            
-            return redirect()->route('perfil.index')->withError('Erro ao Salvar');
+            return redirect()->route('perfil.index')->withError('Erro ao salvar');
         }
     }
 

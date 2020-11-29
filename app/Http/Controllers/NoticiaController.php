@@ -103,7 +103,7 @@ class NoticiaController extends Controller
             [
                 'titulo' => 'required|max:45',
                 'conteudo' => 'nullable|max:4000',
-                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1920',
             ]
         );
         $inputs = $request->except('imagem');
