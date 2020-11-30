@@ -22,7 +22,11 @@
                                 <th>Data</th>
                                 <th>Requerente</th>
                                 <th>Motivo</th>
-                                <th style="text-align: right">Visualizar</th>
+                                <th>Hora de início</th>
+                                <th>Hora de finalizar</th>
+                                <th>Aceitar</th>
+                                <th>Rejeitar</th>
+                                <th style="text-align: right">Detalhes</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,6 +36,28 @@
                                 <td>{{brDate($item->data)}}</td>
                                 <td>{{$item->users->name}}</td>
                                 <td>{{$item->motivos->motivo}}</td>
+                                <td>{{$item->horainicio}}</td>
+                                <td>{{$item->horafim}}</td>
+                                <td>
+                                    <form action="{{route('agendamentos.confirma', $item->id)}}" id="formConfirmaAgendamento"
+                                    method="POST">
+                                    @csrf
+                                    @method('POST')
+                                        <button type="submit"
+                                            class="btn btn-primary btn-change fas fa-check">
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="{{route('agendamentos.rejeita', $item->id)}}" id="formRejeitaAgendamento"
+                                    method="POST">
+                                    @csrf
+                                    @method('POST')
+                                        <button type="submit"
+                                            class="btn btn-secondary btn-change fas fa-times">
+                                        </button>
+                                    </form>
+                                </td>
                                 <td style="text-align: right">
                                     <a href="{{ route('confirmaragendamento.show', $item->id) }}"
                                     style="color:#000000" 
@@ -40,7 +66,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" style="text-align:center">
+                                <td colspan="9" style="text-align:center">
                                     Não foram encontrados registros
                                 </td>
                             </tr>
