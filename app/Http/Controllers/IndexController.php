@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Noticia;
+
 class IndexController extends Controller
 {
     /**
@@ -21,6 +23,11 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('users/indexUser');
+        $data = Noticia::info()
+        ->with('user')
+        ->latest()
+        ->paginate(10)
+        ->take(10);
+        return view('users/indexUser', compact('data'));
     }
 }

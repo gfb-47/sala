@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             'matricula' => '2000010100000000'
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => 'Unitins',
             'email' => 'email@unitins.com.br',
             'password' => bcrypt('unitins2020'),
@@ -27,5 +27,9 @@ class UserSeeder extends Seeder
             'pessoa_id' => $pessoa->id,
             'tipo_usuario' => 1
         ]);
+
+        $user->assignRole('administrador_plataforma');
+        $this->command->info('Default User created');
+
     }
 }

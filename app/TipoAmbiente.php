@@ -8,7 +8,7 @@ class TipoAmbiente extends Model
 {
     
     protected $fillable = [
-        'nome','ativo'
+        'nome','ativo','status'
     ];
     
     public function scopeInfo($query){

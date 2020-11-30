@@ -81,3 +81,7 @@ canvas {
     display: block;
     width: 800px;
 }
+
+a:hover {
+    color: #003172;
+}

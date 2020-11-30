@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.4",
         "netojose/laravel-bootstrap-4-forms": "^3.0",
+        "spatie/laravel-permission": "^3.17",
         "tucker-eric/eloquentfilter": "^2.4"
     },
     "require-dev": {

@@ -22,5 +22,8 @@ Route::group(['prefix' => 'v1'], function () {
             Route::group(['prefix' => 'schedules'], function () {
                 Route::get('all/{id}', 'PublicController@getSchedules');
             });
+            Route::group(['prefix' => 'disciplinas'], function () {
+                Route::get('all/{id}', 'PublicController@getDisciplinas');
+            });
         });
 });

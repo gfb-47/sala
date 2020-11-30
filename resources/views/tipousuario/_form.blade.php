@@ -1,3 +1,5 @@
+@include('alerts.success')
+@include('alerts.error')
 <div class="row">
     <div class="col-md-12">
         {!!Form::text('nome', 'Nome')

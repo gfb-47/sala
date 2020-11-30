@@ -9,6 +9,28 @@
                     <div class="col-sm-6 text-left">
                         <h2 class="card-title">Meus Agendamentos</h2>
                     </div>
+                    <div class="col-sm-6">
+                        <a class="btn btn-secondary float-right" href="{{ route('selecaoambiente.index') }}">
+                            Agendar ambiente
+                        </a>
+                    </div>
+                    <div class="col-md-12">
+                    @include('alerts.success')
+                    @include('alerts.error')
+                        <form>
+                            <div class="row" style="display:flex;">
+                                <div class="col-md-6 float-right">
+                                {!!Form::select('situacao', '')
+                                    ->options($situacao)
+                                !!}
+                                </div>
+                                <div class="row-button" style="margin-top: 17px;">
+                                    <button type="submit" class="btn btn-primary float-right" 
+                                    style="height: 37px;"><span style="position:relative;bottom: 3px;">Filtrar</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -19,7 +41,8 @@
                                 <th>Ambiente</th>
                                 <th>Data</th>
                                 <th>Situação</th>
-                                <th>Motivo</th>
+                                <th>Motivo 
+                                </th>
                                 <th style="text-align: right">Visualizar</th>
                             </tr>
                         </thead>
@@ -48,7 +71,10 @@
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">
-                    {{ $data->links() }}
+                    @if (isset($filters))
+                        {{ $data->appends($filters)->links() }}
+                    @else
+                    @endif
                 </nav>
             </div>
         </div>

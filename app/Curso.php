@@ -13,4 +13,8 @@ class Curso extends Model
     public function scopeInfo($query){
         return $query->select('*');
     }
+
+    public function disciplina() {
+        return $this->belongsTo(Disciplina::class);
+    }
 }

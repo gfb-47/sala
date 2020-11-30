@@ -315,22 +315,41 @@ footer {
 footer p{
   color: white;
 }
+
+.logo {
+  float: left;
+  margin: 30px 0px 0px 20px;
+}
+
+.logoSala {
+  height: 50%;
+  width: 50%;
+}
+
 .logo:hover{
   background-color: none;
 }
 
 footer{
-    height: 200px;
+    height: auto;
     font-size: 14px;
     text-align: center;
     margin-top: 50px;
     padding: 30px 0;
     font-weight: 600; 
 }
-
+@media only screen and (max-width: 600px) {
+  .footer-all{
+    flex-direction: column;
+  }
+  .footer-items{
+    margin-top: 20px;
+    margin: 20px 100px 0px 0px;
+  }
+}
 .footer-all{
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
 }
 .modal-footer{
   border-top: none;
@@ -345,12 +364,19 @@ footer{
   padding: 0;
 }
 
-.footer-logo{
-  margin-left: 5%;
+.footer-items{
+  margin: 20px 100px 0px 0px;
 }
 
-.footer-items{
-  margin-left: 19%;
+.footer-content {
+  margin: 5px 0px 5px 0px;
+  width: 40%;
+}
+
+.footer-logo{
+  margin: 5px 0px 0px 50px;
+  max-width: 45%;
+  float: left;
 }
 
 .card {
@@ -416,10 +442,11 @@ height: 520px;
   transition: 0.3s;
   border: 8px;
   border-radius: 8px;
+  display: block;
 }
 
 .carousel-body{
-  display: list-item;
+  display: list-item block;
   justify-content: space-between;
 }
 

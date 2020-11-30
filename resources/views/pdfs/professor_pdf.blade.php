@@ -107,7 +107,7 @@
     
 <div class="row">
         <div class="col-md-6">
-            <img class="img" src="{{ public_path('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
+            <img class="img" src="{{ public_path('img/LogoSALADetail.png') }}" alt="Logo Unitins Branca" />
         </div>
         <div class="col-md-6 float-right">
             <h1 class="myh1" style="">Universidade Estadual do Tocantins</h1>
@@ -118,9 +118,10 @@
             <p class="myp text-muted">{{date('d/m/Y')}}</h1>
         </div>
     </div>
+    @forelse($data as $item)
     <div class="row">
         <div class="col-md-6">
-            <h1 class="myh1">Agendamentos</h1>
+            <h1 class="myh1">Responsável: {{ $item->professores->nome }}</h1>
         </div>
     </div>
 
@@ -139,7 +140,6 @@
             </tr>
         </thead>
         <tbody>
-        @forelse($data as $item)
         <tr>
             <td>{{ $item->id }}</td>
             <td>{{ $item->users->name }}</td>
@@ -147,7 +147,7 @@
             <td>{{ $item->horainicio }}</td>
             <td>{{ $item->horafim }}</td>
             <td>{{ $item->ambientes->nome }}</td>
-            <td>{{ $item->cursos->nome }}</td>
+            <td>{{ $item->disciplinas->curso->nome }}</td>
             <td>{{ $item->disciplinas->nome }}</td>
             <td>{{ $item->motivos->motivo }}</td>
         </tr>
@@ -165,9 +165,9 @@
             <table class="table table-borderless" style="text-align:center;">
                 <thead>
                     <tr>
-                        <th>{{date('d/m/Y')}}</th>
-                        <th>Todos os direitos reservados</th>
-                        <th>UNITINS</th>
+                        <th></th>
+                        <th>Todos os direitos reservados por UNITINS</th>
+                        <th></th>
                     </tr>
                 </thead>
             </table>

@@ -1,8 +1,13 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         {!!Form::text('nome', 'Nome')
         ->required()
         ->attrs(['maxlength' => 50])!!}
+    </div>
+    <div class="col-md-6">
+        {!!Form::select('curso', 'Curso')
+        ->options($curso->prepend('Selecione...', ''))
+        ->required() !!}
     </div>
 </div>
 <div class="row">

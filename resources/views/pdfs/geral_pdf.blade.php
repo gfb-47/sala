@@ -33,7 +33,7 @@
         }
 
         img {
-            max-width: 100px;
+            max-width: 24%;
             height: auto;
         }
 
@@ -104,7 +104,7 @@
 <body>
     <div class="row">
         <div class="col-md-6">
-            <img class="img" src="{{ public_path('img/icon_unitins.png') }}" alt="Logo Unitins Branca" />
+            <img class="img" src="{{ public_path('img/LogoSALADetail.png') }}" alt="Logo Unitins Branca" />
         </div>
         <div class="col-md-6 float-right">
             <h1 class="myh1">Universidade Estadual do Tocantins</h1>
@@ -145,7 +145,7 @@
             <td>{{ $item->horainicio }}</td>
             <td>{{ $item->horafim }}</td>
             <td>{{ $item->ambientes->nome }}</td>
-            <td>{{ $item->cursos->nome }}</td>
+            <td>{{ $item->disciplinas->curso->nome }}</td>
             <td>{{ $item->disciplinas->nome }}</td>
             <td>{{ $item->motivos->motivo }}</td>
             <td>{{ $item->professores->nome }}</td>
@@ -164,9 +164,9 @@
             <table class="table table-borderless" style="text-align:center;">
                 <thead>
                     <tr>
-                        <th>{{date('d/m/Y')}}</th>
-                        <th>Todos os direitos reservados</th>
-                        <th>UNITINS</th>
+                        <th></th>
+                        <th>Todos os direitos reservados por UNITINS</th>
+                        <th></th>
                     </tr>
                 </thead>
             </table>

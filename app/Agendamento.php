@@ -3,11 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use EloquentFilter\Filterable;
 
 class Agendamento extends Model
 {
+
+    use Filterable;
+    
     protected $fillable = [
-        'data','horainicio','horafim','situacao','professorresponsavel','ambiente','user','curso','disciplina','motivoutilizacao','observacao'
+        'data','horainicio','horafim','situacao','professorresponsavel','ambiente','user','disciplina','motivoutilizacao','observacao'
     ];
     public function scopeInfo($query){
         return $query->select('*');
@@ -18,10 +22,6 @@ class Agendamento extends Model
     }
     public function motivos() {
         return $this->belongsTo(MotivoUtilizacao::class, 'motivoutilizacao');
-    }
-
-    public function cursos() {
-        return $this->belongsTo(Curso::class, 'curso');
     }
 
     public function disciplinas() {
@@ -43,5 +43,10 @@ class Agendamento extends Model
     }
     public function getSituacao() {
         return $this->allStatus()[$this->situacao];
+    }
+
+    public function modelFilter()
+    {
+        return $this->provideFilter(ModelFilters\AgendamentosFilter::class);
     }
 }

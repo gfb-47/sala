@@ -57,6 +57,6 @@ class Handler extends ExceptionHandler
             return response()->view('errorPages.error', \compact('code'));
             
         }
-        return parent::render($request, $exception);
+        return parent::render($request, $e);
     }
 }

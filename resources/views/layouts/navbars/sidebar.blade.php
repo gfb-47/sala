@@ -2,7 +2,7 @@
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="{{route('index.index')}}">
-                <img src="{{ asset('img/icon_unitins_white.png') }}" alt="Logo Unitins Branca" />
+                <img src="{{ asset('img/LogoSALAMainWhite.png') }}" alt="Logo Unitins Branca" />
             </a>
         </div>
         <ul class="nav">
@@ -10,6 +10,12 @@
                 <a href="{{ route('index.index') }}">
                     <i class="fas fa-home"></i>
                     <p>Página Inicial</p>
+                </a>
+            </li>
+            <li @if ($pageSlug=='Agendar' ) class="active " @endif>
+                <a href="{{ route('selecaoambiente.index') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Agendar</p>
                 </a>
             </li>
             <li>
@@ -70,7 +76,7 @@
                 <div class="collapse" id="Movimentação">
                     <ul class="nav pl-4">
                         <li @if ($pageSlug=='Agendamentos' ) class="active " @endif>
-                            <a href="{{ route('profile.edit')  }}">
+                            <a href="{{ route('confirmaragendamento.index')  }}">
                                 <i class="fas fa-calendar-check"></i>
                                 <p>Agendamentos</p>
                             </a>
@@ -84,13 +90,13 @@
                             <div class="collapse" id="GerarRelatorio">
                                 <ul class="nav pl-4">
                                     <li @if ($pageSlug=='Relatório Professor' ) class="active " @endif>
-                                        <a href="{{ route('professor.index')  }}">
+                                        <a href="{{ route('relatorio.professor')  }}">
                                             <i class="fas fa-chalkboard-teacher"></i>
                                             <p>Professor</p>
                                         </a>
                                     </li>
                                     <li @if ($pageSlug=='Relatório Geral' ) class="active " @endif>
-                                        <a href="{{ route('geral.index')  }}">
+                                        <a href="{{ route('relatorio.geral')  }}">
                                             <i class="fas fa-globe-americas"></i>
                                             <p>Geral</p>
                                         </a>

@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class TipoAmbienteController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('permission:tipoambiente_create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:tipoambiente_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:tipoambiente_view', ['only' => ['index']]);
+        $this->middleware('permission:tipoambiente_inactive', ['only' => ['status']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,8 +44,15 @@ class TipoAmbienteController extends Controller
      */
     public function store(Request $request)
     {
-        TipoAmbiente::create($request->all());
-        return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
+        try{
+
+            TipoAmbiente::create($request->all());
+            return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
+        }
+        catch(Exception $e){
+            
+            return redirect()->route('tipoambiente.index')->withError('Erro ao Adicionar Registro');
+        }
     }
 
     /**
@@ -72,10 +87,20 @@ class TipoAmbienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = TipoAmbiente::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
+        $this->validate($request, [
+            'nome' => 'required',
+        ]);
+        try {
+
+            $item = TipoAmbiente::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            return redirect()->route('tipoambiente.index')->withStatus('Registro Atualizado com Sucesso');
+        }
+        catch(Exception $e){
+            return redirect()->route('tipoambiente.index')->withError('Erro ao Atualizar');
+            
+        }
 
     }
 
@@ -88,5 +113,23 @@ class TipoAmbienteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function status(Request $request, $id)
+    {
+        try{
+
+            $item = TipoAmbiente::findOrFail($id);
+            if ($item->ativo == 1){
+                $item->fill(['ativo' => 0])->save();
+                return redirect()->route('tipoambiente.index')->withStatus('TipoAmbiente '.$item->nome.' desativado com sucesso');
+            } else {
+                $item->fill(['ativo' => 1])->save();
+                return redirect()->route('tipoambiente.index')->withStatus('TipoAmbiente '.$item->nome.' ativado com sucesso');
+            }
+        }
+        catch(Exception $e){
+            return redirect()->route('tipoambiente.index')->withError('Erro ao Salvar Alterações');
+        }
     }
 }

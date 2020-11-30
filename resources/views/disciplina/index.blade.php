@@ -1,6 +1,5 @@
 @extends('layouts.app', ['pageSlug' => 'Disciplina'])
 
-
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -23,6 +22,7 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                                <th>Curso</th>
                                 <th>Dt. Criação</th>
                                 <th>Dt. Atualização</th>
                                 <th style="text-align: right">Editar</th>
@@ -33,6 +33,7 @@
                         @forelse($data as $item)
                             <tr>
                                 <td>{{$item->nome}}</td>
+                                <td>{{$item->curso->nome}}</td>
                                 <td>{{$item->created_at->format('d/m/Y H:i:s')}}</td>
                                 <td>{{$item->updated_at->format('d/m/Y H:i:s')}}</td>
                                 <td style="text-align: right"><a href="{{ route('disciplina.edit', [$item->id]) }}" class="btn btn-primary">Editar</a></td>
@@ -46,7 +47,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="5" style="text-align:center">
+                                <td colspan="6" style="text-align:center">
                                     Não Foram encontrados Registros
                                 </td>
                             </tr>
@@ -54,10 +55,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div> -->
             </div>
             <div class="card-footer py-4">
                 <nav class="d-flex justify-content-end" aria-label="...">

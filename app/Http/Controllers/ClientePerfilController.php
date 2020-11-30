@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Pessoa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ClientePerfilController extends Controller
 {
@@ -69,13 +71,29 @@ class ClientePerfilController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
         //
-        $item = User::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('clienteperfil.index');
+        try {
+            $this->validate($request, [
+                'cpf' => 'required|string|size:14|unique:users,cpf,'.auth()->id(),
+                'name' => 'nullable|string',
+                'telefone' => 'required|string|size:15',
+            ]);
+        
+
+            $item = User::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            $pessoa = Pessoa::findOrFail($item->pessoa_id);
+            $pessoa->fill($request->all());
+            $pessoa->save();
+            return redirect()->route('perfil.index')->withStatus('Salvo com sucesso');
+        }
+        catch(Exception $e){
+           
+            return redirect()->route('perfil.index')->withError('Erro ao salvar');
+        }
     }
 
     /**

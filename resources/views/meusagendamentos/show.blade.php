@@ -58,7 +58,7 @@
                                 <div class="card-body">
                                     <p><strong>Curso </strong></p>
                                     <p class="card-text">
-                                        {{ $item->cursos->nome }}
+                                        {{ $item->disciplinas->curso->nome }}
                                     </p>
                                 </div>
                             </div>

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TipoUsuarioController extends Controller
 {
+
+    public function __construct()
+    {    
+        $this->middleware('permission:tipousuario_edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:tipousuario_view', ['only' => ['index']]);        
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,8 +42,7 @@ class TipoUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        TipoUsuario::create($request->all());
-        return redirect()->route('tipousuario.index');
+        //
     }
 
     /**
@@ -72,10 +77,19 @@ class TipoUsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = TipoUsuario::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('tipousuario.index');
+        $this->validate($request,[
+            'nome' => 'required|max:50'
+        ]);
+        try{
+            $item = TipoUsuario::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            return redirect()->route('tipousuario.index')->withStatus('Registro Atualizado com Sucesso');
+        }
+        catch(Exception $e){
+            return redirect()->route('tipousuario.index')->withError('Erro ao Atualizar Registro');
+            
+        }
 
     }
 

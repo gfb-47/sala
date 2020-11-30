@@ -32,6 +32,13 @@
 <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
 
 <script>
+$(":submit").on("click", function() {
+         if($('#pdf').val() == ''){
+            alert('Seleciona um PDF')
+         }else{
+             this.form.submit();
+}});
+
 $(document).ready(function() {
     stripes()
 
