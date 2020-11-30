@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use DateTime;
 
 function ukDate($datetime = null, $timestamp = false)
 {
@@ -43,9 +44,6 @@ function encryptCpf($cpf)
     $cpf = str_replace('-', '', $cpf);
     return bcrypt($cpf);
 }
-
-
-
 function days()
 {
     $days = array(

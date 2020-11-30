@@ -27,8 +27,13 @@ class MotivoUtilizacaoController extends Controller
 
     public function store(Request $request)
     {
-        MotivoUtilizacao::create($request->all());
-        return redirect()->route('motivoutilizacao.index')->withStatus('Registro Adicionado com Sucesso');
+        try {
+            MotivoUtilizacao::create($request->all());
+            return redirect()->route('motivoutilizacao.index')->withStatus('Registro Adicionado com Sucesso');
+        }
+        catch(Exception $e){
+            return redirect()->route('motivoutilizacao.index')->withError('Erro ao Adicionar Registro');
+        }
     }
 
     public function show($id)
@@ -44,22 +49,39 @@ class MotivoUtilizacaoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $item = MotivoUtilizacao::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('motivoutilizacao.index')->withStatus('Registro Adicionado com Sucesso');
+        $this->validate($request,[
+            'motivo' => 'required',
+        ]);
+        try {
+
+            $item = MotivoUtilizacao::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            return redirect()->route('motivoutilizacao.index')->withStatus('Registro Atualizado com Sucesso');
+        }
+        catch(Exception $e){
+            return redirect()->route('motivoutilizacao.index')->withError('Erro ao Atualizar');
+            
+        }
 
     }
 
     public function status($id)
     {
-        $item = MotivoUtilizacao::findOrFail($id);
-        if ($item->ativo == 1){
-            $item->fill(['ativo' => 0])->save();
-            return redirect()->route('motivoutilizacao.index')->withStatus('Motivo '.$item->nome.' desativado com sucesso');
-        } else {
-            $item->fill(['ativo' => 1])->save();
-            return redirect()->route('motivoutilizacao.index')->withStatus('Motivo '.$item->nome.' ativado com sucesso');
+        try {
+
+            $item = MotivoUtilizacao::findOrFail($id);
+            if ($item->ativo == 1){
+                $item->fill(['ativo' => 0])->save();
+                return redirect()->route('motivoutilizacao.index')->withStatus('Motivo '.$item->nome.' desativado com sucesso');
+            } else {
+                $item->fill(['ativo' => 1])->save();
+                return redirect()->route('motivoutilizacao.index')->withStatus('Motivo '.$item->nome.' ativado com sucesso');
+            }
+        }
+        catch(Exception $e){
+            return redirect()->route('motivoutilizacao.index')->withError('Erro ao Fazer Alterações');
+            
         }
     }
 

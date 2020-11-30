@@ -13,6 +13,8 @@
                 </div>
             </div>
             <div class="card-body">
+            @include('alerts.success')
+            @include('alerts.error')
                 <div class="">
                     <table class="table table-striped">
                         <thead>

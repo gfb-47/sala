@@ -14,7 +14,9 @@
                             Agendar ambiente
                         </a>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-12">
+                    @include('alerts.success')
+                    @include('alerts.error')
                         <form>
                             <div class="row" style="display:flex;">
                                 <div class="col-md-6 float-right">

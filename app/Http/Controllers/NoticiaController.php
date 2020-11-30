@@ -45,6 +45,7 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate(
             $request,
             [
@@ -53,17 +54,24 @@ class NoticiaController extends Controller
                 'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1920',
             ]
         );
-        $inputs=$request->all();
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+        try {
+
+            $inputs=$request->all();
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+                
+                $upload = $request->imagem->store('uploads/noticias', 'public');
+                
+                $inputs['imagem']= $upload;
+            }
             
-            $upload = $request->imagem->store('uploads/noticias', 'public');
-            
-            $inputs['imagem']= $upload;
+            $inputs['user_id']=auth()->id();
+            Noticia::create($inputs);
+            return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
         }
-        
-        $inputs['user_id']=auth()->id();
-        Noticia::create($inputs);
-        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
+        catch(Exception $e){
+            return redirect()->route('noticia.index')->withError('Erro ao Adicionar Registro');
+            
+        }
     }
 
     /**
@@ -107,26 +115,31 @@ class NoticiaController extends Controller
             ]
         );
 
-        dd($request);
-        $inputs = $request->except('imagem');
-        $item = Noticia::findOrFail($id);
-        $item->fill($inputs);
+        try {
+            $inputs = $request->except('imagem');
+            $item = Noticia::findOrFail($id);
+            $item->fill($inputs);
 
-        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-
-            $upload = $request->imagem->store('uploads/noticias', 'public');
-
-            if ($item->imagem) {
-                Storage::disk('public')->delete($item->imagem);
+            
+            if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+                $upload = $request->imagem->store('uploads/noticias', 'public');
+                
+                if ($item->imagem) {
+                    Storage::disk('public')->delete($item->imagem);
+                }
+                
+                $item->imagem = $upload;
+                
+                $item->save();
             }
-
-            $item->imagem = $upload;
-
-            $item->save();
+            return redirect()->route('noticia.index')->withStatus('Registro Atualizado com Sucesso');
         }
-        return redirect()->route('noticia.index')->withStatus('Registro Adicionado com Sucesso');
-    }
-    /**
+        catch(Exception $e){
+            return redirect()->route('noticia.index')->withError('Erro ao Atualizar Registro');
+            
+        }
+        }
+        /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Noticia  $noticia
@@ -134,11 +147,18 @@ class NoticiaController extends Controller
      */
     public function destroy($id)
     {
-        $item = Noticia::findOrFail($id);
-        if ($item->imagem) {
-            Storage::disk('public')->delete($item->imagem);
+        try {
+
+            $item = Noticia::findOrFail($id);
+            if ($item->imagem) {
+                Storage::disk('public')->delete($item->imagem);
+            }
+            $item->delete();
+            return redirect()->route('noticia.index')->withStatus('Registro Excluído com Sucesso');
         }
-        $item->delete();
-        return redirect()->route('noticia.index')->withStatus('Registro Excluído com Sucesso');
+        catch(Exception $e){
+            return redirect()->route('noticia.index')->withError('Erro ao Excluir');
+            
+        }
     }
 }
