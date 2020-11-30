@@ -24,9 +24,7 @@
                                 <th>Motivo</th>
                                 <th>Hora de início</th>
                                 <th>Hora de finalizar</th>
-                                <th>Aceitar</th>
-                                <th>Rejeitar</th>
-                                <th style="text-align: right">Detalhes</th>
+                                <th><span style="position: relative;left: 7.6px;">Ações<span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,29 +37,23 @@
                                 <td>{{$item->horainicio}}</td>
                                 <td>{{$item->horafim}}</td>
                                 <td>
-                                    <form action="{{route('agendamentos.confirma', $item->id)}}" id="formConfirmaAgendamento"
-                                    method="POST">
-                                    @csrf
-                                    @method('POST')
-                                        <button type="submit"
-                                            class="btn btn-primary btn-change fas fa-check">
-                                        </button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form action="{{route('agendamentos.rejeita', $item->id)}}" id="formRejeitaAgendamento"
-                                    method="POST">
-                                    @csrf
-                                    @method('POST')
-                                        <button type="submit"
-                                            class="btn btn-secondary btn-change fas fa-times">
-                                        </button>
-                                    </form>
-                                </td>
-                                <td style="text-align: right">
-                                    <a href="{{ route('confirmaragendamento.show', $item->id) }}"
-                                    style="color:#000000" 
-                                    class="fas fa-eye"></a>
+                                    <div class="group-itens" style="display: flex;justify-content:start; color: #000000;">
+                                        <form action="{{route('agendamentos.confirma', $item->id)}}" id="formConfirmaAgendamento"
+                                        method="POST">
+                                        @csrf
+                                        @method('POST')
+                                            <a class="fa fa-check"></a>
+                                        </form>
+                                        <form action="{{route('agendamentos.rejeita', $item->id)}}" id="formRejeitaAgendamento"
+                                        method="POST">
+                                        @csrf
+                                        @method('POST')
+                                            <a style="margin-left: 10px;margin-right: 6px;" class="fa fa-times"></a>
+                                        </form>
+                                        <a href="{{ route('confirmaragendamento.show', $item->id) }}"
+                                        style="color:#000000;margin:3.5px;" 
+                                        class="fas fa-eye"></a>
+                                    </div>
                                 </td>
                             </tr>
                         @empty
