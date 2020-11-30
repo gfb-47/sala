@@ -37,8 +37,17 @@ class AmbienteController extends Controller
      */
     public function create()
     {
-       
-        
+        try{
+            $tipoambiente = TipoAmbiente::select('id','nome as name')
+            ->where('tipo_ambientes.ativo',1)
+            ->orderBy('nome')->get();
+            return view('ambiente.create', compact('tipoambiente'));
+        }
+        catch(Exception $e){
+            
+            return redirect()->route('ambiente.index')->withError('Erro ao Adicionar');
+
+        }        
     }
 
     /**
