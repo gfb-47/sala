@@ -19,7 +19,7 @@
                             <tr>
                                 <th>Nome Ambiente</th>
                                 <th>Tipo Ambiente</th>
-                                <th style="text-align: right">Ação</th>
+                                <th style="text-align: center">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,7 +27,7 @@
                             <tr>
                                 <td>{{$item->nome}}</td>
                                 <td>{{$item->tipoAmbiente->nome}}</td>
-                                <td style="text-align: right"><a href="{{ route('novoagendamento.index',$item->id) }}" class="btn btn-lg btn-primary">Agendar</a></td>
+                                <td style="text-align: center"><a href="{{ route('novoagendamento.index',$item->id) }}" class="btn btn-lg btn-primary">Agendar</a></td>
                             </tr>
                         @empty
                             <tr>
