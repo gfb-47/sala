@@ -33,25 +33,24 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <div class="form-group{{ $errors->has('telefone') ? ' has-danger' : '' }}">
                                         <label>Telefone</label>
-                                        <input type="text" name="telefone" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" placeholder="Telefone" value="{{ old('telefone', Auth::user()->pessoa->telefone) }}">
+                                        <input type="text" id="telephone" name="telefone" class="form-control{{ $errors->has('telefone') ? ' is-invalid' : '' }}" placeholder="Telefone" value="{{ old('telefone', Auth::user()->pessoa->telefone) }}">
                                         @include('alerts.feedback', ['field' => 'telefone'])
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <div class="form-group">
                                         <label>Matrícula</label>
-                                        <input type="text" name="matricula" class="form-control{{ $errors->has('matricula') ? ' is-invalid' : '' }}" placeholder="Matrícula" value="{{ old('telefone', Auth::user()->pessoa->matricula) }}">
-                                        @include('alerts.feedback', ['field' => 'matricula'])
+                                        <label class="form-control">{{ auth()->user()->pessoa->matricula}}</label>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <div class="form-group{{ $errors->has('cpf') ? ' has-danger' : '' }}">
                                         <label>CPF</label>
-                                        <input type="text" name="cpf" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" placeholder="CPF" value="{{ old('cpf', auth()->user()->cpf) }}">
+                                        <input type="text" id="cpf" name="cpf" class="form-control{{ $errors->has('cpf') ? ' is-invalid' : '' }}" placeholder="CPF" value="{{ old('cpf', auth()->user()->cpf) }}">
                                         @include('alerts.feedback', ['field' => 'cpf'])
                                     </div>
                                 </div>
@@ -111,3 +110,14 @@
     </div>
 
 @endsection
+@push('js')
+    <script>
+        $(document).ready(function(){
+            $('#telephone').mask('(00) 00000-0000');
+        });
+
+        $(document).ready(function(){
+            $('#cpf').mask('000.000.000-00');
+        });
+    </script>
+@endpush

@@ -111,14 +111,22 @@ class NoticiaController extends Controller
             [
                 'titulo' => 'required|max:45',
                 'conteudo' => 'nullable|max:4000',
-                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+                'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1920',
             ]
         );
+<<<<<<< HEAD
 
         try {
             $inputs = $request->except('imagem');
             $item = Noticia::findOrFail($id);
             $item->fill($inputs);
+=======
+        $inputs = $request->except('imagem');
+        $item = Noticia::findOrFail($id);
+        $item->fill($inputs);
+
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+>>>>>>> 06213b6de190a67ff314750acef29dcf43e40cab
 
             
             if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
@@ -134,12 +142,18 @@ class NoticiaController extends Controller
             }
             return redirect()->route('noticia.index')->withStatus('Registro Atualizado com Sucesso');
         }
+<<<<<<< HEAD
         catch(Exception $e){
             return redirect()->route('noticia.index')->withError('Erro ao Atualizar Registro');
             
         }
         }
         /**
+=======
+        return redirect()->route('noticia.index')->withStatus('Notícia editada com Sucesso');
+    }
+    /**
+>>>>>>> 06213b6de190a67ff314750acef29dcf43e40cab
      * Remove the specified resource from storage.
      *
      * @param  \App\Noticia  $noticia
