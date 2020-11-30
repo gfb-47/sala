@@ -42,12 +42,7 @@ class AmbienteController extends Controller
             ->where('tipo_ambientes.ativo',1)
             ->orderBy('nome')->get();
             return view('ambiente.create', compact('tipoambiente'));
-        }
-        catch(Exception $e){
-            
-            return redirect()->route('ambiente.index')->withError('Erro ao Adicionar');
-
-        }
+        
         
     }
 
@@ -108,10 +103,12 @@ class AmbienteController extends Controller
             ->where('tipo_ambientes.ativo',1)
             ->orderBy('nome')->get();
             $item = Ambiente::findOrFail($id);
-            return view('ambiente.edit', compact('item', 'tipoambiente')->withStatus('Alterações Salvar com Sucesso'));
+
+            return view('ambiente.edit', compact('item', 'tipoambiente'));
+
         }
         catch(Exception $e){
-            return redirect()->route('ambiente.index')->withError('Erro ao Adicionar');
+            return redirect()->route('ambiente.index')->withError('Erro ao Selecionar Ambiente');
         }
     }
 

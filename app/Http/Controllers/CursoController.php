@@ -73,14 +73,13 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-     try {
+   
 
          $item = Curso::findOrFail($id);
-         return view('curso.edit', compact('item'))->withStatus('Alterações Salvas com Sucesso');
-        }
-    catch(Exception $e){
-        return view('curso.edit', compact('item'))->withError('Erro ao Salvar Alterações');
-    }
+         return view('curso.edit', compact('item'));
+      
+  
+    
     }
 
     /**
@@ -92,8 +91,8 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         try {
-
             $item = Curso::findOrFail($id);
             $item->fill($request->all());
             $item->save();

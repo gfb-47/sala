@@ -43,9 +43,6 @@ function encryptCpf($cpf)
     $cpf = str_replace('-', '', $cpf);
     return bcrypt($cpf);
 }
-
-
-
 function days()
 {
     $days = array(

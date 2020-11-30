@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Agendamento;
 use App\Ambiente;
 use App\Curso;
 use App\Disciplina;
 use App\Pessoa;
 use App\MotivoUtilizacao;
+use App\User;
+use DateTime;
 
 use Illuminate\Http\Request;
 
@@ -76,14 +78,34 @@ class NovoAgendamentoController extends Controller
      */
     public function store(Request $request)
     {
+        
         try{
 
-            $inputs=$request->all();
+            $inputs = $request->all();
             $inputs['user']=auth()->id();
             $inputs['situacao']= 1;
-            Agendamento::create($inputs);
-            return redirect()->route('meusagendamentos.index')->withStatus('Salvo com Sucesso');
+            $ym = Carbon::parse($request->data);
+            $data = Agendamento::select('data', 'horainicio', 'horafim', 'situacao')
+            ->where('user', $inputs['user'])
+            ->whereYear('data', $ym->year)
+            ->whereMonth('data', $ym->month)
+            ->get();
+            
+            $user = User::findOrFail($inputs['user']=auth()->id());
+            
+            $dataaux = Agendamento::select('data', 'horainicio', 'horafim', 'situacao')->get();
+                
+            if($user->tipo_usuario == 2 && sizeOf($data) == 3){
+                return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 vezes por mês');
+            }
+            if((Carbon::parse($request->horainicio)->floatDiffInMinutes($request->horafim) / 60) > 3){
 
+                return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 horas');
+         
+            }
+            Agendamento::create($inputs);
+            
+            return redirect()->route('meusagendamentos.index')->withStatus('Salvo com Sucesso');
         }
         catch(Exception $e){
             return redirect()->route('meusagendamentos.index')->withError('Erro ao Salvar Alterações');
@@ -134,4 +156,5 @@ class NovoAgendamentoController extends Controller
     {
         //
     }
+
 }

@@ -44,8 +44,15 @@ class TipoAmbienteController extends Controller
      */
     public function store(Request $request)
     {
-        TipoAmbiente::create($request->all());
-        return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
+        try{
+
+            TipoAmbiente::create($request->all());
+            return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
+        }
+        catch(Exception $e){
+            
+            return redirect()->route('tipoambiente.index')->withError('Erro ao Adicionar Registro');
+        }
     }
 
     /**
@@ -80,10 +87,20 @@ class TipoAmbienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $item = TipoAmbiente::findOrFail($id);
-        $item->fill($request->all());
-        $item->save();
-        return redirect()->route('tipoambiente.index')->withStatus('Registro Adicionado com Sucesso');
+        $this->validate($request, [
+            'nome' => 'required',
+        ]);
+        try {
+
+            $item = TipoAmbiente::findOrFail($id);
+            $item->fill($request->all());
+            $item->save();
+            return redirect()->route('tipoambiente.index')->withStatus('Registro Atualizado com Sucesso');
+        }
+        catch(Exception $e){
+            return redirect()->route('tipoambiente.index')->withError('Erro ao Atualizar');
+            
+        }
 
     }
 

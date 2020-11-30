@@ -118,6 +118,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'cpf' => 'required|string|size:14',
+            'name' => 'nullable|string',
+            'telefone' => 'required|string|size:15',
+        ]);
+
         DB::transaction(function() use ($request, $id) {
             try {
                 $inputs = $request->except('_token');
