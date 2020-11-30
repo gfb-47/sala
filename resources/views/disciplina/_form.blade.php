@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         {!!Form::text('nome', 'Nome')
         ->required()
         ->attrs(['maxlength' => 50])!!}
