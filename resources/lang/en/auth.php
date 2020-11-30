@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Login ou senha inválidos',
+    'failed' => 'Login ou senha inválidos/desativado',
     'throttle' => 'Excesso de tentativas. Por favor, tente novamente em :seconds secundos.',
 
 ];
