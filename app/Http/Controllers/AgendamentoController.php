@@ -17,7 +17,7 @@ class AgendamentoController extends Controller
         ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
         ->where('data', '>=', $request->datainicio)
         ->where('data', '<=', $request->datafim)
-        ->where('situacao', 4)
+        ->where('situacao', 2)
         ->paginate(10);
         return PDF::loadView('pdfs.geral_pdf', compact('data'))
         ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
@@ -42,7 +42,7 @@ class AgendamentoController extends Controller
             ->where('professorresponsavel', $request->professorresponsavel)
             ->where('data', '>=', $request->datainicio)
             ->where('data', '<=', $request->datafim)
-            ->where('situacao', 4)
+            ->where('situacao', 2)
             ->paginate(10);
             
             return PDF::loadView('pdfs.professor_pdf', compact('data'))
@@ -67,7 +67,7 @@ class AgendamentoController extends Controller
             ->where('professorresponsavel', auth()->id())
             ->where('data', '>=', $request->datainicio)
             ->where('data', '<=', $request->datafim)
-            ->where('situacao', 4)
+            ->where('situacao', 2)
         ->paginate(10);
 
         return PDF::loadView('pdfs.relatorio_pdf', compact('data'))
