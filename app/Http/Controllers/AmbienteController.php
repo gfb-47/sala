@@ -38,7 +38,9 @@ class AmbienteController extends Controller
     public function create()
     {
         try{
-            $tipoambiente = TipoAmbiente::select('id','nome as name')->orderBy('nome')->get();
+            $tipoambiente = TipoAmbiente::select('id','nome as name')
+            ->where('tipo_ambientes.ativo',1)
+            ->orderBy('nome')->get();
             return view('ambiente.create', compact('tipoambiente'));
         }
         catch(Exception $e){
@@ -102,7 +104,9 @@ class AmbienteController extends Controller
     public function edit($id)
     {
         try {
-            $tipoambiente = TipoAmbiente::select('id', 'nome as name')->orderBy('nome')->get();
+            $tipoambiente = TipoAmbiente::select('id', 'nome as name')
+            ->where('tipo_ambientes.ativo',1)
+            ->orderBy('nome')->get();
             $item = Ambiente::findOrFail($id);
             return view('ambiente.edit', compact('item', 'tipoambiente')->withStatus('Alterações Salvar com Sucesso'));
         }
