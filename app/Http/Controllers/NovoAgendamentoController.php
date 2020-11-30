@@ -7,6 +7,7 @@ use App\Ambiente;
 use App\Curso;
 use App\Disciplina;
 use App\Pessoa;
+use App\User;
 use App\MotivoUtilizacao;
 use DateTime;
 
@@ -90,9 +91,10 @@ class NovoAgendamentoController extends Controller
             ->whereMonth('data', $ym->month)
             ->get();
 
+            $user = User::findOrFail($inputs['user']=auth()->id());
             $dataaux = Agendamento::select('data', 'horainicio', 'horafim', 'situacao')->get();
                 
-            if(sizeOf($data) == 3){
+            if($user->tipo_usuario == 2 && sizeOf($data) == 3){
                 return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 vezes por mês');
             }
             if((Carbon::parse($request->horainicio)->floatDiffInMinutes($request->horafim) / 60) > 3){
