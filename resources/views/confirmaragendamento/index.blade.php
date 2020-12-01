@@ -48,7 +48,7 @@
                                         method="POST">
                                         @csrf
                                         @method('POST')
-                                            <button  class="btn btn-link fa fa-times" style="margin-left: 10px;margin-right: 6px;"></button>
+                                            <button class="btn-link2 fa fa-times" style="margin-left: 10px;margin-right: 6px;"></button>
                                         </form>
                                         <a href="{{ route('confirmaragendamento.show', $item->id) }}"
                                         style="color:#000000;margin:3.5px;" 

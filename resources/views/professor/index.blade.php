@@ -15,19 +15,17 @@
             <form method="get" action="{{route('relatorio.gerarRelatorioProf')}}">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 ">
+                            {!!Form::select('professorresponsavel', 'Professor responsavel')
+                            ->options($prof->prepend('Selecione...', ''))
+                            ->required() !!}
+                        </div>
+                        <div class="col-md-3">
                             {!!Form::date('datainicio', 'Dia Início')
                             ->required() !!}
                         </div>                 
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             {!!Form::date('datafim', 'Dia Fim')
-                            ->required() !!}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            {!!Form::select('professorresponsavel', 'Professor responsavel')
-                            ->options($prof->prepend('Selecione...', ''))
                             ->required() !!}
                         </div>
                     </div>
