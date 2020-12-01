@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Agendamento;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
+use DateTime;
+use Carbon\Carbon;
+use Carbon\CarbonInterval;
 
 class AgendamentoController extends Controller
 {
@@ -91,9 +94,26 @@ class AgendamentoController extends Controller
             return redirect()->route('confirmaragendamento.index');
         }
     }
-    public function rejeita($id) {
+
+    public function userRejeita($id) {
+
         $item = Agendamento::findOrFail($id);
+
+        $date = Carbon::parse($item->data);
         
+        $date2 = CarbonInterval::days($date->day);
+        if($date2->d < 2) {
+            return redirect()->route('meusagendamentos.index')->withError('Não foi possível cancelar, pois só é possível com 48 horas de antecedência.');
+        } else {
+            $item->fill(['situacao' => 3])->save();
+            return redirect()->route('meusagendamentos.index')->withStatus('Agendamento cancelado com sucesso.');
+        }
+
+    }
+
+    public function rejeita($id) {
+
+        $item = Agendamento::findOrFail($id);
         if ($item->situacao == 1){
             $item->fill(['situacao' => 3])->save();
             return redirect()->route('confirmaragendamento.index');

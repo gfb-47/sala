@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::post('/disciplina/{id}/status', 'DisciplinaController@status')->name('disciplina.status');
 		Route::post('/confirmaragendamento/{id}/confirma', 'AgendamentoController@confirma')->name('agendamentos.confirma');
 		Route::post('/confirmaragendamento/{id}/rejeita', 'AgendamentoController@rejeita')->name('agendamentos.rejeita');
+		Route::post('/meusagendamentos/{id}/rejeita', 'AgendamentoController@UserRejeita')->name('agendamentos.userrejeita');
 		Route::post('/curso/{id}/status', 'CursoController@status')->name('curso.status');
 		Route::post('/user/{id}/status', 'UserController@status')->name('user.status');
 		Route::post('/motivo/{id}/status', 'MotivoUtilizacaoController@status')->name('motivo.status');

@@ -107,6 +107,21 @@
                                 </div>
                             </div>
                         </div>
+                        @if($item->situacao == 1 )
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action="{{route('agendamentos.userrejeita', $item->id)}}" id="formRejeitaAgendamento"
+                                        method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <button type="submit"
+                                            class="btn float-left btn-secondary btn-change">Rejeitar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
