@@ -24,7 +24,7 @@
                                 <th>Motivo</th>
                                 <th>Hora de início</th>
                                 <th>Hora de finalizar</th>
-                                <th><span style="position: relative;left: 7.6px;">Ações<span></th>
+                                <th style="position: relative;left: 35px;">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +58,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" style="text-align:center">
+                                <td colspan="7" style="text-align:center">
                                     Não foram encontrados registros
                                 </td>
                             </tr>
