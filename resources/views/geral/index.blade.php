@@ -15,20 +15,19 @@
             <form method="get" action="{{route('relatorio.gerarRelatorioGeral')}}">
                 <div class="card-body">
                     <div class="row center">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             {!!Form::date('datainicio', 'Dia Início')
                             ->required() !!}
                         </div>                 
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             {!!Form::date('datafim', 'Dia Fim')
                             ->required() !!}
                         </div>
-                        <div class="row-button" style="margin-top: 17px;">
-                            <button type="submit" class="btn btn-primary float-right" 
-                            style="height: 37px;"><span style="position:relative;bottom: 3px;">Filtrar</span></button>
-                        </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary float-right">Gerar Relatório</button>
+                        </div>
                     </div>
                 </div>
             </form>
