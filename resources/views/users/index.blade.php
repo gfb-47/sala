@@ -10,7 +10,9 @@
                         <h2 class="card-title">Usuário</h2>
                     </div>
                     <div class="col-sm-6">
+                    @if(Auth::user()->tipo_usuario != 3)
                         <a href="{{ route('user.create')}}" class="btn btn-secondary float-right">Cadastrar Novo</a>
+                    @endif
                     </div>
                 </div>
             </div>
