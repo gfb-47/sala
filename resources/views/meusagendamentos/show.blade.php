@@ -116,7 +116,7 @@
                                         @csrf
                                         @method('POST')
                                         <button type="submit"
-                                            class="btn float-left btn-secondary btn-change">Rejeitar</button>
+                                            class="btn float-left btn-secondary btn-change">Cancelar</button>
                                     </form>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@
                                 <th>Motivo</th>
                                 <th>Hora de início</th>
                                 <th>Hora de finalizar</th>
-                                <th><span style="position: relative;left: 7.6px;">Ações<span></th>
+                                <th style="position: relative;left: 35px;">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,13 +42,13 @@
                                         method="POST">
                                         @csrf
                                         @method('POST')
-                                            <button class=" btn btn-link fa fa-check"></button>
+                                            <button class=" btn btn-link fa fa-check" style="color:#00ff00"></button>
                                         </form>
                                         <form action="{{route('agendamentos.rejeita', $item->id)}}" id="formRejeitaAgendamento"
                                         method="POST">
                                         @csrf
                                         @method('POST')
-                                            <button class="btn-link2 fa fa-times" style="margin-left: 10px;margin-right: 6px;"></button>
+                                            <button class="btn btn-link fa fa-times" style="color:#ff0000"></button>
                                         </form>
                                         <a href="{{ route('confirmaragendamento.show', $item->id) }}"
                                         style="color:#000000;margin:3.5px;" 
@@ -58,7 +58,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" style="text-align:center">
+                                <td colspan="7" style="text-align:center">
                                     Não foram encontrados registros
                                 </td>
                             </tr>
