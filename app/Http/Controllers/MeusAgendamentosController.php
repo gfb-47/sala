@@ -28,7 +28,7 @@ class MeusAgendamentosController extends Controller
 
     public function allStatus() {
         return [
-            1=>'Pendente', 'Confirmado', 'Cancelado', 'Finalizado'
+            1=>'Pendente', 'Confirmado', 'Cancelado'
         ];
     }
 
