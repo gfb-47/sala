@@ -53,7 +53,7 @@
                                 <td>{{$item->getSituacao()}}</td>
                                 <td>{{$item->motivos->motivo}}</td>
                                 <td>
-                                    <a href="{{ route('meusagendamentos.show', $item->id) }}" style="color:#000000;margin:3.5px"; class="fas fa-eye"></a>
+                                    <a href="{{ route('meusagendamentos.show', $item->id) }}" style="color:#000000; padding-left:20px;" class="fas fa-eye"></a>
                                 </td>
                             </tr>
                         @empty

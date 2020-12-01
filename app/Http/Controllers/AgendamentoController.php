@@ -102,7 +102,7 @@ class AgendamentoController extends Controller
         $date = Carbon::parse($item->data);
         
         $date2 = CarbonInterval::days($date->day);
-        if($date2->d < 2) {
+        if($date2->d <= 2) {
             return redirect()->route('meusagendamentos.index')->withError('Não foi possível cancelar, pois só é possível com 48 horas de antecedência.');
         } else {
             $item->fill(['situacao' => 3])->save();
