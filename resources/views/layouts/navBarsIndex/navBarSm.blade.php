@@ -5,7 +5,7 @@
     <div class="item-navbar-all">
         <a class="item-navbar" href="/index">Página Inicial</a>
         @if((auth()->user()->tipo_usuario == 1) || (auth()->user()->tipo_usuario == 3))
-            <a class="item-navbar" href="{{ route('user.index') }}">Dashboard</a>
+            <a class="item-navbar" href="{{ route('confirmaragendamento.index') }}">Dashboard</a>
         @endif    
 
         <a class="item-navbar" href="{{ route('perfil.index') }}">Perfil</a>
