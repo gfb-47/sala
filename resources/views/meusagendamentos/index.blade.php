@@ -19,7 +19,7 @@
                     @include('alerts.error')
                         <form>
                             <div class="row" style="display:flex;">
-                                <div class="col-md-6 float-right">
+                                <div class="col-md-2 float-right">
                                 {!!Form::select('situacao', '')
                                     ->options($situacao)
                                 !!}
