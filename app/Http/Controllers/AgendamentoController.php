@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Agendamento;
+use App\User;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use DateTime;
@@ -21,7 +22,8 @@ class AgendamentoController extends Controller
         ->where('data', '>=', $request->datainicio)
         ->where('data', '<=', $request->datafim)
         ->where('situacao', 2)
-        ->paginate(10);
+        // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
+        ->paginate(1000);
         return PDF::loadView('pdfs.geral_pdf', compact('data'))
         ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
         ->setPaper('a4', 'portrat')
@@ -46,7 +48,8 @@ class AgendamentoController extends Controller
             ->where('data', '>=', $request->datainicio)
             ->where('data', '<=', $request->datafim)
             ->where('situacao', 2)
-            ->paginate(10);
+            // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
+            ->paginate(1000);
             
             return PDF::loadView('pdfs.professor_pdf', compact('data'))
             ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
@@ -71,7 +74,8 @@ class AgendamentoController extends Controller
             ->where('data', '>=', $request->datainicio)
             ->where('data', '<=', $request->datafim)
             ->where('situacao', 2)
-        ->paginate(10);
+            // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
+            ->paginate(1000);
 
         return PDF::loadView('pdfs.relatorio_pdf', compact('data'))
         ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
@@ -98,17 +102,25 @@ class AgendamentoController extends Controller
     public function userRejeita($id) {
 
         $item = Agendamento::findOrFail($id);
+        $user = auth();
 
-        $date = Carbon::parse($item->data);
-        $date->hour = $item->horainicio;
-        $now = Carbon::now();
+        
+        if($user->user()->tipo_usuario == 2) {
 
-        if(($date->day - $now->day <= 2) && ($now->hour >= $date->hour)) {
-            return redirect()->route('meusagendamentos.index')->withError('Não foi possível cancelar, pois só é possível com 48 horas de antecedência.');
+            $date = Carbon::parse($item->data);
+            $date->hour = $item->horainicio;
+            $now = Carbon::now();
+            if(($date->day - $now->day <= 2) && ($now->hour >= $date->hour)) {
+                return redirect()->route('meusagendamentos.index')->withError('Não foi possível cancelar, pois só é possível com 48 horas de antecedência.');
+            } else {
+                $item->fill(['situacao' => 3])->save();
+                return redirect()->route('meusagendamentos.index')->withStatus('Agendamento cancelado com sucesso.');
+            }
         } else {
             $item->fill(['situacao' => 3])->save();
             return redirect()->route('meusagendamentos.index')->withStatus('Agendamento cancelado com sucesso.');
         }
+
 
     }
 
