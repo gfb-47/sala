@@ -15,14 +15,6 @@
         ->required()
         ->attrs(['maxlength' => 120])!!}
     </div>
-    <!-- esperar indicação da documentação  -->
-
-    <!-- <div class="col-md-12">
-        {!!Form::text('password', 'Senha')
-        ->required()
-        ->attrs(['maxlength' => 4000])!!}
-    </div> -->
-
     <div class="col-md-12">
         {!!Form::text('matricula', 'Matrícula do Usuário')
         ->required()
@@ -42,5 +34,6 @@
 <div class="row">
     <div class="col-12">
         <button type="submit" class="btn btn-primary float-right mt-4">Salvar</button>
+        <button type="button" class="btn btn-secondary float-right mt-4" data-toggle="modal" data-target="#alterarSenha">Alterar Senha...</button>
     </div>
 </div>

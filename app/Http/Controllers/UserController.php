@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\PasswordRequest;
 use App\TipoUsuario;
 use App\Pessoa;
 use App\Role;
@@ -107,6 +108,17 @@ class UserController extends Controller
         ->first();
         $tipoUsuario = TipoUsuario::select('id', 'nome as name')->get();
         return view('users.edit', compact('item','tipoUsuario'));
+    }
+
+    public function password(request $request, $id)
+    {
+        $item = User::select('users.*', 'pessoas.matricula', 'pessoas.telefone')
+        ->join('pessoas', 'users.pessoa_id', '=', 'pessoas.id')
+        ->where('users.id', $id)
+        ->first();
+        $tipoUsuario = TipoUsuario::select('id', 'nome as name')->get();
+        $item->update(['password' => Hash::make($request->get('password'))]);
+        return redirect()->route('user.index')->withStatus('Senha alterada com sucesso.');
     }
 
     /**

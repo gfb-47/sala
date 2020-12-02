@@ -35,7 +35,10 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::resource('disciplina', 'DisciplinaController')->except(['status']);
 		Route::resource('curso', 'CursoController')->except(['status']);
 		Route::resource('noticia', 'NoticiaController');
-		Route::resource('user', 'UserController')->except(['status']);
+		Route::resource('user', 'UserController')->except(['status', 'edit', 'update', 'password']);
+		Route::get('user', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
+		Route::put('user', ['as' => 'user.update', 'uses' => 'UserController@update']);
+		Route::put('user/{id}/senha','UserController@password')->name('user.password');
 		Route::resource('confirmaragendamento', 'ConfirmarAgendamentoController');
 		Route::get('novoagendamento/{id}/calendario','NovoAgendamentoController@index')->name('novoagendamento.index');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')->name('novoagendamento.termosdeuso');

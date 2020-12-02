@@ -29,5 +29,36 @@
             </div>
         </div>
     </div>
+    <div class="modal" tabindex="-1" role="dialog" id="alterarSenha">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Alterar senha</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post" action="{{ route('user.password', [$item->id]) }}">
+                    @csrf
+                    @method('put')
+                    @include('alerts.success', ['key' => 'password_status'])
+                    <div class="modal-body">
+                        <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                            <label>Nova senha</label>
+                            <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Nova senha" value="" required>
+                            @include('alerts.feedback', ['field' => 'password'])
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar nova senha</label>
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmar nova senha" value="" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-end">
+                        <button type="submit" class="btn btn-fill btn-primary">Alterar senha</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
