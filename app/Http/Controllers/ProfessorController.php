@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ProfessorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:geral_view', ['only' => ['index']]);
+
+    }
     public function index() 
     {
         $prof = Pessoa::select('pessoas.id','pessoas.nome as name')

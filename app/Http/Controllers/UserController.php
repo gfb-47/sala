@@ -144,6 +144,30 @@ class UserController extends Controller
                 $item->fill($inputs)->save();
                 $pessoa = Pessoa::findOrFail($item->pessoa_id);
                 $pessoa->fill($inputs)->save();
+
+                if($request->tipo_usuario == 4){
+                    
+                    if($item->hasRole('administrador_plataforma')){
+                        $item->removeRole('administrador_plataforma');
+                    }
+                    $item->assignRole('professor');
+                }
+
+                if($request->tipo_usuario == 2){
+                    if($item->hasRole('administrador_plataforma')){
+                        $item->removeRole('administrador_plataforma');
+                    }
+                    if($item->hasRole('professor')){
+                        $item->removeRole('professor');
+                    }
+                }
+
+                if($request->tipo_usuario == 1 || $request->tipo_usuario == 3){
+                    if($item->hasRole('professor')){
+                        $item->removeRole('professor');
+                    }
+                    $user->assignRole('administrador_plataforma');
+                }
             } catch (Exception $e) {
              return redirect()->route('user.index')->withError('Erro adicionado com sucesso');
             }

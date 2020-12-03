@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 
 class ConfirmarAgendamentoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:confirmaragendamento_view', ['only' => ['index', 'show']]);
+
+    }
     /**
      * Display a listing of the resource.
      *
