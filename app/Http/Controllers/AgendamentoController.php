@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agendamento;
 use App\User;
+use App\Pessoa;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use DateTime;
@@ -15,19 +16,19 @@ class AgendamentoController extends Controller
     public function gerarRelatorioGeral(Request $request){
         try {
             $data = Agendamento::info()
-        //Ordenado no PDF por Data e dps Horário.
-        ->orderBy('data', 'asc')
-        ->orderBy('horainicio', 'asc')
-        ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
-        ->where('data', '>=', $request->datainicio)
-        ->where('data', '<=', $request->datafim)
-        ->where('situacao', 2)
-        // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
-        ->paginate(1000);
-        return PDF::loadView('pdfs.geral_pdf', compact('data'))
-        ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
-        ->setPaper('a4', 'portrat')
-        ->stream();
+            //Ordenado no PDF por Data e dps Horário.
+            ->orderBy('data', 'asc')
+            ->orderBy('horainicio', 'asc')
+            ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
+            ->where('data', '>=', $request->datainicio)
+            ->where('data', '<=', $request->datafim)
+            ->where('situacao', 2)
+            // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
+            ->paginate(1000);
+            return PDF::loadView('pdfs.geral_pdf', compact('data'))
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
+            ->setPaper('a4', 'portrat')
+            ->stream();
         }
         catch(Exception $e){
            
@@ -39,6 +40,7 @@ class AgendamentoController extends Controller
     public function gerarRelatorioProf(Request $request){
 
         try {
+
             $data = Agendamento::info()
             //Ordenado no PDF
             ->orderBy('data', 'asc')
@@ -51,7 +53,11 @@ class AgendamentoController extends Controller
             // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
             ->paginate(1000);
             
-            return PDF::loadView('pdfs.professor_pdf', compact('data'))
+            $prof = Pessoa::select()
+            ->where('id', $request->professorresponsavel)
+            ->first();
+
+            return PDF::loadView('pdfs.professor_pdf', compact('data', 'prof'))
             ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
             ->setPaper('a4', 'portrat')
             ->stream();
@@ -76,11 +82,10 @@ class AgendamentoController extends Controller
             ->where('situacao', 2)
             // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
             ->paginate(1000);
-
-        return PDF::loadView('pdfs.relatorio_pdf', compact('data'))
-        ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
-        ->setPaper('a4', 'portrat')
-        ->stream();
+            return PDF::loadView('pdfs.relatorio_pdf', compact('data'))
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
+            ->setPaper('a4', 'portrat')
+            ->stream();
     }
     catch(Exception $e){
         
