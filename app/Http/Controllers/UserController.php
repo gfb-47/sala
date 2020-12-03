@@ -166,7 +166,7 @@ class UserController extends Controller
                     if($item->hasRole('professor')){
                         $item->removeRole('professor');
                     }
-                    $user->assignRole('administrador_plataforma');
+                    $item->assignRole('administrador_plataforma');
                 }
             } catch (Exception $e) {
              return redirect()->route('user.index')->withError('Erro adicionado com sucesso');
