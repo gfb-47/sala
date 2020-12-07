@@ -45,6 +45,10 @@ class Permission extends \Spatie\Permission\Models\Permission
             array('name' => 'tipousuario_view', 'description' => 'Visualiza Tipo Usuario'),
             array('name' => 'tipousuario_edit', 'description' => 'Edita Tipo Usuario'),
 
+            array('name' => 'confirmaragendamento_view', 'description' => 'Tela de Confirmaçãod e Agendamento'),
+            array('name' => 'professor_view', 'description' => 'Tela de geração de relatorio professor admin'),
+            array('name' => 'geral_view', 'description' => 'Tela de geração de relatorio geral'),
+
             array('name' => 'tipoambiente_view', 'description' => 'Visualiza tipo ambiente'),
             array('name' => 'tipoambiente_create', 'description' => 'Cria tipo ambiente'),
             array('name' => 'tipoambiente_edit', 'description' => 'Edita tipo ambiente'),

@@ -38,7 +38,7 @@ class Agendamento extends Model
 
     public function allStatus() {
         return [
-            1=> 'Pendente', 'Confirmado', 'Cancelado', 'Finalizado'
+            1=> 'Pendente', 'Confirmado', 'Cancelado'
         ];
     }
     public function getSituacao() {

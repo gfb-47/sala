@@ -51,12 +51,14 @@
                                 <p>Notícias</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug=='Usuários' ) class="active " @endif>
+                        @if (Auth::user()->tipo_usuario != 3)
+                        <li @if ($pageSlug=='Usuários') class="active " @endif>
                             <a href="{{ route('user.index')  }}">
                                 <i class="fas fa-user-friends"></i>
                                 <p>Usuários</p>
                             </a>
                         </li>
+                        @endif
                         <li @if ($pageSlug=='Motivos de Uso' ) class="active " @endif>
                             <a href="{{ route('motivoutilizacao.index')  }}">
                                 <i class="fas fa-question-circle"></i>

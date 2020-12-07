@@ -87,6 +87,7 @@ class NovoAgendamentoController extends Controller
             $ym = Carbon::parse($request->data);
             $data = Agendamento::select('data', 'horainicio', 'horafim', 'situacao')
             ->where('user', $inputs['user'])
+            ->where('situacao', '!=', 3)
             ->whereYear('data', $ym->year)
             ->whereMonth('data', $ym->month)
             ->get();
@@ -94,13 +95,13 @@ class NovoAgendamentoController extends Controller
             $user = User::findOrFail($inputs['user']=auth()->id());
             $dataaux = Agendamento::select('data', 'horainicio', 'horafim', 'situacao')->get();
                 
-            if($user->tipo_usuario == 2 && sizeOf($data) == 3){
-                return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 vezes por mês');
-            }
-            if((Carbon::parse($request->horainicio)->floatDiffInMinutes($request->horafim) / 60) > 3){
-
-                return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 horas');
-         
+            if ($user->tipo_usuario == 2) {
+                if(sizeOf($data) == 3){
+                    return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 vezes por mês');
+                }
+                if((Carbon::parse($request->horainicio)->floatDiffInMinutes($request->horafim) / 60) > 3){
+                    return redirect()->route('meusagendamentos.index')->withError('Não é possível reservar mais de 3 horas');
+                }
             }
             Agendamento::create($inputs);
             return redirect()->route('meusagendamentos.index')->withStatus('Salvo com Sucesso');

@@ -4,7 +4,6 @@
     <link rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.0/css/bootstrap.min.css' />
         <title>Relatório Operacional</title>
-        
     <style type="text/css">
         body {
             font-size: 10px;
@@ -111,10 +110,9 @@
             <p class="myp text-muted">{{date('d/m/Y')}}</h1>
         </div>
     </div>
-    @forelse($data as $item)
     <div class="row">
         <div class="col-md-6">
-            <h1 class="myh1">Responsável</h1>
+            <h1 class="myh1">Responsável: {{auth()->user()->name}}</h1>
         </div>
     </div>
 
@@ -133,7 +131,8 @@
             </tr>
         </thead>
         <tbody>
-        <tr>
+        @forelse($data as $item)
+            <tr>
             <td>{{ $item->id }}</td>
             <td>{{ $item->users->name }}</td>
             <td>{{ brDate($item->data )}}</td>
@@ -143,14 +142,14 @@
             <td>{{ $item->disciplinas->curso->nome }}</td>
             <td>{{ $item->disciplinas->nome }}</td>
             <td>{{ $item->motivos->motivo }}</td>
-        </tr>
-    @empty
-        <tr>
+            </tr>
+        @empty
+            <tr>
             <td colspan="9" style="text-align:center">
                 Não foram encontrados registros
             </td>
-        </tr>
-    @endforelse
+            </tr>
+        @endforelse
         </tbody>
     </table>
 
@@ -158,9 +157,9 @@
             <table class="table table-borderless" style="text-align:center;">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>.</th>
                         <th>Todos os direitos reservados por UNITINS</th>
-                        <th></th>
+                        <th>.</th>
                     </tr>
                 </thead>
             </table>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\PasswordRequest;
 use App\TipoUsuario;
 use App\Pessoa;
 use App\Role;
@@ -109,6 +110,17 @@ class UserController extends Controller
         return view('users.edit', compact('item','tipoUsuario'));
     }
 
+    public function password(request $request, $id)
+    {
+        $item = User::select('users.*', 'pessoas.matricula', 'pessoas.telefone')
+        ->join('pessoas', 'users.pessoa_id', '=', 'pessoas.id')
+        ->where('users.id', $id)
+        ->first();
+        $tipoUsuario = TipoUsuario::select('id', 'nome as name')->get();
+        $item->update(['password' => Hash::make($request->get('password'))]);
+        return redirect()->route('user.index')->withStatus('Senha alterada com sucesso.');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -132,6 +144,30 @@ class UserController extends Controller
                 $item->fill($inputs)->save();
                 $pessoa = Pessoa::findOrFail($item->pessoa_id);
                 $pessoa->fill($inputs)->save();
+
+                if($request->tipo_usuario == 4){
+                    
+                    if($item->hasRole('administrador_plataforma')){
+                        $item->removeRole('administrador_plataforma');
+                    }
+                    $item->assignRole('professor');
+                }
+
+                if($request->tipo_usuario == 2){
+                    if($item->hasRole('administrador_plataforma')){
+                        $item->removeRole('administrador_plataforma');
+                    }
+                    if($item->hasRole('professor')){
+                        $item->removeRole('professor');
+                    }
+                }
+
+                if($request->tipo_usuario == 1 || $request->tipo_usuario == 3){
+                    if($item->hasRole('professor')){
+                        $item->removeRole('professor');
+                    }
+                    $item->assignRole('administrador_plataforma');
+                }
             } catch (Exception $e) {
              return redirect()->route('user.index')->withError('Erro adicionado com sucesso');
             }

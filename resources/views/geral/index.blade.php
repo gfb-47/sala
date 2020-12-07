@@ -14,7 +14,7 @@
             </div>
             <form method="get" action="{{route('relatorio.gerarRelatorioGeral')}}">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row center">
                         <div class="col-md-6">
                             {!!Form::date('datainicio', 'Dia Início')
                             ->required() !!}

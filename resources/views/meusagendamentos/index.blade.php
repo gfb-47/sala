@@ -19,7 +19,7 @@
                     @include('alerts.error')
                         <form>
                             <div class="row" style="display:flex;">
-                                <div class="col-md-6 float-right">
+                                <div class="col-md-2 float-right">
                                 {!!Form::select('situacao', '')
                                     ->options($situacao)
                                 !!}
@@ -53,24 +53,7 @@
                                 <td>{{$item->getSituacao()}}</td>
                                 <td>{{$item->motivos->motivo}}</td>
                                 <td>
-                                    <div class="group-itens" style="display: flex;justify-content:start;">
-                                        <form action="{{route('agendamentos.confirma', $item->id)}}" id="formConfirmaAgendamento"
-                                        method="POST">
-                                            @csrf
-                                            @method('POST')
-                                            <a style="color:#000000;" class="fa fa-check"></a>
-                                        </form>
-                                        <form action="{{route('agendamentos.rejeita', $item->id)}}" id="formRejeitaAgendamento"
-                                        method="POST">
-                                            @csrf
-                                            @method('POST')
-                                            <a style="margin-left: 10px;margin-right: 6px;color: #000000;" class="fa fa-times"></a>
-                                        </form>
-
-                                        <a href="{{ route('meusagendamentos.show', $item->id) }}"  
-                                            style="color:#000000;margin:3.5px";
-                                            class="fas fa-eye"></a>
-                                    </div>
+                                    <a href="{{ route('meusagendamentos.show', $item->id) }}" style="color:#000000; padding-left:20px;" class="fas fa-eye"></a>
                                 </td>
                             </tr>
                         @empty
