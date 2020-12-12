@@ -22,8 +22,8 @@
                     <div class="col-md-12">
                         {!!Form::select('ambiente', 'Ambiente')
                         ->options($ambiente->prepend('Selecione...', ''))
+                        ->disabled(true)
                         ->value($id)
-                        ->readonly()
                         ->required() !!}
                     </div>
                     <div class="col-md-6">
@@ -88,6 +88,12 @@
 </div>
 @push('js')
 <script>
+    $('#inp-horafim').prop('disabled', true);
+
+    $('#inp-horainicio').on('change', function(){
+        $('#inp-horafim').prop('disabled', false);
+    });
+
     $('#inp-disciplina').prop('disabled', true);
     $('#inp-curso').on('change', function() {
         const curso = $(this).val();
