@@ -38,7 +38,7 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
         </form>
-        @if(isset($pageSlug) &&($pageSlug == 'meusagendamentos' || $pageSlug == 'perfil' || $pageSlug == 'novoagendamento' || $pageSlug == 'selecaoambiente' || $pageSlug == 'relatorio'))
+        @if(isset($pageSlug) &&($pageSlug == 'meusagendamentos' || $pageSlug == 'perfil' || $pageSlug == 'Sobre'|| $pageSlug == 'novoagendamento' || $pageSlug == 'selecaoambiente' || $pageSlug == 'relatorio'))
         @include('layouts.navBarsIndex.navBarSm')
         @else
         @include('layouts.navBarsIndex.navbar')

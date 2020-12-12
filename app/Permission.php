@@ -45,7 +45,7 @@ class Permission extends \Spatie\Permission\Models\Permission
             array('name' => 'tipousuario_view', 'description' => 'Visualiza Tipo Usuario'),
             array('name' => 'tipousuario_edit', 'description' => 'Edita Tipo Usuario'),
 
-            array('name' => 'confirmaragendamento_view', 'description' => 'Tela de Confirmaçãod e Agendamento'),
+            array('name' => 'confirmaragendamento_view', 'description' => 'Tela de Confirmação de Agendamento'),
             array('name' => 'professor_view', 'description' => 'Tela de geração de relatorio professor admin'),
             array('name' => 'geral_view', 'description' => 'Tela de geração de relatorio geral'),
 
@@ -55,9 +55,6 @@ class Permission extends \Spatie\Permission\Models\Permission
             array('name' => 'tipoambiente_inactive', 'description' => 'Inactive Tipo ambiente'),
 
             array('name' => 'relatorioprofessor_user', 'description' => 'Relatório professor index'),
-
-
-
         ];
     }
 

@@ -39,7 +39,8 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('user', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
 		Route::put('user', ['as' => 'user.update', 'uses' => 'UserController@update']);
 		Route::put('user/{id}/senha','UserController@password')->name('user.password');
-		Route::resource('confirmaragendamento', 'ConfirmarAgendamentoController');
+		Route::resource('confirmaragendamento', 'ConfirmarAgendamentoController')->except(['destroy', 'edit','create', 'store', 'update']);
+		Route::resource('sobre', 'SobreController');
 		Route::get('novoagendamento/{id}/calendario','NovoAgendamentoController@index')->name('novoagendamento.index');
 		Route::get('novoagendamento/{id}/termosdeuso', 'NovoAgendamentoController@termosdeuso')->name('novoagendamento.termosdeuso');
 		Route::get('/relatorio/geral', 'GeralController@index')->name('relatorio.geral');
