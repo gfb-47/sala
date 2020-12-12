@@ -133,6 +133,12 @@
                     </ul>
                 </div>
             </li>
+            <li @if ($pageSlug=='Sobre' ) class="active " @endif>
+                <a href="{{ route('sobre.index') }}">
+                    <i class="fas fa-question-circle"></i>
+                    <p>Sobre</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

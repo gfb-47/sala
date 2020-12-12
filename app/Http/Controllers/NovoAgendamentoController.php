@@ -43,8 +43,10 @@ class NovoAgendamentoController extends Controller
         ->orderBy('motivo')
         ->get();
         $termo_de_uso = Ambiente::select('termodeuso')->where('id',$id)->first();
+        $ambienteSelecionado = Ambiente::findOrFail($id);
+        
         return view('novoagendamento.index', compact('ambiente', 'data',
-     'disciplina', 'prof', 'curso', 'motivo','id','termo_de_uso'));
+     'disciplina', 'prof', 'curso', 'motivo','id','termo_de_uso', 'ambienteSelecionado'));
     }
 
 

@@ -8,6 +8,7 @@
             <a class="item-navbar" href="{{ route('confirmaragendamento.index') }}">Dashboard</a>
         @endif    
 
+        <a class="item-navbar" href="{{ route('sobre.index') }}">Sobre</a>
         <a class="item-navbar" href="{{ route('perfil.index') }}">Perfil</a>
         <div class="dropdownn">
             <button class="dropbtnn">Agendamentos

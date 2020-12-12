@@ -1,4 +1,4 @@
-@extends('layouts.appNoSideBar', ['pageSlug' => 'novoagendamento'])
+@extends('layouts.appNoSideBar', ['pageSlug' => 'Sobre'])
 
 
 @section('content')

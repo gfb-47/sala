@@ -21,8 +21,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         {!!Form::select('ambiente', 'Ambiente')
-                        ->options($ambiente->prepend('Selecione...', ''))
-                        ->value($id)
+                        ->options([$ambienteSelecionado->id=>$ambienteSelecionado->nome])
                         ->readonly()
                         ->required() !!}
                     </div>

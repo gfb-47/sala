@@ -82,9 +82,9 @@
                             </div>
                             <div class="card m-2 shadow-lg">
                                 <div class="card-body">
-                                    <p><strong>Motivo </strong></p>
+                                    <p><strong>Observação </strong></p>
                                     <p class="card-text">
-                                        {{ $item->motivos->motivo }}
+                                        {{ $item->observacao }}
                                     </p>
                                 </div>
                             </div>
