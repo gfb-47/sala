@@ -20,6 +20,9 @@
                 @if(auth()->user()->tipo_usuario == 4)
                     <a class="item-navbar" href="{{ route('relatorio.operacional') }}">Relatório Operacional</a>
                 @endif    
+                @if(auth()->user()->tipo_usuario == 2)
+                    <a class="item-navbar" href="{{ route('relatorio.aluno') }}">Relatório Aluno</a>
+                @endif    
             </div>          
         </div>
         <button class="logoutBtn" type="button" href="{{ route('logout') }}" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Sair</button>

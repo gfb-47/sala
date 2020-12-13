@@ -93,6 +93,30 @@ class AgendamentoController extends Controller
 
         }
     }
+
+    public function gerarRelatorioAluno(Request $request) {
+        try {
+            $data = Agendamento::info()
+            //Ordenado no PDF
+            ->orderBy('data', 'asc')
+            ->orderBy('horainicio', 'asc')
+            ->with('ambientes', 'users', 'motivos', 'disciplinas', 'professores')
+            ->where('user', auth()->id())
+            ->where('data', '>=', $request->datainicio)
+            ->where('data', '<=', $request->datafim)
+            ->where('situacao', 2)
+            // Quantos agendamentos é possível mostrar em um pdf. Apenas altere o número do paginate.
+            ->paginate(1000);
+            return PDF::loadView('pdfs.aluno_pdf', compact('data'))
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true,'tempDir' => public_path(),'chroot'  => public_path(),])
+            ->setPaper('a4', 'portrat')
+            ->stream();
+        }
+        catch(Exception $e){
+            return redirect()->route('relatorio.aluno')->withError('Erro ao gerar PDF');
+        }
+    }
+
     public function confirma($id) {
         $item = Agendamento::findOrFail($id);
         if ($item->situacao == 1){
@@ -108,8 +132,7 @@ class AgendamentoController extends Controller
 
         $item = Agendamento::findOrFail($id);
         $user = auth();
-
-        
+ 
         if($user->user()->tipo_usuario == 2) {
 
             $date = Carbon::parse($item->data);

@@ -55,6 +55,7 @@ class Permission extends \Spatie\Permission\Models\Permission
             array('name' => 'tipoambiente_inactive', 'description' => 'Inactive Tipo ambiente'),
 
             array('name' => 'relatorioprofessor_user', 'description' => 'Relatório professor index'),
+            array('name' => 'relatorioaluno_user', 'description' => 'Relatório aluno index'),
         ];
     }
 
